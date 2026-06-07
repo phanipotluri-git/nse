@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proxy Diagnostics</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0c0f;--surface:#0f1318;--border:#1a1f28;--amber:#f5a623;--green:#00d084;--red:#ff4757;--cyan:#00bcd4;--text:#c8d0db;--dim:#667788;--font:'JetBrains Mono',monospace}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;padding:16px}
+h1{font-size:14px;color:var(--amber);letter-spacing:1px;margin-bottom:16px}
+h2{font-size:11px;color:var(--dim);letter-spacing:2px;margin:20px 0 8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+a{color:var(--cyan)}
+.row{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:10px 14px;margin-bottom:6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.label{flex:1;min-width:200px;font-size:12px}
+.url{font-size:10px;color:var(--dim);word-break:break-all}
+.status{font-size:11px;min-width:80px;text-align:right}
+.ok{color:var(--green)}.fail{color:var(--red)}.pending{color:var(--dim)}
+.latency{color:var(--cyan);font-size:10px;margin-left:6px}
+.spin{display:inline-block;width:10px;height:10px;border:1px solid var(--dim);border-top-color:var(--amber);border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.summary{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:12px;margin-top:16px;font-size:12px;color:var(--dim)}
+.summary strong{color:var(--text)}
+pre{background:#080a0d;border:1px solid var(--border);border-radius:4px;padding:10px;font-size:11px;overflow-x:auto;color:var(--dim);margin-top:8px}
+.btn{background:transparent;border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:11px;padding:5px 12px;border-radius:3px;cursor:pointer;transition:border-color .15s;margin-bottom:16px}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+</style>
+</head>
+<body>
+<h1>CORS PROXY DIAGNOSTICS</h1>
+<button class="btn" onclick="runAll()">&#8635; Run All Tests</button>
+<a href="index.html" style="font-size:11px;margin-left:12px">← Risk Monitor</a>
+
+<h2>PROXIES (tested against ^NSEI quote)</h2>
+<div id="proxyRows"></div>
+
+<h2>YAHOO FINANCE ENDPOINTS</h2>
+<div id="yfRows"></div>
+
+<div class="summary" id="summary">
+  <strong>Summary:</strong> click Run All Tests
+</div>
+
+<script>
+const TEST_URL='https://query1.finance.yahoo.com/v7/finance/quote?symbols=%5ENSEI&fields=regularMarketPrice';
+
+const PROXIES=[
+  {name:'corsproxy.io',fn:u=>`https://corsproxy.io/?${encodeURIComponent(u)}`},
+  {name:'allorigins.win',fn:u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`},
+  {name:'codetabs.com',fn:u=>`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`},
+  {name:'thingproxy',fn:u=>`https://thingproxy.freeboard.io/fetch/${u}`},
+  {name:'cors.sh',fn:u=>`https://proxy.cors.sh/${u}`},
+];
+
+const YF_TESTS=[
+  {name:'Quote v7',url:TEST_URL},
+  {name:'Chart v8 (1d)',url:'https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=5d'},
+  {name:'India VIX',url:'https://query1.finance.yahoo.com/v7/finance/quote?symbols=%5EINDIAVIX&fields=regularMarketPrice'},
+  {name:'USD/INR',url:'https://query1.finance.yahoo.com/v7/finance/quote?symbols=USDINR%3DX&fields=regularMarketPrice'},
+];
+
+function makeRow(id,label,urlStr){
+  return`<div class="row" id="row-${id}">
+    <div class="label">
+      <div style="color:var(--text);margin-bottom:3px">${label}</div>
+      <div class="url">${urlStr}</div>
+    </div>
+    <div class="status" id="st-${id}"><span class="spin"></span></div>
+    <div id="data-${id}" style="display:none;font-size:10px;color:var(--dim);width:100%;margin-top:6px"></div>
+  </div>`;
+}
+
+function initRows(){
+  document.getElementById('proxyRows').innerHTML=
+    PROXIES.map((p,i)=>makeRow('p'+i,p.name,p.fn(TEST_URL))).join('');
+  document.getElementById('yfRows').innerHTML=
+    YF_TESTS.map((t,i)=>makeRow('y'+i,t.name,t.url)).join('');
+}
+
+async function testProxy(p,i){
+  const id='p'+i;
+  const t0=Date.now();
+  try{
+    const r=await fetch(p.fn(TEST_URL),{signal:AbortSignal.timeout(8000)});
+    const ms=Date.now()-t0;
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    const price=d?.quoteResponse?.result?.[0]?.regularMarketPrice;
+    document.getElementById('st-'+id).innerHTML=`<span class="ok">OK</span><span class="latency">${ms}ms</span>`;
+    if(price) document.getElementById('data-'+id).textContent=`Nifty: ${price.toLocaleString('en-IN')}`;
+    return true;
+  }catch(e){
+    document.getElementById('st-'+id).innerHTML=`<span class="fail">FAIL</span><span class="latency" style="color:var(--red)">${e.message.slice(0,30)}</span>`;
+    return false;
+  }
+}
+
+async function testYF(t,i){
+  const id='y'+i;
+  // try via first working proxy
+  for(const p of PROXIES){
+    const t0=Date.now();
+    try{
+      const r=await fetch(p.fn(t.url),{signal:AbortSignal.timeout(8000)});
+      if(!r.ok) continue;
+      const d=await r.json();
+      const ms=Date.now()-t0;
+      const keys=Object.keys(d||{});
+      document.getElementById('st-'+id).innerHTML=`<span class="ok">OK</span><span class="latency">${ms}ms</span>`;
+      document.getElementById('data-'+id).style.display='block';
+      document.getElementById('data-'+id).textContent=`via ${p.name} · keys: ${keys.slice(0,5).join(', ')}`;
+      return true;
+    }catch{}
+  }
+  document.getElementById('st-'+id).innerHTML=`<span class="fail">ALL FAIL</span>`;
+  return false;
+}
+
+async function runAll(){
+  initRows();
+  let ok=0,fail=0;
+  const proxyResults=await Promise.all(PROXIES.map((p,i)=>testProxy(p,i)));
+  proxyResults.forEach(r=>r?ok++:fail++);
+  await Promise.all(YF_TESTS.map((t,i)=>testYF(t,i)));
+  document.getElementById('summary').innerHTML=
+    `<strong>Proxy results:</strong> <span class="ok">${ok} OK</span> / <span class="fail">${fail} failed</span><br>
+     Best proxy: ${PROXIES[proxyResults.findIndex(r=>r)]?.name||'none'}<br><br>
+     <strong>Tip:</strong> The risk monitor uses the first working proxy automatically.
+     If all fail, check your internet connection or try a VPN.`;
+}
+
+runAll();
+</script>
+</body>
+</html>

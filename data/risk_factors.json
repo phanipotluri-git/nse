@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-01-01T00:00:00Z",
+  "next_update": "2026-01-01T06:00:00Z",
+  "factors": {
+    "breadth": {
+      "score": 50,
+      "raw": {"pct_above_20ma": 50.0, "pct_above_50ma": 50.0, "stocks_sampled": 0}
+    },
+    "fii_proxy": {
+      "score": 50,
+      "raw": {"inr_20d_chg_pct": 0.0, "midcap_vs_largecap_20d_chg": 0.0, "inr_component": 50, "risk_on_component": 50}
+    },
+    "macro": {
+      "score": 50,
+      "raw": {"inr_vs_1y_range_pct": 50.0, "vix_20d_avg": 16.0, "inr_component": 50, "vix_component": 50}
+    }
+  },
+  "sectors": {},
+  "market_context": {}
+}

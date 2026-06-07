@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NSE Risk Monitor</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0c0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0c0f;--surface:#0f1318;--border:#1a1f28;
+  --amber:#f5a623;--green:#00d084;--red:#ff4757;--cyan:#00bcd4;
+  --text:#c8d0db;--dim:#667788;--font:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;min-height:100vh}
+a{color:var(--cyan);text-decoration:none}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+header h1{font-size:14px;font-weight:700;color:var(--amber);letter-spacing:1px}
+header nav a{color:var(--dim);font-size:12px;margin-left:16px;transition:color .15s}
+header nav a:hover{color:var(--text)}
+.tag{background:#1a1f28;border:1px solid var(--border);border-radius:3px;padding:2px 6px;font-size:10px;color:var(--dim)}
+main{max-width:900px;margin:0 auto;padding:16px}
+
+/* Score card */
+.score-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px;margin-bottom:16px;text-align:center;position:relative}
+.score-label{font-size:11px;color:var(--dim);letter-spacing:2px;margin-bottom:12px}
+.score-num{font-size:72px;font-weight:700;line-height:1;transition:color .3s}
+.score-signal{font-size:24px;font-weight:700;letter-spacing:3px;margin-top:8px;transition:color .3s}
+.score-bar-wrap{margin:16px auto 0;max-width:400px;background:var(--border);border-radius:4px;height:6px;overflow:hidden}
+.score-bar{height:100%;border-radius:4px;transition:width .5s,background .3s}
+.score-meta{margin-top:12px;font-size:11px;color:var(--dim)}
+.score-meta span{margin:0 8px}
+
+/* Factor grid */
+.section-title{font-size:11px;color:var(--dim);letter-spacing:2px;margin:20px 0 8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.factors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.factors{grid-template-columns:repeat(2,1fr)}}
+.factor-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:12px;position:relative;overflow:hidden}
+.factor-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:100%;background:var(--border)}
+.factor-card.live::before{content:'LIVE';position:absolute;top:6px;right:6px;font-size:8px;color:var(--green);letter-spacing:1px;opacity:.7}
+.fc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.fc-name{font-size:10px;color:var(--dim);letter-spacing:1px}
+.fc-weight{font-size:10px;color:var(--dim)}
+.fc-score{font-size:28px;font-weight:700;line-height:1;margin-bottom:4px}
+.fc-bar-wrap{background:var(--border);border-radius:2px;height:3px;margin-bottom:6px}
+.fc-bar{height:100%;border-radius:2px;transition:width .4s}
+.fc-detail{font-size:10px;color:var(--dim);line-height:1.5}
+.fc-status{font-size:9px;color:var(--dim);margin-top:4px}
+
+/* Sectors */
+.sector-table{width:100%;border-collapse:collapse;font-size:12px}
+.sector-table th{color:var(--dim);font-size:10px;letter-spacing:1px;text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);font-weight:500}
+.sector-table td{padding:7px 8px;border-bottom:1px solid var(--border)}
+.sector-table tr:hover td{background:rgba(255,255,255,.02)}
+.sector-table td:nth-child(n+3){text-align:right}
+.up{color:var(--green)}.dn{color:var(--red)}.neu{color:var(--dim)}
+.badge{display:inline-block;padding:2px 6px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px}
+.badge-bull{background:rgba(0,208,132,.15);color:var(--green)}
+.badge-bear{background:rgba(255,71,87,.15);color:var(--red)}
+.badge-neu{background:rgba(0,188,212,.1);color:var(--cyan)}
+
+/* Spinner / loading */
+.spin{display:inline-block;width:10px;height:10px;border:1px solid var(--dim);border-top-color:var(--amber);border-radius:50%;animation:spin .6s linear infinite;margin-right:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status-row{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:11px;color:var(--dim);flex-wrap:wrap;gap:6px}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.dot-green{background:var(--green)}.dot-red{background:var(--red)}.dot-amber{background:var(--amber)}
+
+/* Refresh btn */
+.btn{background:transparent;border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:11px;padding:4px 10px;border-radius:3px;cursor:pointer;transition:border-color .15s}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.muted{color:var(--dim)}
+
+/* Nav pills */
+.nav-pills{display:flex;gap:8px;margin-bottom:14px}
+.nav-pill{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:5px 12px;font-size:11px;color:var(--dim);cursor:pointer;transition:all .15s}
+.nav-pill.active,.nav-pill:hover{border-color:var(--amber);color:var(--amber)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NSE RISK MONITOR</h1>
+  <nav>
+    <a href="index.html" class="active">Risk</a>
+    <a href="screener.html">Screener</a>
+    <a href="test.html">Proxy</a>
+    <a href="phani/Dashscanner.html">DASH</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Score -->
+  <div class="score-card">
+    <div class="score-label">COMPOSITE RISK SCORE</div>
+    <div class="score-num" id="scoreNum">--</div>
+    <div class="score-signal" id="scoreSignal">LOADING...</div>
+    <div class="score-bar-wrap"><div class="score-bar" id="scoreBar" style="width:0%"></div></div>
+    <div class="score-meta">
+      <span id="niftyPrice">NIFTY --</span>
+      <span id="vixVal">VIX --</span>
+      <span id="inrVal">INR --</span>
+      <span id="lastUpdate">--</span>
+    </div>
+  </div>
+
+  <div class="status-row">
+    <span id="proxyStatus"><span class="spin"></span>connecting proxy...</span>
+    <span>
+      <button class="btn" onclick="refresh()">&#8635; Refresh</button>
+      <span class="muted" style="margin-left:8px" id="countdown">next: 60s</span>
+    </span>
+  </div>
+
+  <!-- Live factors -->
+  <div class="section-title">LIVE FACTORS (client-side)</div>
+  <div class="factors">
+    <div class="factor-card live" id="fc-vix">
+      <div class="fc-header"><span class="fc-name">VIX</span><span class="fc-weight">20%</span></div>
+      <div class="fc-score" id="vix-score">--</div>
+      <div class="fc-bar-wrap"><div class="fc-bar" id="vix-bar" style="width:0%"></div></div>
+      <div class="fc-detail" id="vix-detail">India VIX loading...</div>
+    </div>
+    <div class="factor-card live" id="fc-trend">
+      <div class="fc-header"><span class="fc-name">TREND STRENGTH</span><span class="fc-weight">20%</span></div>
+      <div class="fc-score" id="trend-score">--</div>
+      <div class="fc-bar-wrap"><div class="fc-bar" id="trend-bar" style="width:0%"></div></div>
+      <div class="fc-detail" id="trend-detail">Nifty 50 EMAs loading...</div>
+    </div>
+    <div class="factor-card live" id="fc-mom">
+      <div class="fc-header"><span class="fc-name">PRICE MOMENTUM</span><span class="fc-weight">15%</span></div>
+      <div class="fc-score" id="mom-score">--</div>
+      <div class="fc-bar-wrap"><div class="fc-bar" id="mom-bar" style="width:0%"></div></div>
+      <div class="fc-detail" id="mom-detail">1M / 3M returns loading...</div>
+    </div>
+  </div>
+
+  <!-- Daily factors -->
+  <div class="section-title">DAILY FACTORS (GitHub Actions)</div>
+  <div class="factors">
+    <div class="factor-card" id="fc-breadth">
+      <div class="fc-header"><span class="fc-name">MARKET BREADTH</span><span class="fc-weight">15%</span></div>
+      <div class="fc-score" id="breadth-score">--</div>
+      <div class="fc-bar-wrap"><div class="fc-bar" id="breadth-bar" style="width:0%"></div></div>
+      <div class="fc-detail" id="breadth-detail">% above 20/50-MA</div>
+    </div>
+    <div class="factor-card" id="fc-fii">
+      <div class="fc-header"><span class="fc-name">FII PROXY</span><span class="fc-weight">15%</span></div>
+      <div class="fc-score" id="fii-score">--</div>
+      <div class="fc-bar-wrap"><div class="fc-bar" id="fii-bar" style="width:0%"></div></div>
+      <div class="fc-detail" id="fii-detail">INR + MidCap/LargeCap ratio</div>
+    </div>
+    <div class="factor-card" id="fc-macro">
+      <div class="fc-header"><span class="fc-name">MACRO STABILITY</span><span class="fc-weight">15%</span></div>
+      <div class="fc-score" id="macro-score">--</div>
+      <div class="fc-bar-wrap"><div class="fc-bar" id="macro-bar" style="width:0%"></div></div>
+      <div class="fc-detail" id="macro-detail">INR range + VIX avg</div>
+    </div>
+  </div>
+
+  <!-- Sectors -->
+  <div class="section-title">SECTOR PERFORMANCE</div>
+  <div style="overflow-x:auto">
+    <table class="sector-table">
+      <thead>
+        <tr>
+          <th>SECTOR</th><th>SCORE</th><th>1D%</th><th>5D%</th><th>20D%</th><th>RSI</th><th>MA</th>
+        </tr>
+      </thead>
+      <tbody id="sectorBody">
+        <tr><td colspan="7" style="color:var(--dim);padding:16px">Loading sector data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:20px;font-size:11px;color:var(--dim);line-height:1.8">
+    <strong style="color:var(--text)">Signal guide:</strong>
+    <span style="color:var(--green)">ENTER ≥70</span> &nbsp;
+    <span style="color:var(--amber)">HOLD 50–69</span> &nbsp;
+    <span style="color:#ff9500">REDUCE 35–49</span> &nbsp;
+    <span style="color:var(--red)">EXIT &lt;35</span>
+    &nbsp;·&nbsp; NSE data ~15min delayed &nbsp;·&nbsp;
+    <a href="screener.html">ST Screener →</a>
+  </div>
+</main>
+
+<script>
+const PROXIES=[
+  u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,
+  u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+  u=>`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
+  u=>`https://thingproxy.freeboard.io/fetch/${u}`,
+  u=>`https://proxy.cors.sh/${u}`,
+];
+
+let proxyIdx=0;
+async function fetchYahoo(url){
+  for(let i=0;i<PROXIES.length;i++){
+    const pi=(proxyIdx+i)%PROXIES.length;
+    try{
+      const r=await fetch(PROXIES[pi](url),{signal:AbortSignal.timeout(8000)});
+      if(!r.ok) continue;
+      const d=await r.json();
+      proxyIdx=pi;
+      return d;
+    }catch{}
+  }
+  return null;
+}
+
+function clamp(v,lo=0,hi=100){return Math.max(lo,Math.min(hi,Math.round(v)))}
+
+function setFactor(id,score,detail){
+  const s=clamp(score);
+  const el=document.getElementById(id+'-score');
+  const bar=document.getElementById(id+'-bar');
+  const det=document.getElementById(id+'-detail');
+  if(el) el.textContent=s;
+  if(det) det.textContent=detail;
+  if(bar){
+    bar.style.width=s+'%';
+    bar.style.background=s>=70?'var(--green)':s>=50?'var(--amber)':s>=35?'#ff9500':'var(--red)';
+  }
+  const card=document.getElementById('fc-'+id);
+  if(card){
+    card.style.borderColor=s>=70?'rgba(0,208,132,.3)':s>=50?'rgba(245,166,35,.25)':s<35?'rgba(255,71,87,.3)':'var(--border)';
+  }
+  return s;
+}
+
+// VIX score
+function scoreVix(v){
+  if(v<12) return 90;
+  if(v<15) return 75;
+  if(v<20) return 55;
+  if(v<25) return 35;
+  return 15;
+}
+
+// Trend score from EMA positions
+function scoreTrend(price,ema20,ema50,ema200){
+  let pts=0;
+  if(price>ema200) pts+=30;
+  if(price>ema50)  pts+=35;
+  if(price>ema20)  pts+=35;
+  return clamp(pts);
+}
+
+// Momentum score from returns
+function scoreMom(ret1m,ret3m){
+  const s1=clamp(50+ret1m*2.5);
+  const s3=clamp(50+ret3m*1.0);
+  return clamp(s1*0.6+s3*0.4);
+}
+
+function ema(arr,n){
+  const k=2/(n+1); let v=arr[0];
+  for(let i=1;i<arr.length;i++) v=arr[i]*k+v*(1-k);
+  return v;
+}
+
+let factors={vix:50,trend:50,mom:50,breadth:50,fii:50,macro:50};
+let dataAge='';
+
+async function fetchLive(){
+  const pxProxy=['PROXIES[0]'];
+  document.getElementById('proxyStatus').innerHTML='<span class="spin"></span>fetching live data...';
+  // Batch: Nifty 50, VIX, USD/INR
+  const sym='%5ENSEI%2C%5EINDIAVIX%2CUSDINR%3DX';
+  const url=`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}&fields=regularMarketPrice,regularMarketChangePercent`;
+  const d=await fetchYahoo(url);
+  if(!d){
+    document.getElementById('proxyStatus').innerHTML='<span class="dot dot-red"></span>proxy failed — using cached data';
+    return;
+  }
+  document.getElementById('proxyStatus').innerHTML=`<span class="dot dot-green"></span>proxy OK (${proxyIdx+1})`;
+
+  const q=d?.quoteResponse?.result||[];
+  let nifty=null,vixVal=null,inr=null;
+  for(const r of q){
+    if(r.symbol==='^NSEI') nifty=r;
+    if(r.symbol==='^INDIAVIX') vixVal=r;
+    if(r.symbol==='USDINR=X') inr=r;
+  }
+
+  if(nifty) document.getElementById('niftyPrice').textContent=`NIFTY ${nifty.regularMarketPrice?.toLocaleString('en-IN',{maximumFractionDigits:0})||'--'}`;
+  if(vixVal) document.getElementById('vixVal').textContent=`VIX ${vixVal.regularMarketPrice?.toFixed(2)||'--'}`;
+  if(inr)   document.getElementById('inrVal').textContent=`₹${inr.regularMarketPrice?.toFixed(2)||'--'}`;
+  document.getElementById('lastUpdate').textContent=`Updated ${new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})} IST`;
+
+  // VIX factor
+  if(vixVal?.regularMarketPrice){
+    const v=vixVal.regularMarketPrice;
+    const vs=scoreVix(v);
+    factors.vix=vs;
+    setFactor('vix',vs,`VIX ${v.toFixed(2)} · ${v<15?'calm':v<20?'normal':v<25?'elevated':'high stress'}`);
+  }
+
+  // Trend + Momentum from chart data
+  await fetchNiftyHistory();
+  updateComposite();
+}
+
+async function fetchNiftyHistory(){
+  const url='https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=1y';
+  const d=await fetchYahoo(url);
+  if(!d) return;
+  const c=d?.chart?.result?.[0];
+  if(!c) return;
+  const closes=c.indicators?.quote?.[0]?.close||[];
+  const valid=closes.filter(x=>x!=null);
+  if(valid.length<20) return;
+
+  const price=valid[valid.length-1];
+  const e20=ema(valid.slice(-20),20);
+  const e50=valid.length>=50?ema(valid.slice(-50),50):e20;
+  const e200=valid.length>=200?ema(valid.slice(-200),200):e50;
+
+  const ts=scoreTrend(price,e20,e50,e200);
+  factors.trend=ts;
+  const pos=[];
+  if(price>e200) pos.push('200');
+  if(price>e50)  pos.push('50');
+  if(price>e20)  pos.push('20');
+  setFactor('trend',ts,`Above EMA ${pos.length?pos.join(', '):'none'} · price ${price.toLocaleString('en-IN',{maximumFractionDigits:0})}`);
+
+  // Momentum: 1M=21 bars, 3M=63 bars
+  const ret1m=valid.length>=22?(price/valid[valid.length-22]-1)*100:0;
+  const ret3m=valid.length>=64?(price/valid[valid.length-64]-1)*100:0;
+  const ms=scoreMom(ret1m,ret3m);
+  factors.mom=ms;
+  const fmtR=v=>(v>=0?'+':'')+v.toFixed(1)+'%';
+  setFactor('mom',ms,`1M ${fmtR(ret1m)} · 3M ${fmtR(ret3m)}`);
+}
+
+async function fetchSlowFactors(){
+  try{
+    const r=await fetch('data/risk_factors.json?_='+Date.now());
+    if(!r.ok) return;
+    const d=await r.json();
+    if(d.factors?.breadth){
+      factors.breadth=d.factors.breadth.score;
+      const raw=d.factors.breadth.raw;
+      setFactor('breadth',d.factors.breadth.score,
+        `${raw.pct_above_20ma?.toFixed(0)}% >20MA · ${raw.pct_above_50ma?.toFixed(0)}% >50MA · n=${raw.stocks_sampled}`);
+    }
+    if(d.factors?.fii_proxy){
+      factors.fii=d.factors.fii_proxy.score;
+      const raw=d.factors.fii_proxy.raw;
+      const sgn=v=>(v>=0?'+':'')+v.toFixed(1);
+      setFactor('fii',d.factors.fii_proxy.score,
+        `INR 20d ${sgn(raw.inr_20d_chg_pct)}% · MidCap/LC ${sgn(raw.midcap_vs_largecap_20d_chg)}%`);
+    }
+    if(d.factors?.macro){
+      factors.macro=d.factors.macro.score;
+      const raw=d.factors.macro.raw;
+      setFactor('macro',d.factors.macro.score,
+        `INR range ${raw.inr_vs_1y_range_pct?.toFixed(0)}% · VIX 20d avg ${raw.vix_20d_avg?.toFixed(1)}`);
+    }
+    if(d.sectors) renderSectors(d.sectors);
+    if(d.generated_at) dataAge=d.generated_at.replace('T',' ').replace('Z',' UTC');
+    updateComposite();
+  }catch(e){console.warn('slow factors:',e)}
+}
+
+function renderSectors(sectors){
+  const body=document.getElementById('sectorBody');
+  const rows=Object.entries(sectors).map(([name,s])=>{
+    const fmt=v=>{if(v==null)return'--';const n=parseFloat(v);return`<span class="${n>0?'up':n<0?'dn':'neu'}">${n>=0?'+':''}${n.toFixed(2)}%</span>`};
+    const maClass=s.above_20ma&&s.above_50ma?'badge-bull':s.above_20ma||s.above_50ma?'badge-neu':'badge-bear';
+    const maText=s.above_20ma&&s.above_50ma?'BOTH':s.above_20ma?'20':s.above_50ma?'50':'NONE';
+    const sc=s.score||0;
+    return`<tr>
+      <td>${name}</td>
+      <td><span style="color:${sc>=70?'var(--green)':sc>=50?'var(--amber)':sc<35?'var(--red)':'var(--cyan)'}">${sc}</span></td>
+      <td>${fmt(s.change_1d)}</td><td>${fmt(s.change_5d)}</td><td>${fmt(s.change_20d)}</td>
+      <td class="${s.rsi>=60?'up':s.rsi<=40?'dn':'neu'}">${s.rsi?.toFixed(1)||'--'}</td>
+      <td><span class="badge ${maClass}">${maText}</span></td>
+    </tr>`;
+  });
+  body.innerHTML=rows.length?rows.join(''):'<tr><td colspan="7" style="color:var(--dim);padding:16px">No sector data — run fetch_risk_data.py</td></tr>';
+}
+
+function updateComposite(){
+  const score=clamp(
+    factors.vix*0.20+
+    factors.trend*0.20+
+    factors.mom*0.15+
+    factors.breadth*0.15+
+    factors.fii*0.15+
+    factors.macro*0.15
+  );
+  const numEl=document.getElementById('scoreNum');
+  const sigEl=document.getElementById('scoreSignal');
+  const barEl=document.getElementById('scoreBar');
+  numEl.textContent=score;
+  let sig,col;
+  if(score>=70){sig='ENTER';col='var(--green)'}
+  else if(score>=50){sig='HOLD';col='var(--amber)'}
+  else if(score>=35){sig='REDUCE';col='#ff9500'}
+  else{sig='EXIT';col='var(--red)'}
+  sigEl.textContent=sig;
+  numEl.style.color=col;
+  sigEl.style.color=col;
+  barEl.style.width=score+'%';
+  barEl.style.background=col;
+  document.title=`NSE Risk: ${score} · ${sig}`;
+}
+
+let cdSec=60;
+function tick(){
+  cdSec--;
+  document.getElementById('countdown').textContent=`next: ${cdSec}s`;
+  if(cdSec<=0){cdSec=60;refresh()}
+}
+
+async function refresh(){
+  cdSec=60;
+  await Promise.all([fetchLive(),fetchSlowFactors()]);
+}
+
+// Init
+refresh();
+setInterval(tick,1000);
+
+// Service worker
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+</script>
+</body>
+</html>
