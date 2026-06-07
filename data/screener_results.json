@@ -1,16 +1,17 @@
 {
-  "scan_time": "07 Jun 2026  20:35 IST",
-  "total_scanned": 90,
+  "scan_time": "07 Jun 2026  21:57 IST",
+  "total_scanned": 98,
+  "total_instruments": 15,
   "counts": {
     "RE-ENTRY READY": 1,
-    "BULLISH": 39,
+    "BULLISH": 51,
     "SOFT EXIT": 3,
-    "BEARISH": 47
+    "BEARISH": 58
   },
   "results": [
     {
       "symbol": "TATASTEEL",
-      "price": 206.8,
+      "price": 206.77,
       "signal": "RE-ENTRY READY",
       "rank": 2,
       "quality": 2,
@@ -19,10 +20,12 @@
       "f3": true,
       "rsi": 46.7,
       "pct52w": 7.9,
-      "st25": 186.8,
-      "st20": 219.2,
+      "st25": 186.79,
+      "st20": 219.16,
       "dir25": 1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ADANIENT",
@@ -35,10 +38,12 @@
       "f3": true,
       "rsi": 78.3,
       "pct52w": 0.4,
-      "st25": 2424.3,
-      "st20": 2531.9,
+      "st25": 2424.27,
+      "st20": 2531.92,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ADANIGREEN",
@@ -51,10 +56,12 @@
       "f3": true,
       "rsi": 83.3,
       "pct52w": 0.4,
-      "st25": 1126.8,
-      "st20": 1191.8,
+      "st25": 1126.83,
+      "st20": 1191.81,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ADANIPORTS",
@@ -68,9 +75,11 @@
       "rsi": 72.0,
       "pct52w": 1.0,
       "st25": 1553.2,
-      "st20": 1606.1,
+      "st20": 1606.14,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "APOLLOHOSP",
@@ -86,7 +95,9 @@
       "st25": 7347.5,
       "st20": 7536.9,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "AUROPHARMA",
@@ -99,10 +110,12 @@
       "f3": true,
       "rsi": 75.7,
       "pct52w": 5.7,
-      "st25": 1297.1,
-      "st20": 1337.2,
+      "st25": 1297.08,
+      "st20": 1337.24,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -116,9 +129,11 @@
       "rsi": 55.6,
       "pct52w": 3.2,
       "st25": 9034.6,
-      "st20": 9320.5,
+      "st20": 9320.48,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "COALINDIA",
@@ -131,10 +146,48 @@
       "f3": true,
       "rsi": 61.6,
       "pct52w": 3.9,
-      "st25": 399.2,
+      "st25": 399.25,
       "st20": 413.5,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Copper",
+      "price": 6.28,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 56.7,
+      "pct52w": 5.5,
+      "st25": 5.75,
+      "st20": 5.89,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "commodity",
+      "currency": "$"
+    },
+    {
+      "symbol": "Crude Oil",
+      "price": 90.54,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 59.1,
+      "pct52w": 24.2,
+      "st25": 72.41,
+      "st20": 77.75,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "commodity",
+      "currency": "$"
     },
     {
       "symbol": "DIVISLAB",
@@ -148,9 +201,29 @@
       "rsi": 55.6,
       "pct52w": 5.9,
       "st25": 6027.5,
-      "st20": 6183.9,
+      "st20": 6183.85,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "EUR/INR",
+      "price": 109.35,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 59.7,
+      "pct52w": 2.9,
+      "st25": 105.5,
+      "st20": 106.77,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "currency",
+      "currency": "\u20b9"
     },
     {
       "symbol": "GRASIM",
@@ -164,9 +237,11 @@
       "rsi": 62.8,
       "pct52w": 3.4,
       "st25": 2759.8,
-      "st20": 2838.7,
+      "st20": 2838.73,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "HINDALCO",
@@ -179,14 +254,16 @@
       "f3": true,
       "rsi": 69.0,
       "pct52w": 7.1,
-      "st25": 966.7,
-      "st20": 999.1,
+      "st25": 966.74,
+      "st20": 999.11,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "MARICO",
-      "price": 810.7,
+      "price": 810.65,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 3,
@@ -195,14 +272,16 @@
       "f3": true,
       "rsi": 55.4,
       "pct52w": 4.5,
-      "st25": 746.8,
-      "st20": 764.2,
+      "st25": 746.81,
+      "st20": 764.23,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "MOTHERSON",
-      "price": 143.6,
+      "price": 143.56,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 3,
@@ -211,10 +290,12 @@
       "f3": true,
       "rsi": 56.6,
       "pct52w": 5.4,
-      "st25": 115.4,
-      "st20": 121.1,
+      "st25": 115.36,
+      "st20": 121.09,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "NESTLEIND",
@@ -227,10 +308,12 @@
       "f3": true,
       "rsi": 59.7,
       "pct52w": 7.5,
-      "st25": 1300.8,
-      "st20": 1334.9,
+      "st25": 1300.82,
+      "st20": 1334.92,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "NMDC",
@@ -243,10 +326,30 @@
       "f3": true,
       "rsi": 66.5,
       "pct52w": 4.7,
-      "st25": 78.0,
-      "st20": 80.9,
+      "st25": 78.03,
+      "st20": 80.86,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nifty Metal",
+      "price": 13221.65,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 61.8,
+      "pct52w": 4.7,
+      "st25": 12105.01,
+      "st20": 12398.55,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9"
     },
     {
       "symbol": "OFSS",
@@ -259,14 +362,34 @@
       "f3": true,
       "rsi": 82.5,
       "pct52w": 6.1,
-      "st25": 8176.4,
-      "st20": 8566.1,
+      "st25": 8176.37,
+      "st20": 8566.15,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "PHOENIXLTD",
+      "price": 1751.1,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 56.4,
+      "pct52w": 12.1,
+      "st25": 1525.3,
+      "st20": 1582.9,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SAIL",
-      "price": 190.6,
+      "price": 190.56,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 3,
@@ -275,10 +398,12 @@
       "f3": true,
       "rsi": 62.2,
       "pct52w": 9.1,
-      "st25": 166.1,
-      "st20": 173.3,
+      "st25": 166.09,
+      "st20": 173.33,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SIEMENS",
@@ -291,10 +416,12 @@
       "f3": true,
       "rsi": 57.7,
       "pct52w": 6.0,
-      "st25": 3241.1,
+      "st25": 3241.12,
       "st20": 3364.2,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SUNPHARMA",
@@ -307,10 +434,30 @@
       "f3": true,
       "rsi": 53.4,
       "pct52w": 7.0,
-      "st25": 1617.6,
-      "st20": 1669.1,
+      "st25": 1617.65,
+      "st20": 1669.09,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "TATAPOWER",
+      "price": 409.2,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 59.4,
+      "pct52w": 12.0,
+      "st25": 379.58,
+      "st20": 393.67,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "TORNTPHARM",
@@ -323,10 +470,30 @@
       "f3": true,
       "rsi": 54.0,
       "pct52w": 6.0,
-      "st25": 3919.2,
-      "st20": 4040.5,
+      "st25": 3919.21,
+      "st20": 4040.47,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "USD/INR",
+      "price": 94.93,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 66.3,
+      "pct52w": 2.2,
+      "st25": 90.21,
+      "st20": 90.95,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "currency",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ASIANPAINT",
@@ -339,14 +506,16 @@
       "f3": true,
       "rsi": 68.7,
       "pct52w": 10.0,
-      "st25": 2299.8,
-      "st20": 2378.5,
+      "st25": 2299.77,
+      "st20": 2378.49,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BERGEPAINT",
-      "price": 490.2,
+      "price": 490.25,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 2,
@@ -355,10 +524,12 @@
       "f3": true,
       "rsi": 57.2,
       "pct52w": 18.4,
-      "st25": 422.0,
+      "st25": 421.96,
       "st20": 440.1,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BOSCHLTD",
@@ -371,10 +542,12 @@
       "f3": true,
       "rsi": 51.9,
       "pct52w": 11.2,
-      "st25": 30693.8,
+      "st25": 30693.75,
       "st20": 32024.0,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "CAMS",
@@ -387,10 +560,12 @@
       "f3": true,
       "rsi": 59.8,
       "pct52w": 11.6,
-      "st25": 652.7,
-      "st20": 683.2,
+      "st25": 652.66,
+      "st20": 683.15,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "CHOLAFIN",
@@ -403,10 +578,12 @@
       "f3": true,
       "rsi": 37.4,
       "pct52w": 17.9,
-      "st25": 1318.6,
-      "st20": 1384.9,
+      "st25": 1318.63,
+      "st20": 1384.86,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "CIPLA",
@@ -419,10 +596,12 @@
       "f3": true,
       "rsi": 57.5,
       "pct52w": 15.5,
-      "st25": 1220.5,
-      "st20": 1256.3,
+      "st25": 1220.47,
+      "st20": 1256.28,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "DMART",
@@ -435,10 +614,12 @@
       "f3": true,
       "rsi": 57.6,
       "pct52w": 16.3,
-      "st25": 3899.3,
-      "st20": 4029.4,
+      "st25": 3899.27,
+      "st20": 4029.44,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "JINDALSTEL",
@@ -451,10 +632,12 @@
       "f3": true,
       "rsi": 43.4,
       "pct52w": 9.6,
-      "st25": 1060.4,
-      "st20": 1102.6,
+      "st25": 1060.35,
+      "st20": 1102.63,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "LUPIN",
@@ -467,14 +650,70 @@
       "f3": true,
       "rsi": 46.2,
       "pct52w": 9.1,
-      "st25": 2116.8,
-      "st20": 2173.3,
+      "st25": 2116.83,
+      "st20": 2173.27,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nifty FMCG",
+      "price": 48302.45,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 38.8,
+      "pct52w": 17.4,
+      "st25": 46716.54,
+      "st20": 47646.21,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nifty Pharma",
+      "price": 24248.05,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 64.6,
+      "pct52w": 3.2,
+      "st25": 22409.89,
+      "st20": 22875.85,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nifty Realty",
+      "price": 768.9,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 48.5,
+      "pct52w": 26.8,
+      "st25": 689.26,
+      "st20": 714.18,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ONGC",
-      "price": 264.8,
+      "price": 264.75,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 2,
@@ -483,10 +722,12 @@
       "f3": true,
       "rsi": 44.4,
       "pct52w": 13.9,
-      "st25": 255.4,
-      "st20": 263.5,
+      "st25": 255.44,
+      "st20": 263.52,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "PAGEIND",
@@ -499,10 +740,12 @@
       "f3": true,
       "rsi": 69.4,
       "pct52w": 23.1,
-      "st25": 32687.7,
-      "st20": 33896.7,
+      "st25": 32687.74,
+      "st20": 33896.74,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "TATACONSUM",
@@ -515,10 +758,12 @@
       "f3": true,
       "rsi": 49.9,
       "pct52w": 11.1,
-      "st25": 1068.9,
-      "st20": 1101.3,
+      "st25": 1068.91,
+      "st20": 1101.31,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "TITAN",
@@ -531,10 +776,12 @@
       "f3": true,
       "rsi": 48.2,
       "pct52w": 7.5,
-      "st25": 3906.6,
-      "st20": 4016.4,
+      "st25": 3906.65,
+      "st20": 4016.36,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "COLPAL",
@@ -547,14 +794,16 @@
       "f3": true,
       "rsi": 39.6,
       "pct52w": 18.3,
-      "st25": 1849.2,
+      "st25": 1849.15,
       "st20": 1908.0,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "DABUR",
-      "price": 424.1,
+      "price": 424.15,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 1,
@@ -563,10 +812,12 @@
       "f3": true,
       "rsi": 31.5,
       "pct52w": 26.1,
-      "st25": 400.8,
-      "st20": 416.9,
+      "st25": 400.82,
+      "st20": 416.94,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "DRREDDY",
@@ -579,10 +830,12 @@
       "f3": true,
       "rsi": 48.9,
       "pct52w": 7.1,
-      "st25": 1149.8,
-      "st20": 1188.3,
+      "st25": 1149.82,
+      "st20": 1188.35,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "GAIL",
@@ -596,9 +849,29 @@
       "rsi": 48.6,
       "pct52w": 14.4,
       "st25": 142.5,
-      "st20": 147.3,
+      "st20": 147.34,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "HDFCAMC",
+      "price": 2495.9,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 1,
+      "f1": false,
+      "f2": false,
+      "f3": true,
+      "rsi": 45.0,
+      "pct52w": 14.0,
+      "st25": 2264.91,
+      "st20": 2357.93,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "INDUSINDBK",
@@ -611,10 +884,12 @@
       "f3": true,
       "rsi": 44.5,
       "pct52w": 6.6,
-      "st25": 786.3,
-      "st20": 814.1,
+      "st25": 786.26,
+      "st20": 814.07,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "PIDILITIND",
@@ -627,10 +902,12 @@
       "f3": true,
       "rsi": 48.4,
       "pct52w": 6.2,
-      "st25": 1286.9,
-      "st20": 1327.0,
+      "st25": 1286.87,
+      "st20": 1326.99,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "TRENT",
@@ -643,14 +920,34 @@
       "f3": false,
       "rsi": 55.8,
       "pct52w": 55.7,
-      "st25": 2375.5,
-      "st20": 2475.4,
+      "st25": 2375.48,
+      "st20": 2475.43,
       "dir25": 1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "BAJAJHLDNG",
+      "price": 10199.0,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 0,
+      "f1": false,
+      "f2": false,
+      "f3": false,
+      "rsi": 43.2,
+      "pct52w": 30.6,
+      "st25": 9016.0,
+      "st20": 9332.9,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "NTPC",
-      "price": 361.6,
+      "price": 361.65,
       "signal": "SOFT EXIT",
       "rank": 4,
       "quality": 2,
@@ -659,14 +956,16 @@
       "f3": true,
       "rsi": 41.4,
       "pct52w": 12.7,
-      "st25": 352.0,
-      "st20": 406.3,
+      "st25": 351.99,
+      "st20": 406.29,
       "dir25": 1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "POWERGRID",
-      "price": 285.6,
+      "price": 285.65,
       "signal": "SOFT EXIT",
       "rank": 4,
       "quality": 2,
@@ -676,13 +975,15 @@
       "rsi": 41.6,
       "pct52w": 12.1,
       "st25": 280.1,
-      "st20": 316.6,
+      "st20": 316.63,
       "dir25": 1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "CONCOR",
-      "price": 451.0,
+      "price": 450.95,
       "signal": "SOFT EXIT",
       "rank": 4,
       "quality": 1,
@@ -691,10 +992,12 @@
       "f3": true,
       "rsi": 40.6,
       "pct52w": 29.7,
-      "st25": 447.6,
-      "st20": 522.3,
+      "st25": 447.62,
+      "st20": 522.33,
       "dir25": 1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "JSWSTEEL",
@@ -707,10 +1010,12 @@
       "f3": true,
       "rsi": 52.4,
       "pct52w": 3.3,
-      "st25": 1297.1,
-      "st20": 1175.1,
+      "st25": 1297.15,
+      "st20": 1175.09,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SRF",
@@ -723,10 +1028,12 @@
       "f3": true,
       "rsi": 57.6,
       "pct52w": 18.4,
-      "st25": 2914.8,
-      "st20": 2821.5,
+      "st25": 2914.82,
+      "st20": 2821.51,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "TECHM",
@@ -740,9 +1047,11 @@
       "rsi": 59.1,
       "pct52w": 20.0,
       "st25": 1607.5,
-      "st20": 1552.1,
+      "st20": 1552.06,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "AXISBANK",
@@ -755,10 +1064,12 @@
       "f3": true,
       "rsi": 39.8,
       "pct52w": 10.3,
-      "st25": 1376.8,
-      "st20": 1213.8,
+      "st25": 1376.77,
+      "st20": 1213.78,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BHARTIARTL",
@@ -772,9 +1083,11 @@
       "rsi": 43.4,
       "pct52w": 17.3,
       "st25": 2030.3,
-      "st20": 1981.4,
+      "st20": 1981.38,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BRITANNIA",
@@ -790,11 +1103,13 @@
       "st25": 5748.5,
       "st20": 5625.3,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "CANBK",
-      "price": 135.8,
+      "price": 135.81,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 2,
@@ -803,10 +1118,12 @@
       "f3": true,
       "rsi": 34.9,
       "pct52w": 16.6,
-      "st25": 149.5,
-      "st20": 145.0,
+      "st25": 149.54,
+      "st20": 144.96,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "EICHERMOT",
@@ -819,10 +1136,30 @@
       "f3": true,
       "rsi": 37.0,
       "pct52w": 14.1,
-      "st25": 7959.2,
-      "st20": 7746.8,
+      "st25": 7959.25,
+      "st20": 7746.75,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Gold",
+      "price": 4365.3,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 26.7,
+      "pct52w": 21.9,
+      "st25": 4991.1,
+      "st20": 4878.93,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "commodity",
+      "currency": "$"
     },
     {
       "symbol": "HEROMOTOCO",
@@ -836,13 +1173,15 @@
       "rsi": 33.5,
       "pct52w": 22.8,
       "st25": 5729.4,
-      "st20": 5556.2,
+      "st20": 5556.23,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "INDUSTOWER",
-      "price": 429.6,
+      "price": 429.65,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 2,
@@ -851,10 +1190,12 @@
       "f3": true,
       "rsi": 42.3,
       "pct52w": 10.8,
-      "st25": 467.6,
-      "st20": 454.7,
+      "st25": 467.61,
+      "st20": 454.67,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "LT",
@@ -868,9 +1209,83 @@
       "rsi": 42.9,
       "pct52w": 10.1,
       "st25": 4194.8,
-      "st20": 3569.2,
+      "st20": 3569.21,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "MPHASIS",
+      "price": 2330.0,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 51.2,
+      "pct52w": 23.3,
+      "st25": 2582.3,
+      "st20": 2485.18,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nat Gas",
+      "price": 3.23,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 2,
+      "f1": true,
+      "f2": true,
+      "f3": false,
+      "rsi": 59.1,
+      "pct52w": 58.7,
+      "st25": 3.48,
+      "st20": 3.31,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "commodity",
+      "currency": "$"
+    },
+    {
+      "symbol": "Nifty Auto",
+      "price": 26165.95,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 41.7,
+      "pct52w": 10.3,
+      "st25": 27789.69,
+      "st20": 23884.53,
+      "dir25": -1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "PERSISTENT",
+      "price": 5038.5,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 54.9,
+      "pct52w": 23.4,
+      "st25": 5801.5,
+      "st20": 5606.66,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "RELIANCE",
@@ -883,10 +1298,12 @@
       "f3": true,
       "rsi": 39.7,
       "pct52w": 19.5,
-      "st25": 1480.9,
-      "st20": 1447.1,
+      "st25": 1480.92,
+      "st20": 1447.09,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SBILIFE",
@@ -899,10 +1316,12 @@
       "f3": true,
       "rsi": 35.4,
       "pct52w": 16.3,
-      "st25": 2039.2,
+      "st25": 2039.16,
       "st20": 1988.7,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SBIN",
@@ -915,10 +1334,12 @@
       "f3": true,
       "rsi": 27.5,
       "pct52w": 19.4,
-      "st25": 1087.7,
+      "st25": 1087.66,
       "st20": 1059.6,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "SHRIRAMFIN",
@@ -931,10 +1352,12 @@
       "f3": true,
       "rsi": 37.1,
       "pct52w": 16.7,
-      "st25": 1106.8,
-      "st20": 1064.4,
+      "st25": 1106.79,
+      "st20": 1064.41,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "TVSMOTOR",
@@ -947,10 +1370,12 @@
       "f3": true,
       "rsi": 39.0,
       "pct52w": 14.5,
-      "st25": 3997.7,
-      "st20": 3869.3,
+      "st25": 3997.72,
+      "st20": 3869.34,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BAJAJFINSV",
@@ -963,10 +1388,12 @@
       "f3": true,
       "rsi": 34.6,
       "pct52w": 22.4,
-      "st25": 1890.8,
-      "st20": 1841.0,
+      "st25": 1890.83,
+      "st20": 1840.97,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BAJFINANCE",
@@ -979,10 +1406,30 @@
       "f3": true,
       "rsi": 37.8,
       "pct52w": 19.3,
-      "st25": 990.4,
-      "st20": 955.8,
+      "st25": 990.39,
+      "st20": 955.76,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "BALKRISIND",
+      "price": 2142.0,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 1,
+      "f1": false,
+      "f2": false,
+      "f3": true,
+      "rsi": 39.8,
+      "pct52w": 23.2,
+      "st25": 2567.52,
+      "st20": 2485.42,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BANKBARODA",
@@ -995,10 +1442,12 @@
       "f3": true,
       "rsi": 31.5,
       "pct52w": 16.4,
-      "st25": 293.5,
-      "st20": 283.0,
+      "st25": 293.53,
+      "st20": 282.99,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "BPCL",
@@ -1011,10 +1460,30 @@
       "f3": true,
       "rsi": 26.2,
       "pct52w": 24.5,
-      "st25": 349.7,
+      "st25": 349.67,
       "st20": 335.6,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Bank Nifty",
+      "price": 54496.25,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 1,
+      "f1": false,
+      "f2": false,
+      "f3": true,
+      "rsi": 33.7,
+      "pct52w": 11.8,
+      "st25": 56982.67,
+      "st20": 51334.57,
+      "dir25": -1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9"
     },
     {
       "symbol": "GODREJCP",
@@ -1027,10 +1496,12 @@
       "f3": true,
       "rsi": 26.0,
       "pct52w": 22.7,
-      "st25": 1148.9,
-      "st20": 1115.8,
+      "st25": 1148.89,
+      "st20": 1115.84,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "HAVELLS",
@@ -1046,11 +1517,13 @@
       "st25": 1355.4,
       "st20": 1315.3,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "HDFCBANK",
-      "price": 747.0,
+      "price": 747.05,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 1,
@@ -1059,10 +1532,12 @@
       "f3": true,
       "rsi": 25.1,
       "pct52w": 26.8,
-      "st25": 841.3,
-      "st20": 822.2,
+      "st25": 841.29,
+      "st20": 822.22,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "HDFCLIFE",
@@ -1075,10 +1550,12 @@
       "f3": true,
       "rsi": 28.5,
       "pct52w": 29.9,
-      "st25": 677.1,
-      "st20": 658.2,
+      "st25": 677.07,
+      "st20": 658.17,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "HINDUNILVR",
@@ -1091,10 +1568,12 @@
       "f3": true,
       "rsi": 36.7,
       "pct52w": 22.2,
-      "st25": 2355.4,
-      "st20": 2077.8,
+      "st25": 2355.42,
+      "st20": 2077.76,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ICICIBANK",
@@ -1107,14 +1586,16 @@
       "f3": true,
       "rsi": 36.5,
       "pct52w": 15.2,
-      "st25": 1348.2,
-      "st20": 1232.6,
+      "st25": 1348.25,
+      "st20": 1232.65,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "IOC",
-      "price": 138.3,
+      "price": 138.26,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 1,
@@ -1123,14 +1604,16 @@
       "f3": true,
       "rsi": 23.0,
       "pct52w": 25.9,
-      "st25": 159.3,
-      "st20": 154.6,
+      "st25": 159.29,
+      "st20": 154.59,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "KOTAKBANK",
-      "price": 377.5,
+      "price": 377.45,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 1,
@@ -1139,10 +1622,12 @@
       "f3": true,
       "rsi": 35.1,
       "pct52w": 16.7,
-      "st25": 404.4,
-      "st20": 394.5,
+      "st25": 404.41,
+      "st20": 394.48,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "LICI",
@@ -1155,10 +1640,12 @@
       "f3": true,
       "rsi": 42.4,
       "pct52w": 17.3,
-      "st25": 433.1,
-      "st20": 370.3,
+      "st25": 433.11,
+      "st20": 370.33,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "M&M",
@@ -1171,10 +1658,12 @@
       "f3": true,
       "rsi": 39.5,
       "pct52w": 20.8,
-      "st25": 3486.8,
-      "st20": 3387.6,
+      "st25": 3486.77,
+      "st20": 3387.62,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "MARUTI",
@@ -1187,10 +1676,12 @@
       "f3": true,
       "rsi": 35.2,
       "pct52w": 24.9,
-      "st25": 14724.8,
+      "st25": 14724.75,
       "st20": 14289.2,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "MUTHOOTFIN",
@@ -1204,13 +1695,51 @@
       "rsi": 44.0,
       "pct52w": 23.4,
       "st25": 3788.1,
-      "st20": 3676.5,
+      "st20": 3676.49,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nifty 50",
+      "price": 23366.7,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 1,
+      "f1": false,
+      "f2": false,
+      "f3": true,
+      "rsi": 34.4,
+      "pct52w": 11.4,
+      "st25": 24850.05,
+      "st20": 24392.43,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "index",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Nifty IT",
+      "price": 29010.3,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 1,
+      "f1": false,
+      "f2": false,
+      "f3": true,
+      "rsi": 43.1,
+      "pct52w": 28.0,
+      "st25": 32614.23,
+      "st20": 31752.87,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "index",
+      "currency": "\u20b9"
     },
     {
       "symbol": "PNB",
-      "price": 106.8,
+      "price": 106.85,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 1,
@@ -1219,10 +1748,12 @@
       "f3": true,
       "rsi": 28.4,
       "pct52w": 20.9,
-      "st25": 116.8,
-      "st20": 113.7,
+      "st25": 116.84,
+      "st20": 113.67,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "RECLTD",
@@ -1235,10 +1766,12 @@
       "f3": true,
       "rsi": 49.1,
       "pct52w": 15.4,
-      "st25": 378.1,
-      "st20": 327.9,
+      "st25": 378.13,
+      "st20": 327.87,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ULTRACEMCO",
@@ -1251,10 +1784,12 @@
       "f3": true,
       "rsi": 35.9,
       "pct52w": 16.8,
-      "st25": 12544.8,
+      "st25": 12544.75,
       "st20": 12185.3,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "VOLTAS",
@@ -1268,13 +1803,15 @@
       "rsi": 35.4,
       "pct52w": 18.0,
       "st25": 1545.7,
-      "st20": 1486.6,
+      "st20": 1486.59,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "WIPRO",
-      "price": 198.4,
+      "price": 198.37,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 1,
@@ -1283,14 +1820,16 @@
       "f3": true,
       "rsi": 48.0,
       "pct52w": 25.5,
-      "st25": 216.7,
-      "st20": 211.9,
+      "st25": 216.74,
+      "st20": 211.91,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "AMBUJACEM",
-      "price": 417.5,
+      "price": 417.55,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 0,
@@ -1300,9 +1839,11 @@
       "rsi": 30.4,
       "pct52w": 33.2,
       "st25": 492.9,
-      "st20": 476.5,
+      "st20": 476.54,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "DLF",
@@ -1315,10 +1856,12 @@
       "f3": false,
       "rsi": 45.3,
       "pct52w": 34.4,
-      "st25": 617.1,
-      "st20": 522.3,
+      "st25": 617.09,
+      "st20": 522.25,
       "dir25": -1,
-      "dir20": 1
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "HCLTECH",
@@ -1331,14 +1874,16 @@
       "f3": false,
       "rsi": 32.5,
       "pct52w": 33.9,
-      "st25": 1376.7,
-      "st20": 1332.3,
+      "st25": 1376.67,
+      "st20": 1332.31,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ICICIPRULI",
-      "price": 483.2,
+      "price": 483.25,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 0,
@@ -1347,10 +1892,12 @@
       "f3": false,
       "rsi": 28.5,
       "pct52w": 31.4,
-      "st25": 599.4,
-      "st20": 578.0,
+      "st25": 599.42,
+      "st20": 577.99,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "INFY",
@@ -1366,7 +1913,9 @@
       "st25": 1336.0,
       "st20": 1296.4,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "IRCTC",
@@ -1379,10 +1928,12 @@
       "f3": false,
       "rsi": 41.4,
       "pct52w": 32.9,
-      "st25": 602.9,
-      "st20": 583.9,
+      "st25": 602.95,
+      "st20": 583.86,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "ITC",
@@ -1398,11 +1949,13 @@
       "st25": 313.8,
       "st20": 307.4,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "NAUKRI",
-      "price": 988.5,
+      "price": 988.45,
       "signal": "BEARISH",
       "rank": 6,
       "quality": 0,
@@ -1411,10 +1964,48 @@
       "f3": false,
       "rsi": 44.8,
       "pct52w": 35.8,
-      "st25": 1119.6,
-      "st20": 1085.8,
+      "st25": 1119.58,
+      "st20": 1085.78,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "PIIND",
+      "price": 2717.9,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 0,
+      "f1": false,
+      "f2": false,
+      "f3": false,
+      "rsi": 33.9,
+      "pct52w": 37.0,
+      "st25": 3243.37,
+      "st20": 3139.4,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
+    },
+    {
+      "symbol": "Silver",
+      "price": 69.1,
+      "signal": "BEARISH",
+      "rank": 6,
+      "quality": 0,
+      "f1": false,
+      "f2": false,
+      "f3": false,
+      "rsi": 29.4,
+      "pct52w": 43.0,
+      "st25": 91.59,
+      "st20": 87.64,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "commodity",
+      "currency": "$"
     },
     {
       "symbol": "TCS",
@@ -1427,10 +2018,12 @@
       "f3": false,
       "rsi": 30.6,
       "pct52w": 35.4,
-      "st25": 2591.8,
-      "st20": 2524.2,
+      "st25": 2591.78,
+      "st20": 2524.21,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     },
     {
       "symbol": "VEDL",
@@ -1443,10 +2036,12 @@
       "f3": false,
       "rsi": 27.2,
       "pct52w": 60.3,
-      "st25": 549.1,
-      "st20": 499.1,
+      "st25": 549.13,
+      "st20": 499.07,
       "dir25": -1,
-      "dir20": -1
+      "dir20": -1,
+      "type": "stock",
+      "currency": "\u20b9"
     }
   ]
 }
