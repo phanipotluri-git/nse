@@ -3,6 +3,7 @@
 ST Weekly Screener — saves data/screener_results.json
 SuperTrend(10,2) trigger + SuperTrend(10,2.5) trend judge on weekly chart
 3 quality filters: Monthly ST, RSI>50, within 30% of 52W high
+Covers: Nifty 100 stocks + indices + USD/INR + commodities
 """
 import yfinance as yf, pandas as pd, numpy as np
 import json, concurrent.futures, warnings
@@ -10,6 +11,7 @@ from datetime import datetime, timezone, timedelta
 warnings.filterwarnings("ignore")
 IST = timezone(timedelta(hours=5, minutes=30))
 
+# ── Nifty 100 stocks ─────────────────────────────────────────────────────────
 NIFTY100 = [
     "RELIANCE.NS","TCS.NS","HDFCBANK.NS","INFY.NS","ICICIBANK.NS",
     "HINDUNILVR.NS","ITC.NS","SBIN.NS","BHARTIARTL.NS","KOTAKBANK.NS",
@@ -31,9 +33,33 @@ NIFTY100 = [
     "SAIL.NS","SIEMENS.NS","SRF.NS","TORNTPHARM.NS","TRENT.NS",
     "TVSMOTOR.NS","VEDL.NS","VOLTAS.NS","ZOMATO.NS","MOTHERSON.NS",
     "MUTHOOTFIN.NS","LICI.NS","GAIL.NS","IOC.NS","HPCL.NS",
-    "CONCOR.NS","CAMS.NS"
+    "CONCOR.NS","CAMS.NS","TATAPOWER.NS","MPHASIS.NS","PERSISTENT.NS",
+    "HDFCAMC.NS","PIIND.NS","BALKRISIND.NS","PHOENIXLTD.NS","BAJAJHLDNG.NS",
 ]
 
+# ── Non-stock instruments ─────────────────────────────────────────────────────
+INSTRUMENTS = [
+    # Indices
+    {"symbol": "^NSEI",      "name": "Nifty 50",     "type": "index",     "currency": "₹"},
+    {"symbol": "^NSEBANK",   "name": "Bank Nifty",   "type": "index",     "currency": "₹"},
+    {"symbol": "^CNXIT",     "name": "Nifty IT",     "type": "index",     "currency": "₹"},
+    {"symbol": "^CNXPHARMA", "name": "Nifty Pharma", "type": "index",     "currency": "₹"},
+    {"symbol": "^CNXAUTO",   "name": "Nifty Auto",   "type": "index",     "currency": "₹"},
+    {"symbol": "^CNXFMCG",   "name": "Nifty FMCG",   "type": "index",     "currency": "₹"},
+    {"symbol": "^CNXMETAL",  "name": "Nifty Metal",  "type": "index",     "currency": "₹"},
+    {"symbol": "^CNXREALTY", "name": "Nifty Realty", "type": "index",     "currency": "₹"},
+    # Currency
+    {"symbol": "USDINR=X",   "name": "USD/INR",      "type": "currency",  "currency": "₹"},
+    {"symbol": "EURINR=X",   "name": "EUR/INR",      "type": "currency",  "currency": "₹"},
+    # Commodities (COMEX/NYMEX — price in USD)
+    {"symbol": "GC=F",       "name": "Gold",         "type": "commodity", "currency": "$"},
+    {"symbol": "SI=F",       "name": "Silver",       "type": "commodity", "currency": "$"},
+    {"symbol": "CL=F",       "name": "Crude Oil",    "type": "commodity", "currency": "$"},
+    {"symbol": "NG=F",       "name": "Nat Gas",      "type": "commodity", "currency": "$"},
+    {"symbol": "HG=F",       "name": "Copper",       "type": "commodity", "currency": "$"},
+]
+
+# ── SuperTrend ────────────────────────────────────────────────────────────────
 def supertrend(high, low, close, period=10, mult=2.0):
     n = len(close)
     if n < period + 5:
@@ -85,7 +111,8 @@ def classify(d20,d25,dm,rsi_v,pct52):
     else:                    sig="BEARISH"
     return sig,fc,f1,f2,f3
 
-def analyse(sym):
+# ── Analyse any OHLC series (stocks + instruments) ───────────────────────────
+def analyse(sym, display_name=None, itype="stock", currency="₹"):
     try:
         tk=yf.Ticker(sym)
         wk=tk.history(period="3y",interval="1wk",auto_adjust=True)
@@ -100,35 +127,57 @@ def analyse(sym):
         h52=float(wk.High.rolling(52).max().iloc[-1])
         pct52=round((1-price/h52)*100,1) if h52>0 else 100.0
         sig,fc,f1,f2,f3=classify(d20,d25,dm,rsi_v,pct52)
-        name=sym.replace(".NS","")
-        print(f"  {name:<15} {sig}")
-        return {"symbol":name,"price":round(price,1),"signal":sig,
+        name=display_name or sym.replace(".NS","")
+        print(f"  {name:<18} {itype:<10} {sig}")
+        return {"symbol":name,"price":round(price,2),"signal":sig,
                 "rank":RANK.get(sig,7),"quality":fc,
                 "f1":f1,"f2":f2,"f3":f3,"rsi":round(rsi_v,1),
-                "pct52w":pct52,"st25":round(float(st25[-1]),1),
-                "st20":round(float(st20[-1]),1),
-                "dir25":int(d25[-1]),"dir20":int(d20[-1])}
+                "pct52w":pct52,"st25":round(float(st25[-1]),2),
+                "st20":round(float(st20[-1]),2),
+                "dir25":int(d25[-1]),"dir20":int(d20[-1]),
+                "type":itype,"currency":currency}
     except Exception as e:
-        print(f"  {sym:<20} SKIP: {e}"); return None
+        name=display_name or sym
+        print(f"  {name:<18} SKIP: {e}"); return None
 
+# ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     now=datetime.now(IST)
     print(f"\nST SCREENER  {now.strftime('%d %b %Y  %H:%M IST')}\n")
+
     results=[]
+
+    # Scan Nifty 100 stocks in parallel
+    print("── Nifty 100 stocks ──")
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
         futs={ex.submit(analyse,s):s for s in NIFTY100}
         for fut in concurrent.futures.as_completed(futs):
             r=fut.result()
             if r: results.append(r)
+
+    # Scan instruments sequentially (less load on Yahoo Finance)
+    print("\n── Instruments (indices / currency / commodities) ──")
+    for inst in INSTRUMENTS:
+        r=analyse(inst["symbol"], inst["name"], inst["type"], inst["currency"])
+        if r: results.append(r)
+
+    # Sort: signal rank → quality desc → symbol
     results.sort(key=lambda x:(x["rank"],-x["quality"],x["symbol"]))
+
     counts={}
     for r in results: counts[r["signal"]]=counts.get(r["signal"],0)+1
-    print(f"\nDone: {len(results)} stocks")
+
+    stocks=[r for r in results if r["type"]=="stock"]
+    others=[r for r in results if r["type"]!="stock"]
+    print(f"\nDone: {len(stocks)} stocks  +  {len(others)} instruments")
     for s,c in sorted(counts.items(),key=lambda x:RANK.get(x[0],9)):
         print(f"  {s:<20} {c}")
+
     import os; os.makedirs("data",exist_ok=True)
     json.dump({"scan_time":now.strftime("%d %b %Y  %H:%M IST"),
-               "total_scanned":len(results),"counts":counts,"results":results},
+               "total_scanned":len(stocks),
+               "total_instruments":len(others),
+               "counts":counts,"results":results},
               open("data/screener_results.json","w"),indent=2)
     print("Saved data/screener_results.json")
 

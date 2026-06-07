@@ -27,12 +27,19 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .info-bar strong{color:var(--text)}
 .info-bar .sep{color:var(--border)}
 
-/* Filter pills */
-.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+/* Filter rows */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;align-items:center}
+.filter-label{font-size:9px;color:var(--dim);letter-spacing:1px;min-width:44px}
 .pill{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:4px 10px;font-size:11px;color:var(--dim);cursor:pointer;transition:all .15s;user-select:none}
 .pill:hover{border-color:var(--amber)}
 .pill.active{border-color:var(--amber);color:var(--amber)}
 .pill .cnt{opacity:.6;margin-left:4px}
+
+/* Type pill colors when active */
+.pill.type-stock.active   {border-color:var(--dim);color:var(--text)}
+.pill.type-index.active   {border-color:var(--cyan);color:var(--cyan)}
+.pill.type-currency.active{border-color:var(--amber);color:var(--amber)}
+.pill.type-commodity.active{border-color:#f0c040;color:#f0c040}
 
 /* Signal colors */
 .sig-FRESH{color:#00ff9d;font-weight:700}
@@ -43,6 +50,13 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .sig-BROKEN{color:#ff9500;font-weight:700}
 .sig-BEARISH{color:var(--red)}
 
+/* Type badges */
+.tbadge{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px;vertical-align:middle}
+.tbadge-stock   {color:var(--dim)}
+.tbadge-index   {background:rgba(0,188,212,.12);color:var(--cyan)}
+.tbadge-currency{background:rgba(245,166,35,.12);color:var(--amber)}
+.tbadge-commodity{background:rgba(240,192,64,.12);color:#f0c040}
+
 /* Table */
 .wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:12px}
@@ -52,9 +66,10 @@ th.sorted-asc::after{content:' ▲';color:var(--amber)}
 th.sorted-desc::after{content:' ▼';color:var(--amber)}
 td{padding:7px 8px;border-bottom:1px solid rgba(26,31,40,.7);white-space:nowrap}
 tr:hover td{background:rgba(255,255,255,.015)}
-td:nth-child(n+3){text-align:right}
+td:nth-child(n+4){text-align:right}
 td:nth-child(1){text-align:left;font-weight:600}
 td:nth-child(2){text-align:left}
+td:nth-child(3){text-align:left}
 
 /* Quality dots */
 .q-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:2px;vertical-align:middle}
@@ -64,21 +79,15 @@ td:nth-child(2){text-align:left}
 .f-yes{color:var(--green)}.f-no{color:var(--border)}
 
 /* Summary cards */
-.summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .sum-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px 12px;min-width:90px}
 .sum-label{font-size:9px;color:var(--dim);letter-spacing:1px;margin-bottom:4px}
 .sum-val{font-size:20px;font-weight:700}
 
-/* Empty state */
+.up{color:var(--green)}.dn{color:var(--red)}.neu{color:var(--dim)}
 .empty{padding:40px;text-align:center;color:var(--dim)}
-
-/* Spin */
 .spin{display:inline-block;width:10px;height:10px;border:1px solid var(--dim);border-top-color:var(--amber);border-radius:50%;animation:spin .6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* Score bar inline */
-.mini-bar{display:inline-block;width:40px;height:3px;background:var(--border);border-radius:2px;vertical-align:middle;margin-left:4px;overflow:hidden}
-.mini-fill{height:100%;border-radius:2px}
 </style>
 </head>
 <body>
@@ -99,36 +108,49 @@ td:nth-child(2){text-align:left}
 
   <div class="summary" id="summary"></div>
 
-  <div class="filters" id="filters">
+  <!-- Signal filter -->
+  <div class="filter-row">
+    <span class="filter-label">SIGNAL</span>
     <div class="pill active" data-sig="ALL" onclick="setFilter('ALL',this)">ALL<span class="cnt" id="cnt-ALL"></span></div>
-    <div class="pill" data-sig="FRESH ENTRY" onclick="setFilter('FRESH ENTRY',this)">FRESH ENTRY<span class="cnt" id="cnt-FRESH ENTRY"></span></div>
-    <div class="pill" data-sig="RE-ENTRY" onclick="setFilter('RE-ENTRY',this)">RE-ENTRY<span class="cnt" id="cnt-RE-ENTRY"></span></div>
+    <div class="pill" data-sig="FRESH ENTRY"    onclick="setFilter('FRESH ENTRY',this)">FRESH ENTRY<span class="cnt" id="cnt-FRESH ENTRY"></span></div>
+    <div class="pill" data-sig="RE-ENTRY"       onclick="setFilter('RE-ENTRY',this)">RE-ENTRY<span class="cnt" id="cnt-RE-ENTRY"></span></div>
     <div class="pill" data-sig="RE-ENTRY READY" onclick="setFilter('RE-ENTRY READY',this)">RE-ENTRY READY<span class="cnt" id="cnt-RE-ENTRY READY"></span></div>
-    <div class="pill" data-sig="BULLISH" onclick="setFilter('BULLISH',this)">BULLISH<span class="cnt" id="cnt-BULLISH"></span></div>
-    <div class="pill" data-sig="SOFT EXIT" onclick="setFilter('SOFT EXIT',this)">SOFT EXIT<span class="cnt" id="cnt-SOFT EXIT"></span></div>
-    <div class="pill" data-sig="TREND BROKEN" onclick="setFilter('TREND BROKEN',this)">TREND BROKEN<span class="cnt" id="cnt-TREND BROKEN"></span></div>
-    <div class="pill" data-sig="BEARISH" onclick="setFilter('BEARISH',this)">BEARISH<span class="cnt" id="cnt-BEARISH"></span></div>
+    <div class="pill" data-sig="BULLISH"        onclick="setFilter('BULLISH',this)">BULLISH<span class="cnt" id="cnt-BULLISH"></span></div>
+    <div class="pill" data-sig="SOFT EXIT"      onclick="setFilter('SOFT EXIT',this)">SOFT EXIT<span class="cnt" id="cnt-SOFT EXIT"></span></div>
+    <div class="pill" data-sig="TREND BROKEN"   onclick="setFilter('TREND BROKEN',this)">TREND BROKEN<span class="cnt" id="cnt-TREND BROKEN"></span></div>
+    <div class="pill" data-sig="BEARISH"        onclick="setFilter('BEARISH',this)">BEARISH<span class="cnt" id="cnt-BEARISH"></span></div>
+  </div>
+
+  <!-- Type filter -->
+  <div class="filter-row" style="margin-bottom:14px">
+    <span class="filter-label">TYPE</span>
+    <div class="pill active type-all"       data-type="ALL"       onclick="setType('ALL',this)">ALL</div>
+    <div class="pill type-stock"            data-type="stock"     onclick="setType('stock',this)">STOCKS</div>
+    <div class="pill type-index"            data-type="index"     onclick="setType('index',this)">INDICES</div>
+    <div class="pill type-currency"         data-type="currency"  onclick="setType('currency',this)">CURRENCY</div>
+    <div class="pill type-commodity"        data-type="commodity" onclick="setType('commodity',this)">COMMODITIES</div>
   </div>
 
   <div class="wrap">
     <table id="mainTable">
       <thead>
         <tr>
-          <th onclick="sortBy('symbol')" title="Symbol">SYMBOL</th>
-          <th onclick="sortBy('signal')" title="Signal">SIGNAL</th>
-          <th onclick="sortBy('price')" title="Price">PRICE</th>
+          <th onclick="sortBy('symbol')"  title="Symbol">SYMBOL</th>
+          <th onclick="sortBy('type')"    title="Type">TYPE</th>
+          <th onclick="sortBy('signal')"  title="Signal">SIGNAL</th>
+          <th onclick="sortBy('price')"   title="Price">PRICE</th>
           <th onclick="sortBy('quality')" title="Quality (0-3 filters passed)">Q</th>
-          <th onclick="sortBy('f1')" title="F1: Monthly ST bullish">F1</th>
-          <th onclick="sortBy('f2')" title="F2: Weekly RSI > 50">F2</th>
-          <th onclick="sortBy('f3')" title="F3: Within 30% of 52W high">F3</th>
-          <th onclick="sortBy('rsi')" title="RSI(14) weekly">RSI</th>
-          <th onclick="sortBy('pct52w')" title="% below 52-week high">52W%</th>
-          <th onclick="sortBy('st25')" title="SuperTrend(10,2.5) — trend judge">ST(2.5)</th>
-          <th onclick="sortBy('st20')" title="SuperTrend(10,2.0) — trigger">ST(2.0)</th>
+          <th onclick="sortBy('f1')"      title="F1: Monthly ST bullish">F1</th>
+          <th onclick="sortBy('f2')"      title="F2: Weekly RSI > 50">F2</th>
+          <th onclick="sortBy('f3')"      title="F3: Within 30% of 52W high">F3</th>
+          <th onclick="sortBy('rsi')"     title="RSI(14) weekly">RSI</th>
+          <th onclick="sortBy('pct52w')"  title="% below 52-week high">52W%</th>
+          <th onclick="sortBy('st25')"    title="SuperTrend(10,2.5) — trend judge">ST(2.5)</th>
+          <th onclick="sortBy('st20')"    title="SuperTrend(10,2.0) — trigger">ST(2.0)</th>
         </tr>
       </thead>
       <tbody id="tableBody">
-        <tr><td colspan="11" class="empty"><span class="spin"></span> loading...</td></tr>
+        <tr><td colspan="12" class="empty"><span class="spin"></span> loading...</td></tr>
       </tbody>
     </table>
   </div>
@@ -138,16 +160,20 @@ td:nth-child(2){text-align:left}
     Q = quality score (0–3) &nbsp;·&nbsp;
     F1 = Monthly ST bullish &nbsp;·&nbsp;
     F2 = RSI&gt;50 &nbsp;·&nbsp;
-    F3 = within 30% of 52W high &nbsp;·&nbsp;
-    ST flip = trend changed (not just retracement)
-    <br>
-    <strong style="color:var(--text)">Scan:</strong> Weekly. SuperTrend(10,2.5) judge + ST(10,2.0) trigger. Runs Saturday 10:30 AM IST via GitHub Actions.
+    F3 = within 30% of 52W high<br>
+    <strong style="color:var(--text)">Types:</strong>
+    <span class="tbadge tbadge-index">INDEX</span> NSE indices &nbsp;·&nbsp;
+    <span class="tbadge tbadge-currency">FX</span> USD/INR, EUR/INR &nbsp;·&nbsp;
+    <span class="tbadge tbadge-commodity">CMDTY</span> Gold, Silver, Crude, Nat Gas, Copper (COMEX/NYMEX, in $) &nbsp;·&nbsp;
+    Stocks = Nifty 100<br>
+    <strong style="color:var(--text)">Scan:</strong> Weekly SuperTrend(10,2.5) judge + ST(10,2.0) trigger. Runs Saturday 10:30 AM IST via GitHub Actions.
   </div>
 </main>
 
 <script>
 let allData=[];
 let activeFilter='ALL';
+let activeType='ALL';
 let sortKey='rank';
 let sortDir=1;
 
@@ -155,11 +181,13 @@ const SIG_ORDER={
   "FRESH ENTRY":0,"RE-ENTRY":1,"RE-ENTRY READY":2,
   "BULLISH":3,"SOFT EXIT":4,"TREND BROKEN":5,"BEARISH":6
 };
-
 const SIG_CLASS={
   "FRESH ENTRY":"sig-FRESH","RE-ENTRY":"sig-REENTRY","RE-ENTRY READY":"sig-REREADY",
   "BULLISH":"sig-BULLISH","SOFT EXIT":"sig-SOFT","TREND BROKEN":"sig-BROKEN","BEARISH":"sig-BEARISH"
 };
+const TYPE_ORDER={stock:0,index:1,currency:2,commodity:3};
+const TYPE_LABEL={stock:'',index:'INDEX',currency:'FX',commodity:'CMDTY'};
+const TYPE_CLASS={stock:'tbadge-stock',index:'tbadge-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
 
 function sigColor(sig){
   return{
@@ -173,15 +201,18 @@ async function load(){
     const r=await fetch('data/screener_results.json?_='+Date.now());
     if(!r.ok) throw new Error(r.statusText);
     const d=await r.json();
-    allData=d.results||[];
+    allData=(d.results||[]).map(x=>({...x,type:x.type||'stock',currency:x.currency||'₹'}));
     const counts=d.counts||{};
 
+    const nStocks=d.total_scanned||allData.filter(r=>r.type==='stock').length;
+    const nInst=d.total_instruments||allData.filter(r=>r.type!=='stock').length;
     document.getElementById('infoBar').innerHTML=
       `<strong>Scan:</strong> ${d.scan_time||'--'} &nbsp;
        <span class="sep">|</span>
-       <strong>Scanned:</strong> ${d.total_scanned||allData.length} stocks`;
+       <strong>Stocks:</strong> ${nStocks} &nbsp;
+       <span class="sep">|</span>
+       <strong>Instruments:</strong> ${nInst}`;
 
-    // update pill counts
     let total=0;
     Object.entries(counts).forEach(([sig,cnt])=>{
       total+=cnt;
@@ -194,7 +225,7 @@ async function load(){
     render();
   }catch(e){
     document.getElementById('tableBody').innerHTML=
-      `<tr><td colspan="11" class="empty">
+      `<tr><td colspan="12" class="empty">
         No screener data yet.<br>
         Run <code style="color:var(--amber)">python scripts/scan.py</code> locally
         or trigger the GitHub Action.<br><br>
@@ -206,8 +237,7 @@ async function load(){
 
 function renderSummary(counts){
   const sigs=["FRESH ENTRY","RE-ENTRY","RE-ENTRY READY","BULLISH","SOFT EXIT","TREND BROKEN","BEARISH"];
-  const el=document.getElementById('summary');
-  el.innerHTML=sigs.map(s=>{
+  document.getElementById('summary').innerHTML=sigs.map(s=>{
     const c=counts[s]||0;
     return`<div class="sum-card">
       <div class="sum-label" style="color:${sigColor(s)}">${s}</div>
@@ -218,7 +248,14 @@ function renderSummary(counts){
 
 function setFilter(sig,el){
   activeFilter=sig;
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('[data-sig]').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+
+function setType(t,el){
+  activeType=t;
+  document.querySelectorAll('[data-type]').forEach(p=>p.classList.remove('active'));
   el.classList.add('active');
   render();
 }
@@ -226,39 +263,60 @@ function setFilter(sig,el){
 function sortBy(key){
   if(sortKey===key) sortDir*=-1;
   else{sortKey=key;sortDir=1}
-  document.querySelectorAll('th').forEach(t=>{
-    t.classList.remove('sorted-asc','sorted-desc');
-  });
-  const ths=document.querySelectorAll('#mainTable thead th');
-  const keys=['symbol','signal','price','quality','f1','f2','f3','rsi','pct52w','st25','st20'];
+  document.querySelectorAll('th').forEach(t=>t.classList.remove('sorted-asc','sorted-desc'));
+  const keys=['symbol','type','signal','price','quality','f1','f2','f3','rsi','pct52w','st25','st20'];
   const idx=keys.indexOf(key);
-  if(idx>=0){
-    ths[idx].classList.add(sortDir===1?'sorted-asc':'sorted-desc');
-  }
+  const ths=document.querySelectorAll('#mainTable thead th');
+  if(idx>=0) ths[idx].classList.add(sortDir===1?'sorted-asc':'sorted-desc');
   render();
+}
+
+function fmtPrice(r){
+  const v=r.price;
+  if(v==null) return '--';
+  const sym=r.currency||'₹';
+  // For large index values, no decimals; for currency/commodity 2 decimals
+  const decimals=r.type==='index'?0:r.type==='stock'?1:2;
+  return sym+(r.type==='stock'
+    ? v.toLocaleString('en-IN',{maximumFractionDigits:decimals})
+    : v.toLocaleString('en-US',{maximumFractionDigits:decimals}));
+}
+
+function fmtST(v,dir,r){
+  if(v==null) return '--';
+  const col=dir===1?'var(--green)':'var(--red)';
+  const sym=r.currency||'₹';
+  const decimals=r.type==='index'?0:r.type==='stock'?0:2;
+  const formatted=r.type==='stock'
+    ? v.toLocaleString('en-IN',{maximumFractionDigits:decimals})
+    : v.toLocaleString('en-US',{maximumFractionDigits:decimals});
+  return`<span style="color:${col}">${sym}${formatted}</span>`;
 }
 
 function render(){
   let rows=allData.slice();
   if(activeFilter!=='ALL') rows=rows.filter(r=>r.signal===activeFilter);
+  if(activeType!=='ALL')   rows=rows.filter(r=>(r.type||'stock')===activeType);
 
   rows.sort((a,b)=>{
     let av=a[sortKey],bv=b[sortKey];
-    if(sortKey==='signal'){av=SIG_ORDER[a.signal]??9;bv=SIG_ORDER[b.signal]??9}
+    if(sortKey==='signal') {av=SIG_ORDER[a.signal]??9; bv=SIG_ORDER[b.signal]??9}
+    if(sortKey==='type')   {av=TYPE_ORDER[a.type]??9;  bv=TYPE_ORDER[b.type]??9}
     if(typeof av==='boolean') av=av?0:1;
     if(typeof bv==='boolean') bv=bv?0:1;
     if(av<bv) return -1*sortDir;
-    if(av>bv) return 1*sortDir;
+    if(av>bv) return  1*sortDir;
     return 0;
   });
 
   if(!rows.length){
     document.getElementById('tableBody').innerHTML=
-      '<tr><td colspan="11" class="empty">No results for this filter.</td></tr>';
+      '<tr><td colspan="12" class="empty">No results for this filter.</td></tr>';
     return;
   }
 
   document.getElementById('tableBody').innerHTML=rows.map(r=>{
+    const itype=r.type||'stock';
     const sc=sigColor(r.signal);
     const cls=SIG_CLASS[r.signal]||'';
     const q=r.quality??0;
@@ -266,19 +324,21 @@ function render(){
     const fmtF=f=>`<span class="${f?'f-yes':'f-no'}">${f?'✓':'·'}</span>`;
     const rsiCls=r.rsi>=60?'up':r.rsi<=40?'dn':'';
     const pctCls=r.pct52w<=10?'up':r.pct52w>=25?'dn':'';
-    const fmtST=(v,dir)=>`<span style="color:${dir===1?'var(--green)':'var(--red)'}">${v?.toLocaleString('en-IN',{maximumFractionDigits:0})||'--'}</span>`;
+    const typeLabel=TYPE_LABEL[itype]||'';
+    const typeCls=TYPE_CLASS[itype]||'';
     return`<tr>
       <td>${r.symbol}</td>
+      <td>${typeLabel?`<span class="tbadge ${typeCls}">${typeLabel}</span>`:''}</td>
       <td><span class="${cls}" style="color:${sc}">${r.signal}</span></td>
-      <td>₹${r.price?.toLocaleString('en-IN',{maximumFractionDigits:1})||'--'}</td>
+      <td>${fmtPrice(r)}</td>
       <td title="${q}/3 filters">${dots}</td>
       <td>${fmtF(r.f1)}</td>
       <td>${fmtF(r.f2)}</td>
       <td>${fmtF(r.f3)}</td>
       <td class="${rsiCls}">${r.rsi?.toFixed(1)||'--'}</td>
       <td class="${pctCls}">${r.pct52w!=null?'-'+r.pct52w+'%':'--'}</td>
-      <td>${fmtST(r.st25,r.dir25)}</td>
-      <td>${fmtST(r.st20,r.dir20)}</td>
+      <td>${fmtST(r.st25,r.dir25,r)}</td>
+      <td>${fmtST(r.st20,r.dir20,r)}</td>
     </tr>`;
   }).join('');
 }
