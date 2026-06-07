@@ -90,7 +90,6 @@ main{max-width:900px;margin:0 auto;padding:16px}
     <a href="index.html" class="active">Risk</a>
     <a href="screener.html">Screener</a>
     <a href="test.html">Proxy</a>
-    <a href="phani/Dashscanner.html">DASH</a>
   </nav>
 </header>
 
@@ -267,48 +266,50 @@ function ema(arr,n){
 let factors={vix:50,trend:50,mom:50,breadth:50,fii:50,macro:50};
 let dataAge='';
 
+function chartLastClose(data){
+  const c=data?.chart?.result?.[0];
+  if(!c) return null;
+  const closes=(c.indicators?.quote?.[0]?.close||[]).filter(x=>x!=null);
+  return closes.length?closes[closes.length-1]:null;
+}
+
 async function fetchLive(){
-  const pxProxy=['PROXIES[0]'];
   document.getElementById('proxyStatus').innerHTML='<span class="spin"></span>fetching live data...';
-  // Batch: Nifty 50, VIX, USD/INR
-  const sym='%5ENSEI%2C%5EINDIAVIX%2CUSDINR%3DX';
-  const url=`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}&fields=regularMarketPrice,regularMarketChangePercent`;
-  const d=await fetchYahoo(url);
-  if(!d){
+
+  // Use chart endpoint for all three — more reliable via CORS proxies than v7/quote
+  const [niftyData, vixData, inrData] = await Promise.all([
+    fetchYahoo('https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=1y'),
+    fetchYahoo('https://query1.finance.yahoo.com/v8/finance/chart/%5EINDIAVIX?interval=1d&range=1mo'),
+    fetchYahoo('https://query1.finance.yahoo.com/v8/finance/chart/USDINR%3DX?interval=1d&range=5d'),
+  ]);
+
+  if(!niftyData && !vixData && !inrData){
     document.getElementById('proxyStatus').innerHTML='<span class="dot dot-red"></span>proxy failed — using cached data';
     return;
   }
   document.getElementById('proxyStatus').innerHTML=`<span class="dot dot-green"></span>proxy OK (${proxyIdx+1})`;
-
-  const q=d?.quoteResponse?.result||[];
-  let nifty=null,vixVal=null,inr=null;
-  for(const r of q){
-    if(r.symbol==='^NSEI') nifty=r;
-    if(r.symbol==='^INDIAVIX') vixVal=r;
-    if(r.symbol==='USDINR=X') inr=r;
-  }
-
-  if(nifty) document.getElementById('niftyPrice').textContent=`NIFTY ${nifty.regularMarketPrice?.toLocaleString('en-IN',{maximumFractionDigits:0})||'--'}`;
-  if(vixVal) document.getElementById('vixVal').textContent=`VIX ${vixVal.regularMarketPrice?.toFixed(2)||'--'}`;
-  if(inr)   document.getElementById('inrVal').textContent=`₹${inr.regularMarketPrice?.toFixed(2)||'--'}`;
   document.getElementById('lastUpdate').textContent=`Updated ${new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})} IST`;
 
   // VIX factor
-  if(vixVal?.regularMarketPrice){
-    const v=vixVal.regularMarketPrice;
-    const vs=scoreVix(v);
+  const vixPrice=chartLastClose(vixData);
+  if(vixPrice){
+    document.getElementById('vixVal').textContent=`VIX ${vixPrice.toFixed(2)}`;
+    const vs=scoreVix(vixPrice);
     factors.vix=vs;
-    setFactor('vix',vs,`VIX ${v.toFixed(2)} · ${v<15?'calm':v<20?'normal':v<25?'elevated':'high stress'}`);
+    setFactor('vix',vs,`VIX ${vixPrice.toFixed(2)} · ${vixPrice<15?'calm':vixPrice<20?'normal':vixPrice<25?'elevated':'high stress'}`);
   }
 
-  // Trend + Momentum from chart data
-  await fetchNiftyHistory();
+  // INR display
+  const inrPrice=chartLastClose(inrData);
+  if(inrPrice) document.getElementById('inrVal').textContent=`₹${inrPrice.toFixed(2)}`;
+
+  // Trend + Momentum from Nifty chart (also sets niftyPrice display)
+  await fetchNiftyHistory(niftyData);
   updateComposite();
 }
 
-async function fetchNiftyHistory(){
-  const url='https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=1y';
-  const d=await fetchYahoo(url);
+async function fetchNiftyHistory(d){
+  if(!d) d=await fetchYahoo('https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=1y');
   if(!d) return;
   const c=d?.chart?.result?.[0];
   if(!c) return;
@@ -317,6 +318,7 @@ async function fetchNiftyHistory(){
   if(valid.length<20) return;
 
   const price=valid[valid.length-1];
+  document.getElementById('niftyPrice').textContent=`NIFTY ${price.toLocaleString('en-IN',{maximumFractionDigits:0})}`;
   const e20=ema(valid.slice(-20),20);
   const e50=valid.length>=50?ema(valid.slice(-50),50):e20;
   const e200=valid.length>=200?ema(valid.slice(-200),200):e50;
