@@ -41,6 +41,7 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 /* Type pill colors when active */
 .pill.type-stock.active   {border-color:var(--dim);color:var(--text)}
 .pill.type-index.active   {border-color:var(--cyan);color:var(--cyan)}
+.pill.type-us-index.active{border-color:#6495ed;color:#6495ed}
 .pill.type-currency.active{border-color:var(--amber);color:var(--amber)}
 .pill.type-commodity.active{border-color:#f0c040;color:#f0c040}
 
@@ -57,6 +58,7 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .tbadge{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px;vertical-align:middle}
 .tbadge-stock   {color:var(--dim)}
 .tbadge-index   {background:rgba(0,188,212,.12);color:var(--cyan)}
+.tbadge-us-index{background:rgba(100,149,237,.15);color:#6495ed}
 .tbadge-currency{background:rgba(245,166,35,.12);color:var(--amber)}
 .tbadge-commodity{background:rgba(240,192,64,.12);color:#f0c040}
 
@@ -129,7 +131,8 @@ td:nth-child(3){text-align:left}
     <span class="filter-label">TYPE</span>
     <div class="pill active type-all"       data-type="ALL"       onclick="setType('ALL',this)">ALL</div>
     <div class="pill type-stock"            data-type="stock"     onclick="setType('stock',this)">STOCKS</div>
-    <div class="pill type-index"            data-type="index"     onclick="setType('index',this)">INDICES</div>
+    <div class="pill type-index"            data-type="index"     onclick="setType('index',this)">NSE INDICES</div>
+    <div class="pill type-us-index"         data-type="us-index"  onclick="setType('us-index',this)">US INDICES</div>
     <div class="pill type-currency"         data-type="currency"  onclick="setType('currency',this)">CURRENCY</div>
     <div class="pill type-commodity"        data-type="commodity" onclick="setType('commodity',this)">COMMODITIES</div>
   </div>
@@ -166,6 +169,7 @@ td:nth-child(3){text-align:left}
     F3 = within 30% of 52W high<br>
     <strong style="color:var(--text)">Types:</strong>
     <span class="tbadge tbadge-index">INDEX</span> NSE indices &nbsp;·&nbsp;
+    <span class="tbadge tbadge-us-index">US IDX</span> S&amp;P 500, NASDAQ, Dow, Russell, SOX, VIX &nbsp;·&nbsp;
     <span class="tbadge tbadge-currency">FX</span> USD/INR, EUR/INR &nbsp;·&nbsp;
     <span class="tbadge tbadge-commodity">CMDTY</span> Gold, Silver, Crude, Nat Gas, Copper (COMEX/NYMEX, in $) &nbsp;·&nbsp;
     Stocks = Nifty 100<br>
@@ -188,9 +192,9 @@ const SIG_CLASS={
   "FRESH ENTRY":"sig-FRESH","RE-ENTRY":"sig-REENTRY","RE-ENTRY READY":"sig-REREADY",
   "BULLISH":"sig-BULLISH","SOFT EXIT":"sig-SOFT","TREND BROKEN":"sig-BROKEN","BEARISH":"sig-BEARISH"
 };
-const TYPE_ORDER={stock:0,index:1,currency:2,commodity:3};
-const TYPE_LABEL={stock:'',index:'INDEX',currency:'FX',commodity:'CMDTY'};
-const TYPE_CLASS={stock:'tbadge-stock',index:'tbadge-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
+const TYPE_ORDER={stock:0,index:1,'us-index':2,currency:3,commodity:4};
+const TYPE_LABEL={stock:'',index:'INDEX','us-index':'US IDX',currency:'FX',commodity:'CMDTY'};
+const TYPE_CLASS={stock:'tbadge-stock',index:'tbadge-index','us-index':'tbadge-us-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
 
 function sigColor(sig){
   return{
@@ -279,7 +283,8 @@ function fmtPrice(r){
   if(v==null) return '--';
   const sym=r.currency||'₹';
   // For large index values, no decimals; for currency/commodity 2 decimals
-  const decimals=r.type==='index'?0:r.type==='stock'?1:2;
+  const isIdx=r.type==='index'||r.type==='us-index';
+  const decimals=isIdx?0:r.type==='stock'?1:2;
   return sym+(r.type==='stock'
     ? v.toLocaleString('en-IN',{maximumFractionDigits:decimals})
     : v.toLocaleString('en-US',{maximumFractionDigits:decimals}));
@@ -289,7 +294,8 @@ function fmtST(v,dir,r){
   if(v==null) return '--';
   const col=dir===1?'var(--green)':'var(--red)';
   const sym=r.currency||'₹';
-  const decimals=r.type==='index'?0:r.type==='stock'?0:2;
+  const isIdx=r.type==='index'||r.type==='us-index';
+  const decimals=isIdx||r.type==='stock'?0:2;
   const formatted=r.type==='stock'
     ? v.toLocaleString('en-IN',{maximumFractionDigits:decimals})
     : v.toLocaleString('en-US',{maximumFractionDigits:decimals});

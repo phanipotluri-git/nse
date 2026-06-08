@@ -39,24 +39,36 @@ NIFTY100 = [
 
 # ── Non-stock instruments ─────────────────────────────────────────────────────
 INSTRUMENTS = [
-    # Indices
-    {"symbol": "^NSEI",      "name": "Nifty 50",     "type": "index",     "currency": "₹"},
-    {"symbol": "^NSEBANK",   "name": "Bank Nifty",   "type": "index",     "currency": "₹"},
-    {"symbol": "^CNXIT",     "name": "Nifty IT",     "type": "index",     "currency": "₹"},
-    {"symbol": "^CNXPHARMA", "name": "Nifty Pharma", "type": "index",     "currency": "₹"},
-    {"symbol": "^CNXAUTO",   "name": "Nifty Auto",   "type": "index",     "currency": "₹"},
-    {"symbol": "^CNXFMCG",   "name": "Nifty FMCG",   "type": "index",     "currency": "₹"},
-    {"symbol": "^CNXMETAL",  "name": "Nifty Metal",  "type": "index",     "currency": "₹"},
-    {"symbol": "^CNXREALTY", "name": "Nifty Realty", "type": "index",     "currency": "₹"},
-    # Currency
-    {"symbol": "USDINR=X",   "name": "USD/INR",      "type": "currency",  "currency": "₹"},
-    {"symbol": "EURINR=X",   "name": "EUR/INR",      "type": "currency",  "currency": "₹"},
-    # Commodities (COMEX/NYMEX — price in USD)
-    {"symbol": "GC=F",       "name": "Gold",         "type": "commodity", "currency": "$"},
-    {"symbol": "SI=F",       "name": "Silver",       "type": "commodity", "currency": "$"},
-    {"symbol": "CL=F",       "name": "Crude Oil",    "type": "commodity", "currency": "$"},
-    {"symbol": "NG=F",       "name": "Nat Gas",      "type": "commodity", "currency": "$"},
-    {"symbol": "HG=F",       "name": "Copper",       "type": "commodity", "currency": "$"},
+    # ── NSE Indices ──────────────────────────────────────────────────────────
+    {"symbol": "^NSEI",       "name": "Nifty 50",       "type": "index", "currency": "₹"},
+    {"symbol": "^NSEBANK",    "name": "Bank Nifty",     "type": "index", "currency": "₹"},
+    {"symbol": "^CNXIT",      "name": "Nifty IT",       "type": "index", "currency": "₹"},
+    {"symbol": "^CNXPHARMA",  "name": "Nifty Pharma",   "type": "index", "currency": "₹"},
+    {"symbol": "^CNXAUTO",    "name": "Nifty Auto",     "type": "index", "currency": "₹"},
+    {"symbol": "^CNXFMCG",    "name": "Nifty FMCG",    "type": "index", "currency": "₹"},
+    {"symbol": "^CNXMETAL",   "name": "Nifty Metal",    "type": "index", "currency": "₹"},
+    {"symbol": "^CNXREALTY",  "name": "Nifty Realty",   "type": "index", "currency": "₹"},
+    {"symbol": "^CNXENERGY",  "name": "Nifty Energy",   "type": "index", "currency": "₹"},
+    {"symbol": "^CNXINFRA",   "name": "Nifty Infra",    "type": "index", "currency": "₹"},
+    {"symbol": "^NSMIDCP",    "name": "Nifty Midcap",   "type": "index", "currency": "₹"},
+    {"symbol": "^CNXPSUBANK", "name": "Nifty PSU Bank", "type": "index", "currency": "₹"},
+    {"symbol": "^CNXFINANCE", "name": "Nifty Finance",  "type": "index", "currency": "₹"},
+    # ── US Indices ───────────────────────────────────────────────────────────
+    {"symbol": "^GSPC",       "name": "S&P 500",        "type": "us-index", "currency": "$"},
+    {"symbol": "^NDX",        "name": "NASDAQ 100",     "type": "us-index", "currency": "$"},
+    {"symbol": "^DJI",        "name": "Dow Jones",      "type": "us-index", "currency": "$"},
+    {"symbol": "^RUT",        "name": "Russell 2000",   "type": "us-index", "currency": "$"},
+    {"symbol": "^SOX",        "name": "Philadelphia SE","type": "us-index", "currency": "$"},
+    {"symbol": "^VIX",        "name": "CBOE VIX",       "type": "us-index", "currency": "$"},
+    # ── Currency ─────────────────────────────────────────────────────────────
+    {"symbol": "USDINR=X",    "name": "USD/INR",        "type": "currency", "currency": "₹"},
+    {"symbol": "EURINR=X",    "name": "EUR/INR",        "type": "currency", "currency": "₹"},
+    # ── Commodities (COMEX/NYMEX — price in USD) ─────────────────────────────
+    {"symbol": "GC=F",        "name": "Gold",           "type": "commodity", "currency": "$"},
+    {"symbol": "SI=F",        "name": "Silver",         "type": "commodity", "currency": "$"},
+    {"symbol": "CL=F",        "name": "Crude Oil",      "type": "commodity", "currency": "$"},
+    {"symbol": "NG=F",        "name": "Nat Gas",        "type": "commodity", "currency": "$"},
+    {"symbol": "HG=F",        "name": "Copper",         "type": "commodity", "currency": "$"},
 ]
 
 # ── SuperTrend ────────────────────────────────────────────────────────────────
