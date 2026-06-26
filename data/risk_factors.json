@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-26T05:01:39Z",
-  "next_update": "2026-06-26T11:01:39Z",
+  "generated_at": "2026-06-26T08:07:40Z",
+  "next_update": "2026-06-26T14:07:40Z",
   "factors": {
     "breadth": {
       "score": 58,
@@ -11,12 +11,12 @@
       }
     },
     "fii_proxy": {
-      "score": 54,
+      "score": 62,
       "raw": {
         "inr_20d_chg_pct": -1.73,
-        "midcap_vs_largecap_20d_chg": 0.0,
+        "midcap_vs_largecap_20d_chg": 1.5,
         "inr_component": 59,
-        "risk_on_component": 50
+        "risk_on_component": 65
       }
     },
     "macro": {
