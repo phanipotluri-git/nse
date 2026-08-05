@@ -1,161 +1,162 @@
 {
-  "generated_at": "2026-08-05T07:13:40Z",
-  "next_update": "2026-08-05T13:13:40Z",
+  "generated_at": "2026-08-05T10:04:38Z",
+  "next_update": "2026-08-05T16:04:38Z",
   "factors": {
     "breadth": {
-      "score": 72,
+      "score": 74,
       "raw": {
-        "pct_above_20ma": 71.4,
-        "pct_above_50ma": 73.5,
+        "pct_above_20ma": 73.5,
+        "pct_above_50ma": 75.5,
         "stocks_sampled": 49
       }
     },
     "fii_proxy": {
-      "score": 60,
+      "score": 58,
       "raw": {
-        "inr_20d_chg_pct": -0.43,
-        "midcap_vs_largecap_20d_chg": 1.67,
+        "inr_20d_chg_pct": -0.5,
+        "midcap_vs_largecap_20d_chg": 1.37,
         "inr_component": 52,
-        "risk_on_component": 67
+        "risk_on_component": 64
       }
     },
     "macro": {
-      "score": 40,
+      "score": 52,
       "raw": {
-        "inr_vs_1y_range_pct": 82.8,
-        "vix_20d_avg": 16.0,
-        "inr_component": 17,
-        "vix_component": 55
+        "inr_vs_1y_range_pct": 82.2,
+        "vix_20d_avg": 12.78,
+        "inr_component": 18,
+        "vix_component": 75
       }
     }
   },
   "sectors": {
     "Nifty 50": {
-      "score": 92,
-      "change_1d": -0.34,
-      "change_5d": 1.15,
-      "change_20d": 2.71,
-      "rsi": 59.2,
+      "score": 94,
+      "change_1d": 0.04,
+      "change_5d": 1.54,
+      "change_20d": 3.11,
+      "rsi": 62.0,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 24530.15,
-      "ma20": 24191.47,
-      "ma50": 23954.15
+      "price": 24624.65,
+      "ma20": 24196.2,
+      "ma50": 23956.04
     },
     "Bank Nifty": {
-      "score": 87,
-      "change_1d": -0.59,
-      "change_5d": 0.63,
-      "change_20d": 1.45,
-      "rsi": 52.0,
+      "score": 88,
+      "change_1d": -0.29,
+      "change_5d": 0.93,
+      "change_20d": 1.76,
+      "rsi": 53.6,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 57565.6,
-      "ma20": 57506.4,
-      "ma50": 56853.95
+      "price": 57739.95,
+      "ma20": 57515.12,
+      "ma50": 56857.44
     },
     "IT": {
       "score": 98,
-      "change_1d": -0.06,
-      "change_5d": 1.0,
-      "change_20d": 14.08,
-      "rsi": 67.3,
+      "change_1d": -0.16,
+      "change_5d": 0.9,
+      "change_20d": 13.97,
+      "rsi": 66.9,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 31434.4,
-      "ma20": 29559.6,
-      "ma50": 28700.99
+      "price": 31404.05,
+      "ma20": 29558.08,
+      "ma50": 28700.39
     },
     "Pharma": {
-      "score": 96,
-      "change_1d": -0.46,
-      "change_5d": 0.38,
-      "change_20d": 4.11,
-      "rsi": 64.5,
+      "score": 98,
+      "change_1d": -0.13,
+      "change_5d": 0.72,
+      "change_20d": 4.46,
+      "rsi": 67.0,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 26474.35,
-      "ma20": 26026.04,
-      "ma50": 25220.68
+      "price": 26563.55,
+      "ma20": 26030.5,
+      "ma50": 25222.46
     },
     "Auto": {
       "score": 100,
-      "change_1d": 8.33,
-      "change_5d": 8.81,
-      "change_20d": 10.44,
-      "rsi": 74.5,
+      "change_1d": 8.53,
+      "change_5d": 9.01,
+      "change_20d": 10.64,
+      "rsi": 74.8,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 29357.6,
-      "ma20": 26935.29,
-      "ma50": 26523.62
+      "price": 29411.55,
+      "ma20": 26937.99,
+      "ma50": 26524.7
     },
     "FMCG": {
-      "score": 15,
-      "change_1d": 0.98,
-      "change_5d": 0.85,
-      "change_20d": -0.67,
-      "rsi": 50.4,
-      "above_20ma": false,
+      "score": 57,
+      "change_1d": 1.3,
+      "change_5d": 1.18,
+      "change_20d": -0.35,
+      "rsi": 52.0,
+      "above_20ma": true,
       "above_50ma": false,
-      "price": 49226.1,
-      "ma20": 49244.64,
-      "ma50": 49493.83
+      "price": 49383.5,
+      "ma20": 49252.51,
+      "ma50": 49496.98
     },
     "Metal": {
-      "score": 92,
-      "change_1d": 5.24,
-      "change_5d": 3.86,
-      "change_20d": 0.52,
-      "rsi": 59.7,
+      "score": 95,
+      "change_1d": 6.59,
+      "change_5d": 5.2,
+      "change_20d": 1.81,
+      "rsi": 62.7,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 13088.15,
-      "ma20": 12609.46,
-      "ma50": 12954.49
+      "price": 13256.35,
+      "ma20": 12617.87,
+      "ma50": 12957.86
     },
     "Realty": {
-      "score": 93,
-      "change_1d": -1.5,
-      "change_5d": -3.44,
-      "change_20d": 11.46,
-      "rsi": 60.6,
+      "score": 92,
+      "change_1d": -2.18,
+      "change_5d": -4.1,
+      "change_20d": 10.69,
+      "rsi": 58.7,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 904.95,
-      "ma20": 878.15,
-      "ma50": 817.64
+      "price": 898.7,
+      "ma20": 877.84,
+      "ma50": 817.51
     },
     "Energy": {
-      "score": 6,
-      "change_1d": -1.58,
-      "change_5d": -1.44,
-      "change_20d": -4.66,
-      "rsi": 37.8,
+      "score": 7,
+      "change_1d": -1.14,
+      "change_5d": -1.0,
+      "change_20d": -4.24,
+      "rsi": 39.8,
       "above_20ma": false,
       "above_50ma": false,
-      "price": 38657.4,
-      "ma20": 39461.38,
-      "ma50": 39825.3
+      "price": 38830.05,
+      "ma20": 39470.01,
+      "ma50": 39828.75
     },
     "Infra": {
-      "score": 88,
-      "change_1d": 0.57,
-      "change_5d": 0.53,
-      "change_20d": -0.85,
-      "rsi": 53.8,
+      "score": 89,
+      "change_1d": 0.8,
+      "change_5d": 0.76,
+      "change_20d": -0.62,
+      "rsi": 55.1,
       "above_20ma": true,
       "above_50ma": true,
-      "price": 9430.6,
-      "ma20": 9413.59,
-      "ma50": 9349.4
+      "price": 9452.75,
+      "ma20": 9414.7,
+      "ma50": 9349.84
     }
   },
   "market_context": {
-    "nifty_ema20": 24240.56,
-    "nifty_ema50": 24088.35,
-    "nifty_ema200": 24417.04,
+    "nifty_ema20": 24249.67,
+    "nifty_ema50": 24092.1,
+    "nifty_ema200": 24417.99,
     "nifty_bars": 246,
-    "inr_current": 95.185
+    "vix_20d_avg": 12.78,
+    "inr_current": 95.12
   }
 }
