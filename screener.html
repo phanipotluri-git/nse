@@ -160,9 +160,9 @@ td:nth-child(3){text-align:left}
           <th onclick="sortBy('signal')"  title="Signal">SIGNAL</th>
           <th onclick="sortBy('price')"   title="Price">PRICE</th>
           <th onclick="sortBy('quality')" title="Quality (0-3 filters passed)">Q</th>
-          <th onclick="sortBy('f1')"      title="F1: Monthly ST bullish">F1</th>
-          <th onclick="sortBy('f2')"      title="F2: Weekly RSI > 50">F2</th>
-          <th onclick="sortBy('f3')"      title="F3: Within 30% of 52W high">F3</th>
+          <th onclick="sortBy('f1')"      title="F1: Monthly ST bullish (long) / bearish (short)">F1</th>
+          <th onclick="sortBy('f2')"      title="F2: RSI > 50 (long) / RSI < 50 (short)">F2</th>
+          <th onclick="sortBy('f3')"      title="F3: Within 30% of 52W high (long) / Down 20%+ from 52W high (short)">F3</th>
           <th onclick="sortBy('rsi')"     title="RSI(14) weekly">RSI</th>
           <th onclick="sortBy('pct52w')"  title="% below 52-week high">52W%</th>
           <th onclick="sortBy('st25')"           title="SuperTrend(10,2.5) — trend judge">ST(2.5)</th>
@@ -178,10 +178,9 @@ td:nth-child(3){text-align:left}
 
   <div style="margin-top:16px;font-size:11px;color:var(--dim);line-height:2">
     <strong style="color:var(--text)">Columns:</strong>
-    Q = quality score (0–3) &nbsp;·&nbsp;
-    F1 = Monthly ST bullish &nbsp;·&nbsp;
-    F2 = RSI&gt;50 &nbsp;·&nbsp;
-    F3 = within 30% of 52W high<br>
+    Q = quality score (0–3, direction-aware) &nbsp;·&nbsp;
+    <strong>Long:</strong> F1=Monthly ST bull · F2=RSI&gt;50 · F3=within 30% of 52W high &nbsp;·&nbsp;
+    <strong>Short:</strong> F1=Monthly ST bear · F2=RSI&lt;50 · F3=down 20%+ from 52W high<br>
     <strong style="color:var(--text)">Badges:</strong>
     <span class="tbadge tbadge-nifty100">N100</span> Nifty 100 &nbsp;·&nbsp;
     <span class="tbadge tbadge-fo">F&O</span> F&amp;O stocks beyond Nifty 100 &nbsp;·&nbsp;

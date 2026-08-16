@@ -102,8 +102,15 @@ INSTRUMENTS = [
     {"symbol": "^CNXENERGY",  "name": "Nifty Energy",   "type": "index", "currency": "₹"},
     {"symbol": "^CNXINFRA",   "name": "Nifty Infra",    "type": "index", "currency": "₹"},
     {"symbol": "^NSMIDCP",    "name": "Nifty Midcap",   "type": "index", "currency": "₹"},
-    {"symbol": "^CNXPSUBANK", "name": "Nifty PSU Bank", "type": "index", "currency": "₹"},
-    {"symbol": "^CNXFINANCE", "name": "Nifty Finance",  "type": "index", "currency": "₹"},
+    {"symbol": "^CNXPSUBANK",   "name": "Nifty PSU Bank",  "type": "index", "currency": "₹"},
+    {"symbol": "^CNXFINANCE",   "name": "Nifty Finance",   "type": "index", "currency": "₹"},
+    {"symbol": "^CNX100",       "name": "Nifty 100",       "type": "index", "currency": "₹"},
+    {"symbol": "^CNXSMALLCAP",  "name": "Nifty Smallcap",  "type": "index", "currency": "₹"},
+    {"symbol": "^CNXMEDIA",     "name": "Nifty Media",     "type": "index", "currency": "₹"},
+    {"symbol": "^CNXSERVICE",   "name": "Nifty Services",  "type": "index", "currency": "₹"},
+    {"symbol": "^CNXOILGAS",    "name": "Nifty Oil & Gas", "type": "index", "currency": "₹"},
+    {"symbol": "^CNXCMDT",      "name": "Nifty Commodities","type": "index","currency": "₹"},
+    {"symbol": "^CNXHEALTHCARE","name": "Nifty Healthcare", "type": "index", "currency": "₹"},
     # ── US Indices ───────────────────────────────────────────────────────────
     {"symbol": "^GSPC",       "name": "S&P 500",        "type": "us-index", "currency": "$"},
     {"symbol": "^NDX",        "name": "NASDAQ 100",     "type": "us-index", "currency": "$"},
@@ -161,8 +168,8 @@ def classify(d20,d25,dm,rsi_v,pct52):
     if len(d20)<2 or len(d25)<2: return "BEARISH",0,False,False,False
     c20,p20=int(d20[-1]),int(d20[-2]); c25,p25=int(d25[-1]),int(d25[-2])
     cm=int(dm[-1]) if len(dm)>0 else -1
-    f1=cm==1; f2=float(rsi_v)>50 if not np.isnan(rsi_v) else False
-    f3=float(pct52)<=30.0; fc=int(f1)+int(f2)+int(f3)
+    rsi=float(rsi_v) if not np.isnan(rsi_v) else 50.0
+    pct=float(pct52)
     fresh=c25==1 and p25==-1; bear25=c25==-1 and p25==1
     bull20=c20==1 and p20==-1; bear20=c20==-1 and p20==1
     # ── Bullish hierarchy ────────────────────────────────────────────────────────
@@ -177,6 +184,12 @@ def classify(d20,d25,dm,rsi_v,pct52):
     elif bull20 and c25==-1: sig="SHORT COVER"      # ST2.5 bear, ST2.0 just flipped bull
     elif c25==-1 and c20==1: sig="SHORT READY"      # ST2.5 bear, ST2.0 still bull (bounce)
     else:                    sig="BEARISH"           # both bearish — established downtrend
+    # ── Quality filters (direction-aware) ────────────────────────────────────────
+    if c25==1:   # bullish: monthly ST bull, RSI>50, within 30% of 52W high
+        f1=cm==1; f2=rsi>50; f3=pct<=30.0
+    else:        # bearish: monthly ST bear, RSI<50, at least 20% off 52W high
+        f1=cm==-1; f2=rsi<50; f3=pct>=20.0
+    fc=int(f1)+int(f2)+int(f3)
     return sig,fc,f1,f2,f3
 
 # ── Analyse any OHLC series (stocks + instruments) ───────────────────────────
