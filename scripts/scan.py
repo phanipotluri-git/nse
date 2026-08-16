@@ -154,8 +154,8 @@ def calc_rsi(close,p=14):
     rs=g.rolling(p).mean()/ls.rolling(p).mean().replace(0,np.nan)
     return (100-100/(1+rs)).values
 
-RANK={"FRESH ENTRY":0,"RE-ENTRY":1,"RE-ENTRY READY":2,
-      "BULLISH":3,"SOFT EXIT":4,"TREND BROKEN":5,"BEARISH":6}
+RANK={"FRESH ENTRY":0,"RE-ENTRY":1,"RE-ENTRY READY":2,"BULLISH":3,"SOFT EXIT":4,
+      "FRESH SHORT":5,"SHORT RE-ENTRY":6,"SHORT READY":7,"BEARISH":8,"SHORT COVER":9}
 
 def classify(d20,d25,dm,rsi_v,pct52):
     if len(d20)<2 or len(d25)<2: return "BEARISH",0,False,False,False
@@ -163,15 +163,20 @@ def classify(d20,d25,dm,rsi_v,pct52):
     cm=int(dm[-1]) if len(dm)>0 else -1
     f1=cm==1; f2=float(rsi_v)>50 if not np.isnan(rsi_v) else False
     f3=float(pct52)<=30.0; fc=int(f1)+int(f2)+int(f3)
-    fresh=c25==1 and p25==-1; bull20=c20==1 and p20==-1
-    bear20=c20==-1 and p20==1; bear25=c25==-1 and p25==1
-    if   fresh:              sig="FRESH ENTRY"
-    elif bear25:             sig="TREND BROKEN"
-    elif bull20 and c25==1:  sig="RE-ENTRY"
-    elif bear20 and c25==1:  sig="SOFT EXIT"
-    elif c25==1 and c20==1:  sig="BULLISH"
-    elif c25==1 and c20==-1: sig="RE-ENTRY READY"
-    else:                    sig="BEARISH"
+    fresh=c25==1 and p25==-1; bear25=c25==-1 and p25==1
+    bull20=c20==1 and p20==-1; bear20=c20==-1 and p20==1
+    # ── Bullish hierarchy ────────────────────────────────────────────────────────
+    if   fresh:              sig="FRESH ENTRY"      # ST2.5 just flipped bullish
+    elif bull20 and c25==1:  sig="RE-ENTRY"         # ST2.5 bull, ST2.0 just flipped bull
+    elif bear20 and c25==1:  sig="SOFT EXIT"        # ST2.5 bull, ST2.0 just flipped bear
+    elif c25==1 and c20==1:  sig="BULLISH"          # both bullish — established uptrend
+    elif c25==1 and c20==-1: sig="RE-ENTRY READY"   # ST2.5 bull, ST2.0 still bear (pullback)
+    # ── Bearish hierarchy (mirror) ───────────────────────────────────────────────
+    elif bear25:             sig="FRESH SHORT"      # ST2.5 just flipped bearish
+    elif bear20 and c25==-1: sig="SHORT RE-ENTRY"   # ST2.5 bear, ST2.0 just flipped bear
+    elif bull20 and c25==-1: sig="SHORT COVER"      # ST2.5 bear, ST2.0 just flipped bull
+    elif c25==-1 and c20==1: sig="SHORT READY"      # ST2.5 bear, ST2.0 still bull (bounce)
+    else:                    sig="BEARISH"           # both bearish — established downtrend
     return sig,fc,f1,f2,f3
 
 # ── Analyse any OHLC series (stocks + instruments) ───────────────────────────
