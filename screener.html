@@ -39,7 +39,7 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .pill .cnt{opacity:.6;margin-left:4px}
 
 /* Type pill colors when active */
-.pill.type-nifty100.active {border-color:var(--text);color:var(--text)}
+.pill.type-nifty100.active {border-color:var(--cyan);color:var(--cyan)}
 .pill.type-fo.active       {border-color:#9c7ef5;color:#9c7ef5}
 .pill.type-n500.active     {border-color:#7fd77a;color:#7fd77a}
 .pill.type-index.active    {border-color:var(--cyan);color:var(--cyan)}
@@ -59,6 +59,7 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 /* Type badges */
 .tbadge{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px;vertical-align:middle}
 .tbadge-stock   {color:var(--dim)}
+.tbadge-nifty100 {background:rgba(0,188,212,.12);color:var(--cyan)}
 .tbadge-fo       {background:rgba(156,126,245,.15);color:#9c7ef5}
 .tbadge-n500     {background:rgba(127,215,122,.15);color:#7fd77a}
 .tbadge-index    {background:rgba(0,188,212,.12);color:var(--cyan)}
@@ -175,6 +176,7 @@ td:nth-child(3){text-align:left}
     F2 = RSI&gt;50 &nbsp;·&nbsp;
     F3 = within 30% of 52W high<br>
     <strong style="color:var(--text)">Badges:</strong>
+    <span class="tbadge tbadge-nifty100">N100</span> Nifty 100 &nbsp;·&nbsp;
     <span class="tbadge tbadge-fo">F&O</span> F&amp;O stocks beyond Nifty 100 &nbsp;·&nbsp;
     <span class="tbadge tbadge-n500">N500</span> Nifty 500 midcaps beyond F&O &nbsp;·&nbsp;
     <span class="tbadge tbadge-index">INDEX</span> NSE indices &nbsp;·&nbsp;
@@ -202,8 +204,8 @@ const SIG_CLASS={
   "BULLISH":"sig-BULLISH","SOFT EXIT":"sig-SOFT","TREND BROKEN":"sig-BROKEN","BEARISH":"sig-BEARISH"
 };
 const TYPE_ORDER={nifty100:0,fo:1,n500:2,index:3,'us-index':4,currency:5,commodity:6};
-const TYPE_LABEL={nifty100:'',fo:'F&O',n500:'N500',index:'INDEX','us-index':'US IDX',currency:'FX',commodity:'CMDTY'};
-const TYPE_CLASS={nifty100:'',fo:'tbadge-fo',n500:'tbadge-n500',index:'tbadge-index','us-index':'tbadge-us-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
+const TYPE_LABEL={nifty100:'N100',fo:'F&O',n500:'N500',index:'INDEX','us-index':'US IDX',currency:'FX',commodity:'CMDTY'};
+const TYPE_CLASS={nifty100:'tbadge-nifty100',fo:'tbadge-fo',n500:'tbadge-n500',index:'tbadge-index','us-index':'tbadge-us-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
 
 function typeKey(r){return r.type==='stock'?(r.segment||'nifty100'):r.type;}
 
