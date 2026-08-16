@@ -1,18 +1,18 @@
 {
-  "scan_time": "16 Aug 2026  19:34 IST",
-  "total_scanned": 207,
-  "total_instruments": 19,
-  "n100_count": 97,
-  "fo_count": 171,
-  "n500_count": 207,
+  "scan_time": "16 Aug 2026  19:51 IST",
+  "total_scanned": 208,
+  "total_instruments": 34,
+  "n100_count": 98,
+  "fo_count": 172,
+  "n500_count": 208,
   "counts": {
-    "FRESH ENTRY": 5,
-    "RE-ENTRY READY": 13,
-    "BULLISH": 116,
+    "FRESH ENTRY": 6,
+    "RE-ENTRY READY": 14,
+    "BULLISH": 126,
     "SOFT EXIT": 7,
     "FRESH SHORT": 4,
-    "SHORT READY": 15,
-    "BEARISH": 63,
+    "SHORT READY": 17,
+    "BEARISH": 65,
     "SHORT COVER": 3
   },
   "results": [
@@ -27,14 +27,36 @@
       "f3": true,
       "rsi": 60.3,
       "pct52w": 9.5,
-      "st25": 1801.65,
-      "st20": 1846.39,
+      "st25": 1800.12,
+      "st20": 1845.17,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "CAPGDS"
+    },
+    {
+      "symbol": "Nifty Auto",
+      "price": 29207.9,
+      "signal": "FRESH ENTRY",
+      "rank": 0,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 68.7,
+      "pct52w": 0.4,
+      "st25": 26598.24,
+      "st20": 27122.4,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 1,
+      "sector": null
     },
     {
       "symbol": "BRIGADE",
@@ -54,7 +76,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "REALTY"
     },
     {
       "symbol": "MPHASIS",
@@ -74,7 +97,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "IT"
     },
     {
       "symbol": "PERSISTENT",
@@ -85,7 +109,7 @@
       "f1": false,
       "f2": true,
       "f3": true,
-      "rsi": 59.6,
+      "rsi": 59.8,
       "pct52w": 14.8,
       "st25": 4561.41,
       "st20": 4749.98,
@@ -94,7 +118,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "IT"
     },
     {
       "symbol": "HAPPSTMNDS",
@@ -107,14 +132,15 @@
       "f3": false,
       "rsi": 59.9,
       "pct52w": 32.8,
-      "st25": 322.86,
-      "st20": 339.41,
+      "st25": 322.4,
+      "st20": 339.04,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "IT"
     },
     {
       "symbol": "MOTILALOFS",
@@ -134,7 +160,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "FIN"
     },
     {
       "symbol": "NUVAMA",
@@ -154,7 +181,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FIN"
     },
     {
       "symbol": "Philadelphia SE",
@@ -168,13 +196,14 @@
       "rsi": 53.5,
       "pct52w": 15.3,
       "st25": 10928.14,
-      "st20": 14088.64,
+      "st20": 14097.61,
       "dir25": 1,
       "dir20": -1,
       "type": "us-index",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 66
+      "signal_age_wks": 66,
+      "sector": null
     },
     {
       "symbol": "ANGELONE",
@@ -194,7 +223,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "FIN"
     },
     {
       "symbol": "CESC",
@@ -214,7 +244,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "ENERGY"
     },
     {
       "symbol": "EUR/INR",
@@ -234,7 +265,29 @@
       "type": "currency",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 76
+      "signal_age_wks": 76,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty PSE",
+      "price": 9844.95,
+      "signal": "RE-ENTRY READY",
+      "rank": 2,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 28.4,
+      "pct52w": 9.2,
+      "st25": 9741.65,
+      "st20": 10390.82,
+      "dir25": 1,
+      "dir20": -1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 43,
+      "sector": null
     },
     {
       "symbol": "TATACONSUM",
@@ -254,7 +307,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 14
+      "signal_age_wks": 14,
+      "sector": "FMCG"
     },
     {
       "symbol": "CBOE VIX",
@@ -268,13 +322,14 @@
       "rsi": 45.0,
       "pct52w": 59.6,
       "st25": 13.82,
-      "st20": 22.42,
+      "st20": 22.79,
       "dir25": 1,
       "dir20": -1,
       "type": "us-index",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": null
     },
     {
       "symbol": "CHAMBLFERT",
@@ -294,7 +349,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "CHEM"
     },
     {
       "symbol": "DABUR",
@@ -305,7 +361,7 @@
       "f1": false,
       "f2": false,
       "f3": true,
-      "rsi": 18.7,
+      "rsi": 20.1,
       "pct52w": 28.5,
       "st25": 395.69,
       "st20": 446.44,
@@ -314,7 +370,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FMCG"
     },
     {
       "symbol": "LICHSGFIN",
@@ -334,7 +391,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FIN"
     },
     {
       "symbol": "TIINDIA",
@@ -354,7 +412,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 25
+      "signal_age_wks": 25,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "TRENT",
@@ -368,13 +427,14 @@
       "rsi": 54.8,
       "pct52w": 47.4,
       "st25": 2821.8,
-      "st20": 3309.63,
+      "st20": 3310.05,
       "dir25": 1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "CONSUM"
     },
     {
       "symbol": "ABCAPITAL",
@@ -387,14 +447,15 @@
       "f3": true,
       "rsi": 68.2,
       "pct52w": 6.9,
-      "st25": 359.44,
-      "st20": 371.09,
+      "st25": 359.06,
+      "st20": 370.79,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 12
+      "signal_age_wks": 12,
+      "sector": "FIN"
     },
     {
       "symbol": "ADANIENT",
@@ -414,7 +475,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "INFRA"
     },
     {
       "symbol": "AIAENG",
@@ -434,7 +496,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 12
+      "signal_age_wks": 12,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "APOLLOHOSP",
@@ -447,14 +510,15 @@
       "f3": true,
       "rsi": 77.0,
       "pct52w": 1.3,
-      "st25": 8169.11,
-      "st20": 8314.22,
+      "st25": 8150.26,
+      "st20": 8299.14,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 25
+      "signal_age_wks": 25,
+      "sector": "HLTH"
     },
     {
       "symbol": "ATGL",
@@ -474,7 +538,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "OIL"
     },
     {
       "symbol": "AUBANK",
@@ -494,7 +559,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "BANK"
     },
     {
       "symbol": "AUROPHARMA",
@@ -514,7 +580,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 40
+      "signal_age_wks": 40,
+      "sector": "PHARMA"
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -527,14 +594,15 @@
       "f3": true,
       "rsi": 68.0,
       "pct52w": 1.4,
-      "st25": 10521.88,
-      "st20": 10764.5,
+      "st25": 10530.38,
+      "st20": 10771.3,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "AUTO"
     },
     {
       "symbol": "BAJFINANCE",
@@ -554,7 +622,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 7
+      "signal_age_wks": 7,
+      "sector": "FIN"
     },
     {
       "symbol": "BERGEPAINT",
@@ -574,7 +643,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": "CONSUM"
     },
     {
       "symbol": "BHEL",
@@ -594,7 +664,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "BIOCON",
@@ -605,7 +676,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 63.4,
+      "rsi": 63.3,
       "pct52w": 6.7,
       "st25": 377.47,
       "st20": 388.87,
@@ -614,7 +685,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 14
+      "signal_age_wks": 14,
+      "sector": "PHARMA"
     },
     {
       "symbol": "BOSCHLTD",
@@ -625,16 +697,17 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 77.5,
+      "rsi": 79.1,
       "pct52w": 0.5,
-      "st25": 38946.34,
-      "st20": 40150.57,
+      "st25": 38992.24,
+      "st20": 40187.29,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": null
     },
     {
       "symbol": "CARBORUNIV",
@@ -654,7 +727,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "CGPOWER",
@@ -674,7 +748,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 28
+      "signal_age_wks": 28,
+      "sector": null
     },
     {
       "symbol": "CHOLAFIN",
@@ -685,16 +760,17 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 64.7,
+      "rsi": 64.8,
       "pct52w": 3.0,
-      "st25": 1613.43,
-      "st20": 1671.93,
+      "st25": 1613.68,
+      "st20": 1672.13,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FIN"
     },
     {
       "symbol": "COFORGE",
@@ -714,7 +790,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 11
+      "signal_age_wks": 11,
+      "sector": "IT"
     },
     {
       "symbol": "CUMMINSIND",
@@ -734,7 +811,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 26
+      "signal_age_wks": 26,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "Copper",
@@ -754,7 +832,8 @@
       "type": "commodity",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 37
+      "signal_age_wks": 37,
+      "sector": null
     },
     {
       "symbol": "DIVISLAB",
@@ -774,7 +853,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 13
+      "signal_age_wks": 13,
+      "sector": "PHARMA"
     },
     {
       "symbol": "Dow Jones",
@@ -787,14 +867,15 @@
       "f3": true,
       "rsi": 78.9,
       "pct52w": 1.8,
-      "st25": 50803.67,
-      "st20": 51427.47,
+      "st25": 50848.09,
+      "st20": 51463.0,
       "dir25": 1,
       "dir20": 1,
       "type": "us-index",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": null
     },
     {
       "symbol": "EICHERMOT",
@@ -807,14 +888,15 @@
       "f3": true,
       "rsi": 68.9,
       "pct52w": 1.0,
-      "st25": 7168.6,
-      "st20": 7342.98,
+      "st25": 7147.44,
+      "st20": 7326.05,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": "AUTO"
     },
     {
       "symbol": "ELGIEQUIP",
@@ -834,7 +916,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 27
+      "signal_age_wks": 27,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "EQUITASBNK",
@@ -854,7 +937,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "BANK"
     },
     {
       "symbol": "EXIDEIND",
@@ -874,7 +958,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": "AUTO"
     },
     {
       "symbol": "FEDERALBNK",
@@ -887,14 +972,15 @@
       "f3": true,
       "rsi": 79.1,
       "pct52w": 5.2,
-      "st25": 322.2,
-      "st20": 329.77,
+      "st25": 322.07,
+      "st20": 329.67,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 63
+      "signal_age_wks": 63,
+      "sector": "BANK"
     },
     {
       "symbol": "GMRAIRPORT",
@@ -914,7 +1000,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "INFRA"
     },
     {
       "symbol": "GNFC",
@@ -934,7 +1021,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "CHEM"
     },
     {
       "symbol": "GRANULES",
@@ -954,7 +1042,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 49
+      "signal_age_wks": 49,
+      "sector": "PHARMA"
     },
     {
       "symbol": "GRASIM",
@@ -974,7 +1063,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "CMDT"
     },
     {
       "symbol": "GRINDWELL",
@@ -994,7 +1084,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "HAL",
@@ -1014,7 +1105,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "HEROMOTOCO",
@@ -1034,7 +1126,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 3
+      "signal_age_wks": 3,
+      "sector": "AUTO"
     },
     {
       "symbol": "IDFCFIRSTB",
@@ -1054,7 +1147,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 10
+      "signal_age_wks": 10,
+      "sector": "BANK"
     },
     {
       "symbol": "IIFL",
@@ -1074,7 +1168,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "FIN"
     },
     {
       "symbol": "IPCALAB",
@@ -1094,7 +1189,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 32
+      "signal_age_wks": 32,
+      "sector": "PHARMA"
     },
     {
       "symbol": "JBCHEPHARM",
@@ -1114,7 +1210,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 37
+      "signal_age_wks": 37,
+      "sector": "PHARMA"
     },
     {
       "symbol": "KALYANKJIL",
@@ -1134,7 +1231,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 6
+      "signal_age_wks": 6,
+      "sector": "FMCG"
     },
     {
       "symbol": "LAURUSLABS",
@@ -1154,7 +1252,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "PHARMA"
     },
     {
       "symbol": "MANAPPURAM",
@@ -1165,7 +1264,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 60.0,
+      "rsi": 60.4,
       "pct52w": 8.5,
       "st25": 309.29,
       "st20": 321.05,
@@ -1174,7 +1273,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FIN"
     },
     {
       "symbol": "MARICO",
@@ -1185,7 +1285,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 63.8,
+      "rsi": 61.3,
       "pct52w": 2.7,
       "st25": 789.13,
       "st20": 805.41,
@@ -1194,7 +1294,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 81
+      "signal_age_wks": 81,
+      "sector": "FMCG"
     },
     {
       "symbol": "MOTHERSON",
@@ -1214,7 +1315,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 13
+      "signal_age_wks": 13,
+      "sector": "AUTO"
     },
     {
       "symbol": "NASDAQ 100",
@@ -1225,7 +1327,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 54.1,
+      "rsi": 54.2,
       "pct52w": 2.3,
       "st25": 26974.38,
       "st20": 27601.82,
@@ -1234,7 +1336,8 @@
       "type": "us-index",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": null
     },
     {
       "symbol": "NAUKRI",
@@ -1254,7 +1357,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 6
+      "signal_age_wks": 6,
+      "sector": "IT"
     },
     {
       "symbol": "NAVINFLUOR",
@@ -1274,7 +1378,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 114
+      "signal_age_wks": 114,
+      "sector": "PHARMA"
     },
     {
       "symbol": "NESTLEIND",
@@ -1287,14 +1392,15 @@
       "f3": true,
       "rsi": 53.0,
       "pct52w": 3.5,
-      "st25": 1346.99,
-      "st20": 1381.47,
+      "st25": 1343.72,
+      "st20": 1378.85,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "FMCG"
     },
     {
       "symbol": "NYKAA",
@@ -1305,16 +1411,80 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 76.4,
+      "rsi": 76.2,
       "pct52w": 4.9,
-      "st25": 294.32,
-      "st20": 303.03,
+      "st25": 295.27,
+      "st20": 303.79,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 68
+      "signal_age_wks": 68,
+      "sector": "CONSUM"
+    },
+    {
+      "symbol": "Nifty Consumption",
+      "price": 12142.85,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 68.1,
+      "pct52w": 4.5,
+      "st25": 11357.16,
+      "st20": 11512.89,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 12,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty MNC",
+      "price": 33626.45,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 68.2,
+      "pct52w": 0.6,
+      "st25": 31091.0,
+      "st20": 31616.31,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 15,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Metal",
+      "price": 12941.7,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 51.0,
+      "pct52w": 7.1,
+      "st25": 12105.01,
+      "st20": 12398.55,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 60,
+      "sector": null
     },
     {
       "symbol": "Nifty Midcap",
@@ -1334,7 +1504,8 @@
       "type": "index",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": null
     },
     {
       "symbol": "Nifty Pharma",
@@ -1354,7 +1525,29 @@
       "type": "index",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Realty",
+      "price": 895.65,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 3,
+      "f1": true,
+      "f2": true,
+      "f3": true,
+      "rsi": 64.5,
+      "pct52w": 8.1,
+      "st25": 797.9,
+      "st20": 822.37,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 15,
+      "sector": null
     },
     {
       "symbol": "OFSS",
@@ -1366,7 +1559,7 @@
       "f2": true,
       "f3": true,
       "rsi": 68.7,
-      "pct52w": 1.2,
+      "pct52w": 1.3,
       "st25": 9451.75,
       "st20": 9890.9,
       "dir25": 1,
@@ -1374,7 +1567,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "IT"
     },
     {
       "symbol": "PHOENIXLTD",
@@ -1385,7 +1579,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 53.7,
+      "rsi": 53.6,
       "pct52w": 12.9,
       "st25": 1813.3,
       "st20": 1873.53,
@@ -1394,7 +1588,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "REALTY"
     },
     {
       "symbol": "PIDILITIND",
@@ -1407,14 +1602,15 @@
       "f3": true,
       "rsi": 85.5,
       "pct52w": 0.8,
-      "st25": 1511.15,
-      "st20": 1544.95,
+      "st25": 1511.38,
+      "st20": 1545.13,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "CHEM"
     },
     {
       "symbol": "PNBHOUSING",
@@ -1427,14 +1623,15 @@
       "f3": true,
       "rsi": 58.3,
       "pct52w": 2.1,
-      "st25": 992.31,
-      "st20": 1024.9,
+      "st25": 991.17,
+      "st20": 1023.99,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "FIN"
     },
     {
       "symbol": "RBLBANK",
@@ -1447,14 +1644,15 @@
       "f3": true,
       "rsi": 63.3,
       "pct52w": 1.8,
-      "st25": 337.93,
-      "st20": 347.77,
+      "st25": 337.17,
+      "st20": 347.16,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 68
+      "signal_age_wks": 68,
+      "sector": "BANK"
     },
     {
       "symbol": "REDINGTON",
@@ -1474,7 +1672,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "CONSUM"
     },
     {
       "symbol": "Russell 2000",
@@ -1487,14 +1686,15 @@
       "f3": true,
       "rsi": 65.4,
       "pct52w": 0.0,
-      "st25": 2823.72,
-      "st20": 2867.26,
+      "st25": 2819.86,
+      "st20": 2864.17,
       "dir25": 1,
       "dir20": 1,
       "type": "us-index",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": null
     },
     {
       "symbol": "S&P 500",
@@ -1507,14 +1707,15 @@
       "f3": true,
       "rsi": 63.8,
       "pct52w": 0.4,
-      "st25": 7287.96,
-      "st20": 7383.77,
+      "st25": 7289.94,
+      "st20": 7385.35,
       "dir25": 1,
       "dir20": 1,
       "type": "us-index",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": null
     },
     {
       "symbol": "SBIN",
@@ -1534,7 +1735,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": "BANK"
     },
     {
       "symbol": "SHRIRAMFIN",
@@ -1554,7 +1756,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": "FIN"
     },
     {
       "symbol": "SIEMENS",
@@ -1574,7 +1777,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 25
+      "signal_age_wks": 25,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "SOLARINDS",
@@ -1587,14 +1791,15 @@
       "f3": true,
       "rsi": 71.2,
       "pct52w": 2.1,
-      "st25": 16109.12,
-      "st20": 16769.3,
+      "st25": 16098.13,
+      "st20": 16760.5,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "ENERGY"
     },
     {
       "symbol": "SONACOMS",
@@ -1614,7 +1819,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 43
+      "signal_age_wks": 43,
+      "sector": "AUTO"
     },
     {
       "symbol": "SUMICHEM",
@@ -1625,7 +1831,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 62.5,
+      "rsi": 62.3,
       "pct52w": 8.3,
       "st25": 437.14,
       "st20": 459.61,
@@ -1634,7 +1840,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "CHEM"
     },
     {
       "symbol": "SUNPHARMA",
@@ -1654,7 +1861,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "PHARMA"
     },
     {
       "symbol": "TATATECH",
@@ -1674,7 +1882,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "IT"
     },
     {
       "symbol": "TECHM",
@@ -1694,7 +1903,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 5
+      "signal_age_wks": 5,
+      "sector": "IT"
     },
     {
       "symbol": "TITAN",
@@ -1707,14 +1917,15 @@
       "f3": true,
       "rsi": 65.3,
       "pct52w": 2.2,
-      "st25": 4498.29,
-      "st20": 4604.05,
+      "st25": 4492.49,
+      "st20": 4599.41,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 67
+      "signal_age_wks": 67,
+      "sector": "CONSUM"
     },
     {
       "symbol": "TORNTPHARM",
@@ -1727,14 +1938,15 @@
       "f3": true,
       "rsi": 63.3,
       "pct52w": 7.9,
-      "st25": 4394.33,
-      "st20": 4530.56,
+      "st25": 4387.35,
+      "st20": 4524.98,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 57
+      "signal_age_wks": 57,
+      "sector": "PHARMA"
     },
     {
       "symbol": "TVSMOTOR",
@@ -1747,25 +1959,26 @@
       "f3": true,
       "rsi": 67.8,
       "pct52w": 3.8,
-      "st25": 3819.65,
-      "st20": 3932.93,
+      "st25": 3812.98,
+      "st20": 3927.59,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 3
+      "signal_age_wks": 3,
+      "sector": "AUTO"
     },
     {
       "symbol": "USD/INR",
-      "price": 95.43,
+      "price": 95.42,
       "signal": "BULLISH",
       "rank": 3,
       "quality": 3,
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 56.5,
+      "rsi": 56.4,
       "pct52w": 1.7,
       "st25": 92.56,
       "st20": 93.12,
@@ -1774,7 +1987,8 @@
       "type": "currency",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 66
+      "signal_age_wks": 66,
+      "sector": null
     },
     {
       "symbol": "ZEEL",
@@ -1794,7 +2008,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "MEDIA"
     },
     {
       "symbol": "ZYDUSLIFE",
@@ -1814,7 +2029,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 14
+      "signal_age_wks": 14,
+      "sector": "PHARMA"
     },
     {
       "symbol": "ADANIGREEN",
@@ -1834,7 +2050,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "ENERGY"
     },
     {
       "symbol": "ADANIPORTS",
@@ -1854,7 +2071,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 28
+      "signal_age_wks": 28,
+      "sector": "INFRA"
     },
     {
       "symbol": "ASIANPAINT",
@@ -1874,7 +2092,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "CONSUM"
     },
     {
       "symbol": "BAJAJFINSV",
@@ -1894,7 +2113,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 7
+      "signal_age_wks": 7,
+      "sector": "FIN"
     },
     {
       "symbol": "BAJAJHLDNG",
@@ -1905,16 +2125,17 @@
       "f1": false,
       "f2": true,
       "f3": true,
-      "rsi": 62.4,
+      "rsi": 62.9,
       "pct52w": 20.9,
-      "st25": 9881.97,
-      "st20": 10194.18,
+      "st25": 9929.47,
+      "st20": 10232.18,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FIN"
     },
     {
       "symbol": "BALKRISIND",
@@ -1934,7 +2155,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 3
+      "signal_age_wks": 3,
+      "sector": "AUTO"
     },
     {
       "symbol": "Bank Nifty",
@@ -1947,14 +2169,15 @@
       "f3": true,
       "rsi": 60.9,
       "pct52w": 6.9,
-      "st25": 53772.94,
-      "st20": 54552.95,
+      "st25": 53781.97,
+      "st20": 54560.18,
       "dir25": 1,
       "dir20": 1,
       "type": "index",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": null
     },
     {
       "symbol": "CDSL",
@@ -1974,7 +2197,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 6
+      "signal_age_wks": 6,
+      "sector": "FIN"
     },
     {
       "symbol": "CIPLA",
@@ -1994,7 +2218,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 14
+      "signal_age_wks": 14,
+      "sector": "PHARMA"
     },
     {
       "symbol": "DELHIVERY",
@@ -2014,7 +2239,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "CONSUM"
     },
     {
       "symbol": "DIXON",
@@ -2034,7 +2260,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "DLF",
@@ -2054,7 +2281,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "REALTY"
     },
     {
       "symbol": "FINEORG",
@@ -2074,7 +2302,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 25
+      "signal_age_wks": 25,
+      "sector": "CHEM"
     },
     {
       "symbol": "GAIL",
@@ -2094,7 +2323,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "OIL"
     },
     {
       "symbol": "GLENMARK",
@@ -2107,14 +2337,15 @@
       "f3": true,
       "rsi": 46.5,
       "pct52w": 6.3,
-      "st25": 2034.55,
-      "st20": 2086.3,
+      "st25": 2029.38,
+      "st20": 2082.16,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 25
+      "signal_age_wks": 25,
+      "sector": "PHARMA"
     },
     {
       "symbol": "GODREJPROP",
@@ -2134,7 +2365,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": "REALTY"
     },
     {
       "symbol": "HCLTECH",
@@ -2154,7 +2386,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 4
+      "signal_age_wks": 4,
+      "sector": "IT"
     },
     {
       "symbol": "ICICIBANK",
@@ -2174,7 +2407,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 8
+      "signal_age_wks": 8,
+      "sector": "BANK"
     },
     {
       "symbol": "INDUSINDBK",
@@ -2194,7 +2428,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": "BANK"
     },
     {
       "symbol": "JSWSTEEL",
@@ -2214,7 +2449,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 10
+      "signal_age_wks": 10,
+      "sector": "METAL"
     },
     {
       "symbol": "JUBLFOOD",
@@ -2234,7 +2470,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": "CONSUM"
     },
     {
       "symbol": "KOTAKBANK",
@@ -2254,7 +2491,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 8
+      "signal_age_wks": 8,
+      "sector": "BANK"
     },
     {
       "symbol": "KRBL",
@@ -2274,7 +2512,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FMCG"
     },
     {
       "symbol": "LICI",
@@ -2294,7 +2533,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "FIN"
     },
     {
       "symbol": "M&M",
@@ -2314,7 +2554,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": null
     },
     {
       "symbol": "METROPOLIS",
@@ -2327,14 +2568,15 @@
       "f3": true,
       "rsi": 49.4,
       "pct52w": 10.4,
-      "st25": 492.62,
-      "st20": 511.76,
+      "st25": 496.96,
+      "st20": 515.97,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "PHARMA"
     },
     {
       "symbol": "NIACL",
@@ -2354,7 +2596,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "FIN"
     },
     {
       "symbol": "NMDC",
@@ -2374,7 +2617,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 50
+      "signal_age_wks": 50,
+      "sector": "METAL"
     },
     {
       "symbol": "Nifty 100",
@@ -2394,7 +2638,92 @@
       "type": "index",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 3
+      "signal_age_wks": 3,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty 200",
+      "price": 14162.2,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 56.5,
+      "pct52w": 3.7,
+      "st25": 13469.54,
+      "st20": 13616.31,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 15,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Commodities",
+      "price": 9822.75,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 40.4,
+      "pct52w": 7.1,
+      "st25": 9494.91,
+      "st20": 9679.18,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 63,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Energy",
+      "price": 38554.2,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 48.2,
+      "pct52w": 7.8,
+      "st25": 37168.55,
+      "st20": 37956.44,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 23,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty FMCG",
+      "price": 48615.05,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": true,
+      "f2": false,
+      "f3": true,
+      "rsi": 43.4,
+      "pct52w": 16.9,
+      "st25": 46716.54,
+      "st20": 47646.21,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 14,
+      "sector": null
     },
     {
       "symbol": "Nifty IT",
@@ -2414,7 +2743,29 @@
       "type": "index",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Media",
+      "price": 1590.1,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 68.6,
+      "pct52w": 5.1,
+      "st25": 1410.0,
+      "st20": 1444.52,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 8,
+      "sector": null
     },
     {
       "symbol": "OBEROIRLTY",
@@ -2425,16 +2776,17 @@
       "f1": false,
       "f2": true,
       "f3": true,
-      "rsi": 59.1,
-      "pct52w": 7.1,
-      "st25": 1628.72,
-      "st20": 1683.65,
+      "rsi": 59.2,
+      "pct52w": 7.0,
+      "st25": 1626.96,
+      "st20": 1681.84,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "REALTY"
     },
     {
       "symbol": "PNB",
@@ -2454,7 +2806,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": "BANK"
     },
     {
       "symbol": "POLICYBZR",
@@ -2474,7 +2827,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 13
+      "signal_age_wks": 13,
+      "sector": "FIN"
     },
     {
       "symbol": "PRESTIGE",
@@ -2494,7 +2848,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "REALTY"
     },
     {
       "symbol": "SUDARSCHEM",
@@ -2505,16 +2860,38 @@
       "f1": false,
       "f2": true,
       "f3": true,
-      "rsi": 62.1,
+      "rsi": 61.9,
       "pct52w": 29.9,
-      "st25": 883.96,
-      "st20": 925.32,
+      "st25": 884.46,
+      "st20": 925.71,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 13
+      "signal_age_wks": 13,
+      "sector": "CHEM"
+    },
+    {
+      "symbol": "TCS",
+      "price": 2361.0,
+      "signal": "BULLISH",
+      "rank": 3,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 50.6,
+      "pct52w": 28.2,
+      "st25": 2037.21,
+      "st20": 2113.99,
+      "dir25": 1,
+      "dir20": 1,
+      "type": "stock",
+      "currency": "\u20b9",
+      "segment": "nifty100",
+      "signal_age_wks": 2,
+      "sector": "IT"
     },
     {
       "symbol": "CAMS",
@@ -2534,7 +2911,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FIN"
     },
     {
       "symbol": "COLPAL",
@@ -2547,14 +2925,15 @@
       "f3": true,
       "rsi": 32.8,
       "pct52w": 19.1,
-      "st25": 1862.02,
-      "st20": 1915.69,
+      "st25": 1886.7,
+      "st20": 1938.72,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "FMCG"
     },
     {
       "symbol": "CONCOR",
@@ -2574,7 +2953,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "INFRA"
     },
     {
       "symbol": "DEEPAKNTR",
@@ -2588,13 +2968,14 @@
       "rsi": 40.4,
       "pct52w": 9.1,
       "st25": 1511.02,
-      "st20": 1543.77,
+      "st20": 1541.33,
       "dir25": 1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "CHEM"
     },
     {
       "symbol": "HDFCAMC",
@@ -2614,7 +2995,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 18
+      "signal_age_wks": 18,
+      "sector": "FIN"
     },
     {
       "symbol": "KANSAINER",
@@ -2634,7 +3016,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FMCG"
     },
     {
       "symbol": "MGL",
@@ -2654,7 +3037,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "OIL"
     },
     {
       "symbol": "NOCIL",
@@ -2674,7 +3058,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 21
+      "signal_age_wks": 21,
+      "sector": "CHEM"
     },
     {
       "symbol": "TATACHEM",
@@ -2685,7 +3070,7 @@
       "f1": false,
       "f2": false,
       "f3": false,
-      "rsi": 32.4,
+      "rsi": 32.8,
       "pct52w": 33.7,
       "st25": 630.52,
       "st20": 664.75,
@@ -2694,7 +3079,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": "CHEM"
     },
     {
       "symbol": "TATACOMM",
@@ -2708,13 +3094,14 @@
       "rsi": 60.0,
       "pct52w": 18.6,
       "st25": 1665.87,
-      "st20": 1953.87,
+      "st20": 1971.67,
       "dir25": 1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 14
+      "signal_age_wks": 14,
+      "sector": "IT"
     },
     {
       "symbol": "COALINDIA",
@@ -2734,7 +3121,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 34
+      "signal_age_wks": 34,
+      "sector": "METAL"
     },
     {
       "symbol": "PAGEIND",
@@ -2754,7 +3142,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "FMCG"
     },
     {
       "symbol": "SPARC",
@@ -2774,7 +3163,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 19
+      "signal_age_wks": 19,
+      "sector": "PHARMA"
     },
     {
       "symbol": "TRITURBINE",
@@ -2794,7 +3184,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "CROMPTON",
@@ -2808,13 +3199,14 @@
       "rsi": 32.2,
       "pct52w": 25.5,
       "st25": 238.32,
-      "st20": 279.72,
+      "st20": 280.6,
       "dir25": 1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 27
+      "signal_age_wks": 27,
+      "sector": "CONSUM"
     },
     {
       "symbol": "SOBHA",
@@ -2834,7 +3226,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 6
+      "signal_age_wks": 6,
+      "sector": "REALTY"
     },
     {
       "symbol": "NBCC",
@@ -2854,7 +3247,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "INFRA"
     },
     {
       "symbol": "PFC",
@@ -2874,7 +3268,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "FIN"
     },
     {
       "symbol": "AXISBANK",
@@ -2894,7 +3289,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "BANK"
     },
     {
       "symbol": "LUPIN",
@@ -2905,7 +3301,7 @@
       "f1": false,
       "f2": true,
       "f3": false,
-      "rsi": 40.9,
+      "rsi": 41.0,
       "pct52w": 11.6,
       "st25": 2501.49,
       "st20": 2508.69,
@@ -2914,7 +3310,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 1
+      "signal_age_wks": 1,
+      "sector": "PHARMA"
     },
     {
       "symbol": "EIHOTEL",
@@ -2934,7 +3331,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 31
+      "signal_age_wks": 31,
+      "sector": "HLTH"
     },
     {
       "symbol": "HINDUNILVR",
@@ -2954,7 +3352,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 37
+      "signal_age_wks": 37,
+      "sector": "FMCG"
     },
     {
       "symbol": "IEX",
@@ -2974,7 +3373,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 56
+      "signal_age_wks": 56,
+      "sector": "ENERGY"
     },
     {
       "symbol": "JKCEMENT",
@@ -2994,7 +3394,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 41
+      "signal_age_wks": 41,
+      "sector": "CMDT"
     },
     {
       "symbol": "KAYNES",
@@ -3014,7 +3415,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 14
+      "signal_age_wks": 14,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "LTTS",
@@ -3034,7 +3436,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 31
+      "signal_age_wks": 31,
+      "sector": "IT"
     },
     {
       "symbol": "RECLTD",
@@ -3054,7 +3457,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 21
+      "signal_age_wks": 21,
+      "sector": "FIN"
     },
     {
       "symbol": "ULTRACEMCO",
@@ -3074,7 +3478,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 23
+      "signal_age_wks": 23,
+      "sector": "CMDT"
     },
     {
       "symbol": "APOLLOTYRE",
@@ -3088,13 +3493,14 @@
       "rsi": 61.1,
       "pct52w": 16.8,
       "st25": 450.18,
-      "st20": 396.41,
+      "st20": 395.74,
       "dir25": -1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 26
+      "signal_age_wks": 26,
+      "sector": "AUTO"
     },
     {
       "symbol": "ASHOKLEY",
@@ -3114,7 +3520,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 23
+      "signal_age_wks": 23,
+      "sector": "AUTO"
     },
     {
       "symbol": "HAVELLS",
@@ -3128,13 +3535,14 @@
       "rsi": 59.9,
       "pct52w": 19.3,
       "st25": 1300.78,
-      "st20": 1175.57,
+      "st20": 1177.47,
       "dir25": -1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 95
+      "signal_age_wks": 95,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "MARUTI",
@@ -3145,16 +3553,17 @@
       "f1": true,
       "f2": false,
       "f3": false,
-      "rsi": 52.9,
+      "rsi": 53.0,
       "pct52w": 19.6,
       "st25": 14578.34,
-      "st20": 12705.7,
+      "st20": 12725.1,
       "dir25": -1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 30
+      "signal_age_wks": 30,
+      "sector": "AUTO"
     },
     {
       "symbol": "Nifty 50",
@@ -3174,7 +3583,29 @@
       "type": "index",
       "currency": "\u20b9",
       "segment": null,
-      "signal_age_wks": 30
+      "signal_age_wks": 30,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Services",
+      "price": 31128.25,
+      "signal": "SHORT READY",
+      "rank": 7,
+      "quality": 1,
+      "f1": false,
+      "f2": true,
+      "f3": false,
+      "rsi": 48.5,
+      "pct52w": 9.9,
+      "st25": 31613.45,
+      "st20": 29580.74,
+      "dir25": -1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 22,
+      "sector": null
     },
     {
       "symbol": "SRF",
@@ -3194,7 +3625,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 30
+      "signal_age_wks": 30,
+      "sector": "CHEM"
     },
     {
       "symbol": "BHARTIARTL",
@@ -3214,7 +3646,29 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 25
+      "signal_age_wks": 25,
+      "sector": null
+    },
+    {
+      "symbol": "Nifty Infra",
+      "price": 9419.1,
+      "signal": "SHORT READY",
+      "rank": 7,
+      "quality": 0,
+      "f1": false,
+      "f2": false,
+      "f3": false,
+      "rsi": 54.4,
+      "pct52w": 3.8,
+      "st25": 9527.49,
+      "st20": 8973.4,
+      "dir25": -1,
+      "dir20": 1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 27,
+      "sector": null
     },
     {
       "symbol": "ABFRL",
@@ -3234,7 +3688,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 32
+      "signal_age_wks": 32,
+      "sector": "CONSUM"
     },
     {
       "symbol": "ACC",
@@ -3247,14 +3702,15 @@
       "f3": true,
       "rsi": 40.8,
       "pct52w": 33.1,
-      "st25": 1483.73,
+      "st25": 1483.95,
       "st20": 1447.37,
       "dir25": -1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 95
+      "signal_age_wks": 95,
+      "sector": "CMDT"
     },
     {
       "symbol": "AMBUJACEM",
@@ -3274,7 +3730,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 39
+      "signal_age_wks": 39,
+      "sector": "CMDT"
     },
     {
       "symbol": "BANKBARODA",
@@ -3294,7 +3751,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 21
+      "signal_age_wks": 21,
+      "sector": "BANK"
     },
     {
       "symbol": "BSOFT",
@@ -3314,7 +3772,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "IT"
     },
     {
       "symbol": "Crude Oil",
@@ -3334,7 +3793,8 @@
       "type": "commodity",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 8
+      "signal_age_wks": 8,
+      "sector": null
     },
     {
       "symbol": "GODREJCP",
@@ -3354,7 +3814,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "FMCG"
     },
     {
       "symbol": "Gold",
@@ -3374,7 +3835,8 @@
       "type": "commodity",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 21
+      "signal_age_wks": 21,
+      "sector": null
     },
     {
       "symbol": "HDFCBANK",
@@ -3394,7 +3856,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 31
+      "signal_age_wks": 31,
+      "sector": "BANK"
     },
     {
       "symbol": "HDFCLIFE",
@@ -3414,7 +3877,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 28
+      "signal_age_wks": 28,
+      "sector": "FIN"
     },
     {
       "symbol": "ICICIGI",
@@ -3425,7 +3889,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 37.9,
+      "rsi": 37.5,
       "pct52w": 20.8,
       "st25": 1903.55,
       "st20": 1868.3,
@@ -3434,7 +3898,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 30
+      "signal_age_wks": 30,
+      "sector": null
     },
     {
       "symbol": "ICICIPRULI",
@@ -3447,14 +3912,15 @@
       "f3": true,
       "rsi": 37.4,
       "pct52w": 27.7,
-      "st25": 568.15,
+      "st25": 568.73,
       "st20": 553.55,
       "dir25": -1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "FIN"
     },
     {
       "symbol": "INDIACEM",
@@ -3474,7 +3940,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "CMDT"
     },
     {
       "symbol": "INOXWIND",
@@ -3494,7 +3961,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 5
+      "signal_age_wks": 5,
+      "sector": "ENERGY"
     },
     {
       "symbol": "IOC",
@@ -3514,7 +3982,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 22
+      "signal_age_wks": 22,
+      "sector": "OIL"
     },
     {
       "symbol": "IRCTC",
@@ -3525,7 +3994,7 @@
       "f1": true,
       "f2": true,
       "f3": true,
-      "rsi": 30.5,
+      "rsi": 29.7,
       "pct52w": 31.8,
       "st25": 542.45,
       "st20": 532.47,
@@ -3534,7 +4003,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 106
+      "signal_age_wks": 106,
+      "sector": "INFRA"
     },
     {
       "symbol": "ITC",
@@ -3554,7 +4024,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 92
+      "signal_age_wks": 92,
+      "sector": "FMCG"
     },
     {
       "symbol": "KPITTECH",
@@ -3574,7 +4045,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 95
+      "signal_age_wks": 95,
+      "sector": "IT"
     },
     {
       "symbol": "MUTHOOTFIN",
@@ -3594,7 +4066,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 26
+      "signal_age_wks": 26,
+      "sector": "FIN"
     },
     {
       "symbol": "NATCOPHARM",
@@ -3614,7 +4087,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 11
+      "signal_age_wks": 11,
+      "sector": "PHARMA"
     },
     {
       "symbol": "ONGC",
@@ -3634,7 +4108,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 10
+      "signal_age_wks": 10,
+      "sector": "OIL"
     },
     {
       "symbol": "PIIND",
@@ -3654,7 +4129,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 47
+      "signal_age_wks": 47,
+      "sector": "PHARMA"
     },
     {
       "symbol": "RVNL",
@@ -3674,7 +4150,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 28
+      "signal_age_wks": 28,
+      "sector": "INFRA"
     },
     {
       "symbol": "SUNTV",
@@ -3694,7 +4171,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 13
+      "signal_age_wks": 13,
+      "sector": "MEDIA"
     },
     {
       "symbol": "SUPREMEIND",
@@ -3714,7 +4192,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 8
+      "signal_age_wks": 8,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "Silver",
@@ -3734,7 +4213,8 @@
       "type": "commodity",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 22
+      "signal_age_wks": 22,
+      "sector": null
     },
     {
       "symbol": "UBL",
@@ -3754,7 +4234,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 15
+      "signal_age_wks": 15,
+      "sector": "FMCG"
     },
     {
       "symbol": "UTIAMC",
@@ -3774,7 +4255,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 40
+      "signal_age_wks": 40,
+      "sector": "FIN"
     },
     {
       "symbol": "VEDL",
@@ -3794,7 +4276,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 16
+      "signal_age_wks": 16,
+      "sector": "METAL"
     },
     {
       "symbol": "VINATIORGA",
@@ -3814,7 +4297,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 54
+      "signal_age_wks": 54,
+      "sector": "CHEM"
     },
     {
       "symbol": "WIPRO",
@@ -3834,7 +4318,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 30
+      "signal_age_wks": 30,
+      "sector": "IT"
     },
     {
       "symbol": "ALKEM",
@@ -3845,7 +4330,7 @@
       "f1": true,
       "f2": true,
       "f3": false,
-      "rsi": 43.5,
+      "rsi": 44.0,
       "pct52w": 8.6,
       "st25": 5827.56,
       "st20": 5915.88,
@@ -3854,7 +4339,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 22
+      "signal_age_wks": 22,
+      "sector": "PHARMA"
     },
     {
       "symbol": "BANDHANBNK",
@@ -3874,7 +4360,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 4
+      "signal_age_wks": 4,
+      "sector": "BANK"
     },
     {
       "symbol": "DALBHARAT",
@@ -3894,7 +4381,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 43
+      "signal_age_wks": 43,
+      "sector": "CMDT"
     },
     {
       "symbol": "DMART",
@@ -3908,13 +4396,14 @@
       "rsi": 40.5,
       "pct52w": 18.0,
       "st25": 4525.45,
-      "st20": 4406.49,
+      "st20": 4410.31,
       "dir25": -1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 3
+      "signal_age_wks": 3,
+      "sector": "CONSUM"
     },
     {
       "symbol": "DRREDDY",
@@ -3934,7 +4423,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 4
+      "signal_age_wks": 4,
+      "sector": "PHARMA"
     },
     {
       "symbol": "ESCORTS",
@@ -3954,7 +4444,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "AUTO"
     },
     {
       "symbol": "INFY",
@@ -3974,7 +4465,29 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 28
+      "signal_age_wks": 28,
+      "sector": "IT"
+    },
+    {
+      "symbol": "India VIX",
+      "price": 11.31,
+      "signal": "BEARISH",
+      "rank": 8,
+      "quality": 2,
+      "f1": false,
+      "f2": true,
+      "f3": true,
+      "rsi": 31.4,
+      "pct52w": 60.9,
+      "st25": 19.31,
+      "st20": 17.73,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 9,
+      "sector": null
     },
     {
       "symbol": "KFINTECH",
@@ -3994,7 +4507,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 51
+      "signal_age_wks": 51,
+      "sector": "FIN"
     },
     {
       "symbol": "LUXIND",
@@ -4007,14 +4521,15 @@
       "f3": true,
       "rsi": 23.6,
       "pct52w": 34.8,
-      "st25": 1439.68,
-      "st20": 1397.59,
+      "st25": 1439.95,
+      "st20": 1397.81,
       "dir25": -1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 9
+      "signal_age_wks": 9,
+      "sector": "CONSUM"
     },
     {
       "symbol": "Nat Gas",
@@ -4034,7 +4549,8 @@
       "type": "commodity",
       "currency": "$",
       "segment": null,
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": null
     },
     {
       "symbol": "SUNDARMFIN",
@@ -4054,7 +4570,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 20
+      "signal_age_wks": 20,
+      "sector": "FIN"
     },
     {
       "symbol": "TORNTPOWER",
@@ -4074,7 +4591,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 12
+      "signal_age_wks": 12,
+      "sector": "ENERGY"
     },
     {
       "symbol": "TRIDENT",
@@ -4094,7 +4612,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 31
+      "signal_age_wks": 31,
+      "sector": "METAL"
     },
     {
       "symbol": "VOLTAS",
@@ -4114,7 +4633,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 20
+      "signal_age_wks": 20,
+      "sector": null
     },
     {
       "symbol": "BPCL",
@@ -4134,7 +4654,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 23
+      "signal_age_wks": 23,
+      "sector": "OIL"
     },
     {
       "symbol": "CANFINHOME",
@@ -4145,7 +4666,7 @@
       "f1": false,
       "f2": true,
       "f3": false,
-      "rsi": 42.3,
+      "rsi": 42.1,
       "pct52w": 14.7,
       "st25": 942.47,
       "st20": 916.83,
@@ -4154,7 +4675,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 24
+      "signal_age_wks": 24,
+      "sector": "FIN"
     },
     {
       "symbol": "HINDALCO",
@@ -4174,7 +4696,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 8
+      "signal_age_wks": 8,
+      "sector": "METAL"
     },
     {
       "symbol": "INDUSTOWER",
@@ -4187,14 +4710,15 @@
       "f3": false,
       "rsi": 48.2,
       "pct52w": 17.2,
-      "st25": 423.28,
-      "st20": 412.7,
+      "st25": 425.5,
+      "st20": 415.36,
       "dir25": -1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 17
+      "signal_age_wks": 17,
+      "sector": "INFRA"
     },
     {
       "symbol": "JINDALSTEL",
@@ -4214,7 +4738,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 8
+      "signal_age_wks": 8,
+      "sector": "METAL"
     },
     {
       "symbol": "JSL",
@@ -4234,7 +4759,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 12
+      "signal_age_wks": 12,
+      "sector": "METAL"
     },
     {
       "symbol": "MCX",
@@ -4254,7 +4780,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 4
+      "signal_age_wks": 4,
+      "sector": "FIN"
     },
     {
       "symbol": "MFSL",
@@ -4267,14 +4794,15 @@
       "f3": false,
       "rsi": 37.5,
       "pct52w": 18.7,
-      "st25": 1738.4,
-      "st20": 1694.96,
+      "st25": 1740.95,
+      "st20": 1697.0,
       "dir25": -1,
       "dir20": -1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 23
+      "signal_age_wks": 23,
+      "sector": "FIN"
     },
     {
       "symbol": "NTPC",
@@ -4294,7 +4822,29 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 6
+      "signal_age_wks": 6,
+      "sector": "ENERGY"
+    },
+    {
+      "symbol": "Nifty PSU Bank",
+      "price": 8738.8,
+      "signal": "BEARISH",
+      "rank": 8,
+      "quality": 1,
+      "f1": false,
+      "f2": true,
+      "f3": false,
+      "rsi": 47.4,
+      "pct52w": 11.9,
+      "st25": 9059.38,
+      "st20": 8836.35,
+      "dir25": -1,
+      "dir20": -1,
+      "type": "index",
+      "currency": "\u20b9",
+      "segment": null,
+      "signal_age_wks": 20,
+      "sector": null
     },
     {
       "symbol": "OIL",
@@ -4314,7 +4864,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 10
+      "signal_age_wks": 10,
+      "sector": "OIL"
     },
     {
       "symbol": "POWERGRID",
@@ -4334,7 +4885,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 2
+      "signal_age_wks": 2,
+      "sector": "ENERGY"
     },
     {
       "symbol": "RELIANCE",
@@ -4354,7 +4906,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 30
+      "signal_age_wks": 30,
+      "sector": null
     },
     {
       "symbol": "SAIL",
@@ -4374,7 +4927,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 5
+      "signal_age_wks": 5,
+      "sector": "METAL"
     },
     {
       "symbol": "SBILIFE",
@@ -4394,7 +4948,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 23
+      "signal_age_wks": 23,
+      "sector": "FIN"
     },
     {
       "symbol": "TATAPOWER",
@@ -4414,7 +4969,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 7
+      "signal_age_wks": 7,
+      "sector": "ENERGY"
     },
     {
       "symbol": "TATASTEEL",
@@ -4434,7 +4990,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 4
+      "signal_age_wks": 4,
+      "sector": "METAL"
     },
     {
       "symbol": "CANBK",
@@ -4454,7 +5011,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 23
+      "signal_age_wks": 23,
+      "sector": "BANK"
     },
     {
       "symbol": "LT",
@@ -4474,7 +5032,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 4
+      "signal_age_wks": 4,
+      "sector": "INFRA"
     },
     {
       "symbol": "ASTRAL",
@@ -4488,13 +5047,14 @@
       "rsi": 49.2,
       "pct52w": 11.9,
       "st25": 1592.17,
-      "st20": 1318.21,
+      "st20": 1316.22,
       "dir25": -1,
       "dir20": 1,
       "type": "stock",
       "currency": "\u20b9",
       "segment": "fo",
-      "signal_age_wks": 7
+      "signal_age_wks": 7,
+      "sector": "CAPGDS"
     },
     {
       "symbol": "VGUARD",
@@ -4514,7 +5074,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "n500",
-      "signal_age_wks": 92
+      "signal_age_wks": 92,
+      "sector": "CONSUM"
     },
     {
       "symbol": "BRITANNIA",
@@ -4525,7 +5086,7 @@
       "f1": false,
       "f2": false,
       "f3": false,
-      "rsi": 56.2,
+      "rsi": 56.1,
       "pct52w": 10.8,
       "st25": 5654.33,
       "st20": 5177.18,
@@ -4534,7 +5095,8 @@
       "type": "stock",
       "currency": "\u20b9",
       "segment": "nifty100",
-      "signal_age_wks": 21
+      "signal_age_wks": 21,
+      "sector": "FMCG"
     }
   ]
 }
