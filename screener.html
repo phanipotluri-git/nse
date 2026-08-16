@@ -47,14 +47,18 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .pill.type-currency.active {border-color:var(--amber);color:var(--amber)}
 .pill.type-commodity.active{border-color:#f0c040;color:#f0c040}
 
-/* Signal colors */
+/* Signal colors — bullish */
 .sig-FRESH{color:#00ff9d;font-weight:700}
 .sig-REENTRY{color:var(--green)}
 .sig-REREADY{color:var(--cyan)}
 .sig-BULLISH{color:#7ed4f5}
 .sig-SOFT{color:var(--amber)}
-.sig-BROKEN{color:#ff9500;font-weight:700}
-.sig-BEARISH{color:var(--red)}
+/* Signal colors — bearish */
+.sig-FRESHSHORT{color:#ff2d55;font-weight:700}
+.sig-SHORTREENTRY{color:var(--red)}
+.sig-SHORTREADY{color:#ff9500}
+.sig-BEARISH{color:#c47474}
+.sig-SHORTCOVER{color:var(--amber)}
 
 /* Type badges */
 .tbadge{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px;vertical-align:middle}
@@ -122,13 +126,16 @@ td:nth-child(3){text-align:left}
   <div class="filter-row">
     <span class="filter-label">SIGNAL</span>
     <div class="pill active" data-sig="ALL" onclick="setFilter('ALL',this)">ALL<span class="cnt" id="cnt-ALL"></span></div>
-    <div class="pill" data-sig="FRESH ENTRY"    onclick="setFilter('FRESH ENTRY',this)">FRESH ENTRY<span class="cnt" id="cnt-FRESH ENTRY"></span></div>
-    <div class="pill" data-sig="RE-ENTRY"       onclick="setFilter('RE-ENTRY',this)">RE-ENTRY<span class="cnt" id="cnt-RE-ENTRY"></span></div>
-    <div class="pill" data-sig="RE-ENTRY READY" onclick="setFilter('RE-ENTRY READY',this)">RE-ENTRY READY<span class="cnt" id="cnt-RE-ENTRY READY"></span></div>
-    <div class="pill" data-sig="BULLISH"        onclick="setFilter('BULLISH',this)">BULLISH<span class="cnt" id="cnt-BULLISH"></span></div>
-    <div class="pill" data-sig="SOFT EXIT"      onclick="setFilter('SOFT EXIT',this)">SOFT EXIT<span class="cnt" id="cnt-SOFT EXIT"></span></div>
-    <div class="pill" data-sig="TREND BROKEN"   onclick="setFilter('TREND BROKEN',this)">TREND BROKEN<span class="cnt" id="cnt-TREND BROKEN"></span></div>
-    <div class="pill" data-sig="BEARISH"        onclick="setFilter('BEARISH',this)">BEARISH<span class="cnt" id="cnt-BEARISH"></span></div>
+    <div class="pill" data-sig="FRESH ENTRY"    onclick="setFilter('FRESH ENTRY',this)"    style="color:#00ff9d">FRESH ENTRY<span class="cnt" id="cnt-FRESH ENTRY"></span></div>
+    <div class="pill" data-sig="RE-ENTRY"       onclick="setFilter('RE-ENTRY',this)"       style="color:var(--green)">RE-ENTRY<span class="cnt" id="cnt-RE-ENTRY"></span></div>
+    <div class="pill" data-sig="RE-ENTRY READY" onclick="setFilter('RE-ENTRY READY',this)" style="color:var(--cyan)">RE-ENTRY READY<span class="cnt" id="cnt-RE-ENTRY READY"></span></div>
+    <div class="pill" data-sig="BULLISH"        onclick="setFilter('BULLISH',this)"        style="color:#7ed4f5">BULLISH<span class="cnt" id="cnt-BULLISH"></span></div>
+    <div class="pill" data-sig="SOFT EXIT"      onclick="setFilter('SOFT EXIT',this)"      style="color:var(--amber)">SOFT EXIT<span class="cnt" id="cnt-SOFT EXIT"></span></div>
+    <div class="pill" data-sig="FRESH SHORT"    onclick="setFilter('FRESH SHORT',this)"    style="color:#ff2d55;font-weight:700">FRESH SHORT<span class="cnt" id="cnt-FRESH SHORT"></span></div>
+    <div class="pill" data-sig="SHORT RE-ENTRY" onclick="setFilter('SHORT RE-ENTRY',this)" style="color:var(--red)">SHORT RE-ENTRY<span class="cnt" id="cnt-SHORT RE-ENTRY"></span></div>
+    <div class="pill" data-sig="SHORT READY"    onclick="setFilter('SHORT READY',this)"    style="color:#ff9500">SHORT READY<span class="cnt" id="cnt-SHORT READY"></span></div>
+    <div class="pill" data-sig="BEARISH"        onclick="setFilter('BEARISH',this)"        style="color:#c47474">BEARISH<span class="cnt" id="cnt-BEARISH"></span></div>
+    <div class="pill" data-sig="SHORT COVER"    onclick="setFilter('SHORT COVER',this)"    style="color:var(--amber)">SHORT COVER<span class="cnt" id="cnt-SHORT COVER"></span></div>
   </div>
 
   <!-- Type filter -->
@@ -184,6 +191,12 @@ td:nth-child(3){text-align:left}
     <span class="tbadge tbadge-currency">FX</span> USD/INR, EUR/INR &nbsp;·&nbsp;
     <span class="tbadge tbadge-commodity">CMDTY</span> Commodities in $ &nbsp;·&nbsp; Nifty 100 stocks have no badge<br>
     <strong style="color:var(--text)">AGE:</strong> Weeks current ST(2.5) signal in effect &nbsp;·&nbsp; <span class="up">green</span> ≤ 3w fresh &nbsp;·&nbsp; <span class="neu">dim</span> &gt; 12w mature<br>
+    <strong style="color:var(--text)">Bearish signals (futures short):</strong>
+    <span class="sig-FRESHSHORT">FRESH SHORT</span> ST2.5 just flipped bear &nbsp;·&nbsp;
+    <span class="sig-SHORTREENTRY">SHORT RE-ENTRY</span> ST2.5 bear + ST2.0 just flipped bear &nbsp;·&nbsp;
+    <span class="sig-SHORTREADY">SHORT READY</span> ST2.5 bear + ST2.0 bouncing (wait) &nbsp;·&nbsp;
+    <span class="sig-BEARISH">BEARISH</span> both ST bearish — hold short &nbsp;·&nbsp;
+    <span class="sig-SHORTCOVER">SHORT COVER</span> ST2.5 bear + ST2.0 just flipped bull (cover)<br>
     <strong style="color:var(--text)">Scan:</strong> Weekly SuperTrend(10,2.5) judge + ST(10,2.0) trigger. Runs Saturday 10:30 AM IST via GitHub Actions.
   </div>
 </main>
@@ -196,12 +209,14 @@ let sortKey='rank';
 let sortDir=1;
 
 const SIG_ORDER={
-  "FRESH ENTRY":0,"RE-ENTRY":1,"RE-ENTRY READY":2,
-  "BULLISH":3,"SOFT EXIT":4,"TREND BROKEN":5,"BEARISH":6
+  "FRESH ENTRY":0,"RE-ENTRY":1,"RE-ENTRY READY":2,"BULLISH":3,"SOFT EXIT":4,
+  "FRESH SHORT":5,"SHORT RE-ENTRY":6,"SHORT READY":7,"BEARISH":8,"SHORT COVER":9
 };
 const SIG_CLASS={
   "FRESH ENTRY":"sig-FRESH","RE-ENTRY":"sig-REENTRY","RE-ENTRY READY":"sig-REREADY",
-  "BULLISH":"sig-BULLISH","SOFT EXIT":"sig-SOFT","TREND BROKEN":"sig-BROKEN","BEARISH":"sig-BEARISH"
+  "BULLISH":"sig-BULLISH","SOFT EXIT":"sig-SOFT",
+  "FRESH SHORT":"sig-FRESHSHORT","SHORT RE-ENTRY":"sig-SHORTREENTRY",
+  "SHORT READY":"sig-SHORTREADY","BEARISH":"sig-BEARISH","SHORT COVER":"sig-SHORTCOVER"
 };
 const TYPE_ORDER={nifty100:0,fo:1,n500:2,index:3,'us-index':4,currency:5,commodity:6};
 const TYPE_LABEL={nifty100:'N100',fo:'F&O',n500:'N500',index:'INDEX','us-index':'US IDX',currency:'FX',commodity:'CMDTY'};
@@ -212,7 +227,9 @@ function typeKey(r){return r.type==='stock'?(r.segment||'nifty100'):r.type;}
 function sigColor(sig){
   return{
     "FRESH ENTRY":"#00ff9d","RE-ENTRY":"var(--green)","RE-ENTRY READY":"var(--cyan)",
-    "BULLISH":"#7ed4f5","SOFT EXIT":"var(--amber)","TREND BROKEN":"#ff9500","BEARISH":"var(--red)"
+    "BULLISH":"#7ed4f5","SOFT EXIT":"var(--amber)",
+    "FRESH SHORT":"#ff2d55","SHORT RE-ENTRY":"var(--red)","SHORT READY":"#ff9500",
+    "BEARISH":"#c47474","SHORT COVER":"var(--amber)"
   }[sig]||'var(--text)';
 }
 
@@ -263,7 +280,8 @@ async function load(){
 }
 
 function renderSummary(counts){
-  const sigs=["FRESH ENTRY","RE-ENTRY","RE-ENTRY READY","BULLISH","SOFT EXIT","TREND BROKEN","BEARISH"];
+  const sigs=["FRESH ENTRY","RE-ENTRY","RE-ENTRY READY","BULLISH","SOFT EXIT",
+              "FRESH SHORT","SHORT RE-ENTRY","SHORT READY","BEARISH","SHORT COVER"];
   document.getElementById('summary').innerHTML=sigs.map(s=>{
     const c=counts[s]||0;
     return`<div class="sum-card">
