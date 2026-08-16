@@ -60,6 +60,9 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .sig-BEARISH{color:#c47474}
 .sig-SHORTCOVER{color:var(--amber)}
 
+/* Sector badges */
+.sbadge{display:inline-block;padding:1px 4px;border-radius:2px;font-size:9px;color:var(--dim);background:rgba(100,112,128,.1);letter-spacing:.3px;vertical-align:middle;margin-left:2px}
+
 /* Type badges */
 .tbadge{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px;vertical-align:middle}
 .tbadge-stock   {color:var(--dim)}
@@ -188,7 +191,25 @@ td:nth-child(3){text-align:left}
     <span class="tbadge tbadge-index">INDEX</span> NSE indices &nbsp;·&nbsp;
     <span class="tbadge tbadge-us-index">US IDX</span> S&amp;P 500, NASDAQ, Dow, Russell, SOX, VIX &nbsp;·&nbsp;
     <span class="tbadge tbadge-currency">FX</span> USD/INR, EUR/INR &nbsp;·&nbsp;
-    <span class="tbadge tbadge-commodity">CMDTY</span> Commodities in $ &nbsp;·&nbsp; Nifty 100 stocks have no badge<br>
+    <span class="tbadge tbadge-commodity">CMDTY</span> Commodities in $<br>
+    <strong style="color:var(--text)">Sector:</strong>
+    <span class="sbadge">BANK</span> Bank Nifty &nbsp;·&nbsp;
+    <span class="sbadge">FIN</span> Nifty Finance &nbsp;·&nbsp;
+    <span class="sbadge">IT</span> Nifty IT &nbsp;·&nbsp;
+    <span class="sbadge">PHARMA</span> Nifty Pharma &nbsp;·&nbsp;
+    <span class="sbadge">AUTO</span> Nifty Auto &nbsp;·&nbsp;
+    <span class="sbadge">FMCG</span> Nifty FMCG &nbsp;·&nbsp;
+    <span class="sbadge">METAL</span> Nifty Metal &nbsp;·&nbsp;
+    <span class="sbadge">REALTY</span> Nifty Realty &nbsp;·&nbsp;
+    <span class="sbadge">ENERGY</span> Nifty Energy &nbsp;·&nbsp;
+    <span class="sbadge">OIL</span> Nifty Oil &amp; Gas &nbsp;·&nbsp;
+    <span class="sbadge">MEDIA</span> Nifty Media &nbsp;·&nbsp;
+    <span class="sbadge">HLTH</span> Nifty Healthcare &nbsp;·&nbsp;
+    <span class="sbadge">INFRA</span> Nifty Infra &nbsp;·&nbsp;
+    <span class="sbadge">CAPGDS</span> Capital Goods &nbsp;·&nbsp;
+    <span class="sbadge">CHEM</span> Chemicals &nbsp;·&nbsp;
+    <span class="sbadge">CMDT</span> Cement/Commodities &nbsp;·&nbsp;
+    <span class="sbadge">CONSUM</span> Consumer/Retail<br>
     <strong style="color:var(--text)">AGE:</strong> Weeks current ST(2.5) signal in effect &nbsp;·&nbsp; <span class="up">green</span> ≤ 3w fresh &nbsp;·&nbsp; <span class="neu">dim</span> &gt; 12w mature<br>
     <strong style="color:var(--text)">Bearish signals (futures short):</strong>
     <span class="sig-FRESHSHORT">FRESH SHORT</span> ST2.5 just flipped bear &nbsp;·&nbsp;
@@ -385,9 +406,10 @@ function render(){
     const pctCls=r.pct52w<=10?'up':r.pct52w>=25?'dn':'';
     const typeLabel=TYPE_LABEL[tk]||'';
     const typeCls=TYPE_CLASS[tk]||'';
+    const sectorBadge=r.sector?`<span class="sbadge">${r.sector}</span>`:'';
     return`<tr>
       <td>${r.symbol}</td>
-      <td>${typeLabel?`<span class="tbadge ${typeCls}">${typeLabel}</span>`:''}</td>
+      <td>${typeLabel?`<span class="tbadge ${typeCls}">${typeLabel}</span>`:''} ${sectorBadge}</td>
       <td><span class="${cls}" style="color:${sc}">${r.signal}</span></td>
       <td>${fmtPrice(r)}</td>
       <td title="${q}/3 filters">${dots}</td>

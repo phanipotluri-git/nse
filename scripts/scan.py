@@ -111,6 +111,22 @@ INSTRUMENTS = [
     {"symbol": "^CNXOILGAS",    "name": "Nifty Oil & Gas", "type": "index", "currency": "₹"},
     {"symbol": "^CNXCMDT",      "name": "Nifty Commodities","type": "index","currency": "₹"},
     {"symbol": "^CNXHEALTHCARE","name": "Nifty Healthcare", "type": "index", "currency": "₹"},
+    # ── Additional NSE Indices ────────────────────────────────────────────────
+    {"symbol": "^CNX200",       "name": "Nifty 200",        "type": "index", "currency": "₹"},
+    {"symbol": "^CNX500",       "name": "Nifty 500",        "type": "index", "currency": "₹"},
+    {"symbol": "^NIFMDCP100",   "name": "Nifty Midcap 100", "type": "index", "currency": "₹"},
+    {"symbol": "^CNXMNC",       "name": "Nifty MNC",        "type": "index", "currency": "₹"},
+    {"symbol": "^CNXCPSE",      "name": "Nifty CPSE",       "type": "index", "currency": "₹"},
+    {"symbol": "^CNXPSE",       "name": "Nifty PSE",        "type": "index", "currency": "₹"},
+    {"symbol": "^CNXCONSUM",    "name": "Nifty Consumption", "type": "index","currency": "₹"},
+    {"symbol": "^NIFPVTBNK",    "name": "Nifty Pvt Bank",   "type": "index", "currency": "₹"},
+    # ── NSE F&O Indices (speculative Yahoo Finance tickers — skip if unavailable) ──
+    {"symbol": "^CNXJUNIOR",    "name": "Nifty Next 50",    "type": "index", "currency": "₹"},
+    {"symbol": "^NIFMIDSEL",    "name": "Nifty Midcap Sel", "type": "index", "currency": "₹"},
+    {"symbol": "^CNXCONDURAB",  "name": "Nifty Con Durables","type":"index", "currency": "₹"},
+    {"symbol": "^CNXDEFENCE",   "name": "Nifty Defence",    "type": "index", "currency": "₹"},
+    {"symbol": "^CNXMNFG",      "name": "Nifty Mfg",        "type": "index", "currency": "₹"},
+    {"symbol": "^INDIAVIX",     "name": "India VIX",        "type": "index", "currency": "₹"},
     # ── US Indices ───────────────────────────────────────────────────────────
     {"symbol": "^GSPC",       "name": "S&P 500",        "type": "us-index", "currency": "$"},
     {"symbol": "^NDX",        "name": "NASDAQ 100",     "type": "us-index", "currency": "$"},
@@ -128,6 +144,102 @@ INSTRUMENTS = [
     {"symbol": "NG=F",        "name": "Nat Gas",        "type": "commodity", "currency": "$"},
     {"symbol": "HG=F",        "name": "Copper",         "type": "commodity", "currency": "$"},
 ]
+
+# ── Stock → Primary NSE sector index tag ─────────────────────────────────────
+SECTOR_MAP = {
+    # BANK — Bank Nifty / PSU Bank / Private Bank
+    "HDFCBANK.NS":"BANK","ICICIBANK.NS":"BANK","KOTAKBANK.NS":"BANK",
+    "SBIN.NS":"BANK","AXISBANK.NS":"BANK","INDUSINDBK.NS":"BANK",
+    "BANKBARODA.NS":"BANK","PNB.NS":"BANK","CANBK.NS":"BANK",
+    "AUBANK.NS":"BANK","BANDHANBNK.NS":"BANK","FEDERALBNK.NS":"BANK",
+    "IDFCFIRSTB.NS":"BANK","RBLBANK.NS":"BANK","UJJIVAN.NS":"BANK",
+    "EQUITASBNK.NS":"BANK",
+    # FIN — Nifty Financial Services
+    "BAJFINANCE.NS":"FIN","BAJAJFINSV.NS":"FIN","SHRIRAMFIN.NS":"FIN",
+    "CHOLAFIN.NS":"FIN","MUTHOOTFIN.NS":"FIN","HDFCAMC.NS":"FIN",
+    "ICICIPRULI.NS":"FIN","HDFCLIFE.NS":"FIN","SBILIFE.NS":"FIN",
+    "CAMS.NS":"FIN","CANFINHOME.NS":"FIN","LICHSGFIN.NS":"FIN",
+    "MANAPPURAM.NS":"FIN","MCX.NS":"FIN","MOTILALOFS.NS":"FIN",
+    "PFC.NS":"FIN","RECLTD.NS":"FIN","ANGELONE.NS":"FIN",
+    "NUVAMA.NS":"FIN","SUNDARMFIN.NS":"FIN","ABCAPITAL.NS":"FIN",
+    "MFSL.NS":"FIN","PEL.NS":"FIN","POLICYBZR.NS":"FIN",
+    "CDSL.NS":"FIN","IIFL.NS":"FIN","KFINTECH.NS":"FIN",
+    "NIACL.NS":"FIN","PNBHOUSING.NS":"FIN","UTIAMC.NS":"FIN",
+    "LICI.NS":"FIN","BAJAJHLDNG.NS":"FIN",
+    # IT — Nifty IT
+    "TCS.NS":"IT","INFY.NS":"IT","WIPRO.NS":"IT","HCLTECH.NS":"IT",
+    "TECHM.NS":"IT","LTIM.NS":"IT","MPHASIS.NS":"IT","PERSISTENT.NS":"IT",
+    "NAUKRI.NS":"IT","OFSS.NS":"IT","COFORGE.NS":"IT","BSOFT.NS":"IT",
+    "HAPPSTMNDS.NS":"IT","KPITTECH.NS":"IT","LTTS.NS":"IT",
+    "TATATECH.NS":"IT","TATACOMM.NS":"IT",
+    # PHARMA — Nifty Pharma
+    "SUNPHARMA.NS":"PHARMA","DRREDDY.NS":"PHARMA","CIPLA.NS":"PHARMA",
+    "DIVISLAB.NS":"PHARMA","LUPIN.NS":"PHARMA","TORNTPHARM.NS":"PHARMA",
+    "AUROPHARMA.NS":"PHARMA","BIOCON.NS":"PHARMA","GLENMARK.NS":"PHARMA",
+    "GRANULES.NS":"PHARMA","LAURUSLABS.NS":"PHARMA","NAVINFLUOR.NS":"PHARMA",
+    "ALKEM.NS":"PHARMA","IPCALAB.NS":"PHARMA","JBCHEPHARM.NS":"PHARMA",
+    "NATCOPHARM.NS":"PHARMA","SPARC.NS":"PHARMA","ZYDUSLIFE.NS":"PHARMA",
+    "METROPOLIS.NS":"PHARMA","PIIND.NS":"PHARMA",
+    # HLTH — Nifty Healthcare (hospitals, diagnostics)
+    "APOLLOHOSP.NS":"HLTH","EIHOTEL.NS":"HLTH",
+    # AUTO — Nifty Auto
+    "MARUTI.NS":"AUTO","TATAMOTORS.NS":"AUTO","BAJAJ-AUTO.NS":"AUTO",
+    "EICHERMOT.NS":"AUTO","HEROMOTOCO.NS":"AUTO","TVSMOTOR.NS":"AUTO",
+    "MOTHERSON.NS":"AUTO","APOLLOTYRE.NS":"AUTO","ASHOKLEY.NS":"AUTO",
+    "ESCORTS.NS":"AUTO","EXIDEIND.NS":"AUTO","SONACOMS.NS":"AUTO",
+    "BALKRISIND.NS":"AUTO",
+    # FMCG — Nifty FMCG
+    "HINDUNILVR.NS":"FMCG","ITC.NS":"FMCG","NESTLEIND.NS":"FMCG",
+    "BRITANNIA.NS":"FMCG","DABUR.NS":"FMCG","MARICO.NS":"FMCG",
+    "COLPAL.NS":"FMCG","GODREJCP.NS":"FMCG","TATACONSUM.NS":"FMCG",
+    "UBL.NS":"FMCG","EMAMI.NS":"FMCG","KALYANKJIL.NS":"FMCG",
+    "PAGEIND.NS":"FMCG","KANSAINER.NS":"FMCG","KRBL.NS":"FMCG",
+    # METAL — Nifty Metal
+    "TATASTEEL.NS":"METAL","JSWSTEEL.NS":"METAL","HINDALCO.NS":"METAL",
+    "COALINDIA.NS":"METAL","VEDL.NS":"METAL","SAIL.NS":"METAL",
+    "NMDC.NS":"METAL","JINDALSTEL.NS":"METAL","JSL.NS":"METAL",
+    "TRIDENT.NS":"METAL",
+    # ENERGY — Nifty Energy / Power
+    "NTPC.NS":"ENERGY","POWERGRID.NS":"ENERGY","TATAPOWER.NS":"ENERGY",
+    "CESC.NS":"ENERGY","IEX.NS":"ENERGY","SOLARINDS.NS":"ENERGY",
+    "TORNTPOWER.NS":"ENERGY","INOXWIND.NS":"ENERGY","ADANIGREEN.NS":"ENERGY",
+    # OIL — Nifty Oil & Gas
+    "ONGC.NS":"OIL","BPCL.NS":"OIL","GAIL.NS":"OIL","IOC.NS":"OIL",
+    "HPCL.NS":"OIL","ATGL.NS":"OIL","MGL.NS":"OIL","GUJGASLTD.NS":"OIL",
+    "OIL.NS":"OIL",
+    # REALTY — Nifty Realty
+    "DLF.NS":"REALTY","GODREJPROP.NS":"REALTY","OBEROIRLTY.NS":"REALTY",
+    "BRIGADE.NS":"REALTY","PRESTIGE.NS":"REALTY","SOBHA.NS":"REALTY",
+    "PHOENIXLTD.NS":"REALTY",
+    # MEDIA — Nifty Media
+    "ZEEL.NS":"MEDIA","SUNTV.NS":"MEDIA",
+    # INFRA — Nifty Infra
+    "LT.NS":"INFRA","ADANIENT.NS":"INFRA","ADANIPORTS.NS":"INFRA",
+    "CONCOR.NS":"INFRA","INDUSTOWER.NS":"INFRA","GMRAIRPORT.NS":"INFRA",
+    "NBCC.NS":"INFRA","RVNL.NS":"INFRA","IRCTC.NS":"INFRA",
+    # CAPGDS — Capital Goods / Engineering / Defence
+    "SIEMENS.NS":"CAPGDS","HAVELLS.NS":"CAPGDS","BHEL.NS":"CAPGDS",
+    "HAL.NS":"CAPGDS","AIAENG.NS":"CAPGDS","APLAPOLLO.NS":"CAPGDS",
+    "CUMMINSIND.NS":"CAPGDS","KAYNES.NS":"CAPGDS","SUPREMEIND.NS":"CAPGDS",
+    "DIXON.NS":"CAPGDS","CARBORUNIV.NS":"CAPGDS","ELGIEQUIP.NS":"CAPGDS",
+    "GRINDWELL.NS":"CAPGDS","THERMAXLTD.NS":"CAPGDS","TIINDIA.NS":"CAPGDS",
+    "TRITURBINE.NS":"CAPGDS","ASTRAL.NS":"CAPGDS",
+    # CHEM — Nifty Commodities / Chemicals
+    "SRF.NS":"CHEM","PIDILITIND.NS":"CHEM","DEEPAKNTR.NS":"CHEM",
+    "GNFC.NS":"CHEM","TATACHEM.NS":"CHEM","CHAMBLFERT.NS":"CHEM",
+    "FINEORG.NS":"CHEM","NOCIL.NS":"CHEM","SUDARSCHEM.NS":"CHEM",
+    "SUMICHEM.NS":"CHEM","VINATIORGA.NS":"CHEM",
+    # CMDT — Nifty Commodities / Cement
+    "ULTRACEMCO.NS":"CMDT","AMBUJACEM.NS":"CMDT","ACC.NS":"CMDT",
+    "DALBHARAT.NS":"CMDT","INDIACEM.NS":"CMDT","JKCEMENT.NS":"CMDT",
+    "GRASIM.NS":"CMDT",
+    # CONSUM — Consumer / Retail / Durables
+    "TITAN.NS":"CONSUM","ABFRL.NS":"CONSUM","CROMPTON.NS":"CONSUM",
+    "DELHIVERY.NS":"CONSUM","JUBLFOOD.NS":"CONSUM","NYKAA.NS":"CONSUM",
+    "REDINGTON.NS":"CONSUM","VGUARD.NS":"CONSUM","DMART.NS":"CONSUM",
+    "TRENT.NS":"CONSUM","LUXIND.NS":"CONSUM","ASIANPAINT.NS":"CONSUM",
+    "BERGEPAINT.NS":"CONSUM",
+}
 
 # ── SuperTrend ────────────────────────────────────────────────────────────────
 def supertrend(high, low, close, period=10, mult=2.0):
@@ -213,6 +325,7 @@ def analyse(sym, display_name=None, itype="stock", currency="₹", segment=None)
             if int(d25[i])==cur: age_wks+=1
             else: break
         name=display_name or sym.replace(".NS","")
+        sector=SECTOR_MAP.get(sym) if itype=="stock" else None
         print(f"  {name:<18} {itype:<10} {sig}")
         return {"symbol":name,"price":round(price,2),"signal":sig,
                 "rank":RANK.get(sig,7),"quality":fc,
@@ -221,7 +334,8 @@ def analyse(sym, display_name=None, itype="stock", currency="₹", segment=None)
                 "st20":round(float(st20[-1]),2),
                 "dir25":int(d25[-1]),"dir20":int(d20[-1]),
                 "type":itype,"currency":currency,
-                "segment":segment,"signal_age_wks":age_wks}
+                "segment":segment,"signal_age_wks":age_wks,
+                "sector":sector}
     except Exception as e:
         name=display_name or sym
         print(f"  {name:<18} SKIP: {e}"); return None
