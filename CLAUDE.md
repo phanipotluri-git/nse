@@ -62,7 +62,8 @@ repo-root/
 - **Trigger**: SuperTrend(10, 2.0) on weekly chart — for entries/exits within trend
 - **Monthly filter**: ST(10, 2.0) on monthly chart (F1)
 - **3 quality filters**: F1 Monthly ST bullish, F2 Weekly RSI(14) > 50, F3 Price within 30% of 52W high
-- **Signal hierarchy**: FRESH ENTRY → RE-ENTRY → RE-ENTRY READY → BULLISH → SOFT EXIT → TREND BROKEN → BEARISH
+- **Signal hierarchy (bullish)**: FRESH ENTRY → RE-ENTRY → RE-ENTRY READY → BULLISH → SOFT EXIT
+- **Signal hierarchy (bearish/short)**: FRESH SHORT → SHORT RE-ENTRY → SHORT READY → BEARISH → SHORT COVER
 
 ### Options System (separate — runs on paper trading bot port 5000)
 
