@@ -39,10 +39,12 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 .pill .cnt{opacity:.6;margin-left:4px}
 
 /* Type pill colors when active */
-.pill.type-stock.active   {border-color:var(--dim);color:var(--text)}
-.pill.type-index.active   {border-color:var(--cyan);color:var(--cyan)}
-.pill.type-us-index.active{border-color:#6495ed;color:#6495ed}
-.pill.type-currency.active{border-color:var(--amber);color:var(--amber)}
+.pill.type-nifty100.active {border-color:var(--text);color:var(--text)}
+.pill.type-fo.active       {border-color:#9c7ef5;color:#9c7ef5}
+.pill.type-n500.active     {border-color:#7fd77a;color:#7fd77a}
+.pill.type-index.active    {border-color:var(--cyan);color:var(--cyan)}
+.pill.type-us-index.active {border-color:#6495ed;color:#6495ed}
+.pill.type-currency.active {border-color:var(--amber);color:var(--amber)}
 .pill.type-commodity.active{border-color:#f0c040;color:#f0c040}
 
 /* Signal colors */
@@ -57,9 +59,11 @@ main{max-width:1100px;margin:0 auto;padding:16px}
 /* Type badges */
 .tbadge{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600;letter-spacing:.5px;vertical-align:middle}
 .tbadge-stock   {color:var(--dim)}
-.tbadge-index   {background:rgba(0,188,212,.12);color:var(--cyan)}
-.tbadge-us-index{background:rgba(100,149,237,.15);color:#6495ed}
-.tbadge-currency{background:rgba(245,166,35,.12);color:var(--amber)}
+.tbadge-fo       {background:rgba(156,126,245,.15);color:#9c7ef5}
+.tbadge-n500     {background:rgba(127,215,122,.15);color:#7fd77a}
+.tbadge-index    {background:rgba(0,188,212,.12);color:var(--cyan)}
+.tbadge-us-index {background:rgba(100,149,237,.15);color:#6495ed}
+.tbadge-currency {background:rgba(245,166,35,.12);color:var(--amber)}
 .tbadge-commodity{background:rgba(240,192,64,.12);color:#f0c040}
 
 /* Table */
@@ -129,8 +133,10 @@ td:nth-child(3){text-align:left}
   <!-- Type filter -->
   <div class="filter-row" style="margin-bottom:14px">
     <span class="filter-label">TYPE</span>
-    <div class="pill active type-all"       data-type="ALL"       onclick="setType('ALL',this)">ALL</div>
-    <div class="pill type-stock"            data-type="stock"     onclick="setType('stock',this)">STOCKS</div>
+    <div class="pill active type-all"        data-type="ALL"       onclick="setType('ALL',this)">ALL</div>
+    <div class="pill type-nifty100"          data-type="nifty100"  onclick="setType('nifty100',this)">NIFTY 100</div>
+    <div class="pill type-fo"               data-type="fo"        onclick="setType('fo',this)">F&amp;O</div>
+    <div class="pill type-n500"             data-type="n500"      onclick="setType('n500',this)">NIFTY 500</div>
     <div class="pill type-index"            data-type="index"     onclick="setType('index',this)">NSE INDICES</div>
     <div class="pill type-us-index"         data-type="us-index"  onclick="setType('us-index',this)">US INDICES</div>
     <div class="pill type-currency"         data-type="currency"  onclick="setType('currency',this)">CURRENCY</div>
@@ -151,12 +157,13 @@ td:nth-child(3){text-align:left}
           <th onclick="sortBy('f3')"      title="F3: Within 30% of 52W high">F3</th>
           <th onclick="sortBy('rsi')"     title="RSI(14) weekly">RSI</th>
           <th onclick="sortBy('pct52w')"  title="% below 52-week high">52W%</th>
-          <th onclick="sortBy('st25')"    title="SuperTrend(10,2.5) — trend judge">ST(2.5)</th>
-          <th onclick="sortBy('st20')"    title="SuperTrend(10,2.0) — trigger">ST(2.0)</th>
+          <th onclick="sortBy('st25')"           title="SuperTrend(10,2.5) — trend judge">ST(2.5)</th>
+          <th onclick="sortBy('st20')"           title="SuperTrend(10,2.0) — trigger">ST(2.0)</th>
+          <th onclick="sortBy('signal_age_wks')" title="Weeks current signal has been in effect">AGE</th>
         </tr>
       </thead>
       <tbody id="tableBody">
-        <tr><td colspan="12" class="empty"><span class="spin"></span> loading...</td></tr>
+        <tr><td colspan="13" class="empty"><span class="spin"></span> loading...</td></tr>
       </tbody>
     </table>
   </div>
@@ -167,12 +174,14 @@ td:nth-child(3){text-align:left}
     F1 = Monthly ST bullish &nbsp;·&nbsp;
     F2 = RSI&gt;50 &nbsp;·&nbsp;
     F3 = within 30% of 52W high<br>
-    <strong style="color:var(--text)">Types:</strong>
+    <strong style="color:var(--text)">Badges:</strong>
+    <span class="tbadge tbadge-fo">F&O</span> F&amp;O stocks beyond Nifty 100 &nbsp;·&nbsp;
+    <span class="tbadge tbadge-n500">N500</span> Nifty 500 midcaps beyond F&O &nbsp;·&nbsp;
     <span class="tbadge tbadge-index">INDEX</span> NSE indices &nbsp;·&nbsp;
     <span class="tbadge tbadge-us-index">US IDX</span> S&amp;P 500, NASDAQ, Dow, Russell, SOX, VIX &nbsp;·&nbsp;
     <span class="tbadge tbadge-currency">FX</span> USD/INR, EUR/INR &nbsp;·&nbsp;
-    <span class="tbadge tbadge-commodity">CMDTY</span> Gold, Silver, Crude, Nat Gas, Copper (COMEX/NYMEX, in $) &nbsp;·&nbsp;
-    Stocks = Nifty 100<br>
+    <span class="tbadge tbadge-commodity">CMDTY</span> Commodities in $ &nbsp;·&nbsp; Nifty 100 stocks have no badge<br>
+    <strong style="color:var(--text)">AGE:</strong> Weeks current ST(2.5) signal in effect &nbsp;·&nbsp; <span class="up">green</span> ≤ 3w fresh &nbsp;·&nbsp; <span class="neu">dim</span> &gt; 12w mature<br>
     <strong style="color:var(--text)">Scan:</strong> Weekly SuperTrend(10,2.5) judge + ST(10,2.0) trigger. Runs Saturday 10:30 AM IST via GitHub Actions.
   </div>
 </main>
@@ -192,9 +201,11 @@ const SIG_CLASS={
   "FRESH ENTRY":"sig-FRESH","RE-ENTRY":"sig-REENTRY","RE-ENTRY READY":"sig-REREADY",
   "BULLISH":"sig-BULLISH","SOFT EXIT":"sig-SOFT","TREND BROKEN":"sig-BROKEN","BEARISH":"sig-BEARISH"
 };
-const TYPE_ORDER={stock:0,index:1,'us-index':2,currency:3,commodity:4};
-const TYPE_LABEL={stock:'',index:'INDEX','us-index':'US IDX',currency:'FX',commodity:'CMDTY'};
-const TYPE_CLASS={stock:'tbadge-stock',index:'tbadge-index','us-index':'tbadge-us-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
+const TYPE_ORDER={nifty100:0,fo:1,n500:2,index:3,'us-index':4,currency:5,commodity:6};
+const TYPE_LABEL={nifty100:'',fo:'F&O',n500:'N500',index:'INDEX','us-index':'US IDX',currency:'FX',commodity:'CMDTY'};
+const TYPE_CLASS={nifty100:'',fo:'tbadge-fo',n500:'tbadge-n500',index:'tbadge-index','us-index':'tbadge-us-index',currency:'tbadge-currency',commodity:'tbadge-commodity'};
+
+function typeKey(r){return r.type==='stock'?(r.segment||'nifty100'):r.type;}
 
 function sigColor(sig){
   return{
@@ -208,17 +219,24 @@ async function load(){
     const r=await fetch('data/screener_results.json?_='+Date.now());
     if(!r.ok) throw new Error(r.statusText);
     const d=await r.json();
-    allData=(d.results||[]).map(x=>({...x,type:x.type||'stock',currency:x.currency||'₹'}));
+    allData=(d.results||[]).map(x=>({
+      ...x,
+      type:x.type||'stock',
+      segment:x.segment||((!x.type||x.type==='stock')?'nifty100':null),
+      currency:x.currency||'₹'
+    }));
     const counts=d.counts||{};
 
-    const nStocks=d.total_scanned||allData.filter(r=>r.type==='stock').length;
+    const nN100=d.n100_count||allData.filter(r=>r.type==='stock'&&r.segment==='nifty100').length;
+    const nFO  =d.fo_count  ||allData.filter(r=>r.type==='stock'&&['nifty100','fo'].includes(r.segment)).length;
+    const nN500=d.n500_count||allData.filter(r=>r.type==='stock').length;
     const nInst=d.total_instruments||allData.filter(r=>r.type!=='stock').length;
     document.getElementById('infoBar').innerHTML=
       `<strong>Scan:</strong> ${d.scan_time||'--'} &nbsp;
-       <span class="sep">|</span>
-       <strong>Stocks:</strong> ${nStocks} &nbsp;
-       <span class="sep">|</span>
-       <strong>Instruments:</strong> ${nInst}`;
+       <span class="sep">|</span> <strong>N100:</strong> ${nN100} &nbsp;
+       <span class="sep">|</span> <strong>F&amp;O:</strong> ${nFO} &nbsp;
+       <span class="sep">|</span> <strong>N500:</strong> ${nN500} &nbsp;
+       <span class="sep">|</span> <strong>Instruments:</strong> ${nInst}`;
 
     let total=0;
     Object.entries(counts).forEach(([sig,cnt])=>{
@@ -232,7 +250,7 @@ async function load(){
     render();
   }catch(e){
     document.getElementById('tableBody').innerHTML=
-      `<tr><td colspan="12" class="empty">
+      `<tr><td colspan="13" class="empty">
         No screener data yet.<br>
         Run <code style="color:var(--amber)">python scripts/scan.py</code> locally
         or trigger the GitHub Action.<br><br>
@@ -271,11 +289,18 @@ function sortBy(key){
   if(sortKey===key) sortDir*=-1;
   else{sortKey=key;sortDir=1}
   document.querySelectorAll('th').forEach(t=>t.classList.remove('sorted-asc','sorted-desc'));
-  const keys=['symbol','type','signal','price','quality','f1','f2','f3','rsi','pct52w','st25','st20'];
+  const keys=['symbol','type','signal','price','quality','f1','f2','f3','rsi','pct52w','st25','st20','signal_age_wks'];
   const idx=keys.indexOf(key);
   const ths=document.querySelectorAll('#mainTable thead th');
   if(idx>=0) ths[idx].classList.add(sortDir===1?'sorted-asc':'sorted-desc');
   render();
+}
+
+function fmtAge(wks){
+  if(wks==null||wks===undefined) return '--';
+  const cls=wks<=3?'up':wks<=12?'':'neu';
+  const txt=wks<8?`${wks}w`:`${Math.round(wks/4.33)}m`;
+  return`<span class="${cls}">${txt}</span>`;
 }
 
 function fmtPrice(r){
@@ -305,12 +330,18 @@ function fmtST(v,dir,r){
 function render(){
   let rows=allData.slice();
   if(activeFilter!=='ALL') rows=rows.filter(r=>r.signal===activeFilter);
-  if(activeType!=='ALL')   rows=rows.filter(r=>(r.type||'stock')===activeType);
+  if(activeType!=='ALL'){
+    const seg=r=>r.segment||'nifty100';
+    if(activeType==='nifty100')    rows=rows.filter(r=>r.type==='stock'&&seg(r)==='nifty100');
+    else if(activeType==='fo')     rows=rows.filter(r=>r.type==='stock'&&['nifty100','fo'].includes(seg(r)));
+    else if(activeType==='n500')   rows=rows.filter(r=>r.type==='stock');
+    else                           rows=rows.filter(r=>r.type===activeType);
+  }
 
   rows.sort((a,b)=>{
     let av=a[sortKey],bv=b[sortKey];
     if(sortKey==='signal') {av=SIG_ORDER[a.signal]??9; bv=SIG_ORDER[b.signal]??9}
-    if(sortKey==='type')   {av=TYPE_ORDER[a.type]??9;  bv=TYPE_ORDER[b.type]??9}
+    if(sortKey==='type')   {av=TYPE_ORDER[typeKey(a)]??9; bv=TYPE_ORDER[typeKey(b)]??9}
     if(typeof av==='boolean') av=av?0:1;
     if(typeof bv==='boolean') bv=bv?0:1;
     if(av<bv) return -1*sortDir;
@@ -320,12 +351,12 @@ function render(){
 
   if(!rows.length){
     document.getElementById('tableBody').innerHTML=
-      '<tr><td colspan="12" class="empty">No results for this filter.</td></tr>';
+      '<tr><td colspan="13" class="empty">No results for this filter.</td></tr>';
     return;
   }
 
   document.getElementById('tableBody').innerHTML=rows.map(r=>{
-    const itype=r.type||'stock';
+    const tk=typeKey(r);
     const sc=sigColor(r.signal);
     const cls=SIG_CLASS[r.signal]||'';
     const q=r.quality??0;
@@ -333,8 +364,8 @@ function render(){
     const fmtF=f=>`<span class="${f?'f-yes':'f-no'}">${f?'✓':'·'}</span>`;
     const rsiCls=r.rsi>=60?'up':r.rsi<=40?'dn':'';
     const pctCls=r.pct52w<=10?'up':r.pct52w>=25?'dn':'';
-    const typeLabel=TYPE_LABEL[itype]||'';
-    const typeCls=TYPE_CLASS[itype]||'';
+    const typeLabel=TYPE_LABEL[tk]||'';
+    const typeCls=TYPE_CLASS[tk]||'';
     return`<tr>
       <td>${r.symbol}</td>
       <td>${typeLabel?`<span class="tbadge ${typeCls}">${typeLabel}</span>`:''}</td>
@@ -348,6 +379,7 @@ function render(){
       <td class="${pctCls}">${r.pct52w!=null?'-'+r.pct52w+'%':'--'}</td>
       <td>${fmtST(r.st25,r.dir25,r)}</td>
       <td>${fmtST(r.st20,r.dir20,r)}</td>
+      <td>${fmtAge(r.signal_age_wks)}</td>
     </tr>`;
   }).join('');
 }

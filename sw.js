@@ -1,5 +1,5 @@
-// NSE Risk Monitor — Service Worker v7
-const CACHE = "nse-risk-v8";
+// NSE Risk Monitor — Service Worker v8
+const CACHE = "nse-risk-v9";
 const SHELL = ["./", "./index.html", "./screener.html", "./manifest.json"];
 
 self.addEventListener("install", e => {

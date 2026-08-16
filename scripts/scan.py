@@ -37,6 +37,57 @@ NIFTY100 = [
     "HDFCAMC.NS","PIIND.NS","BALKRISIND.NS","PHOENIXLTD.NS","BAJAJHLDNG.NS",
 ]
 
+# ── Nifty F&O extra (F&O eligible, not in Nifty 100) ─────────────────────────
+NIFTY_FO_EXTRA = [
+    # ── Banks & Finance ──────────────────────────────────────────────────────
+    "AUBANK.NS","BANDHANBNK.NS","CANFINHOME.NS","FEDERALBNK.NS","IDFCFIRSTB.NS",
+    "LICHSGFIN.NS","MANAPPURAM.NS","MCX.NS","MOTILALOFS.NS","RBLBANK.NS",
+    "SUNDARMFIN.NS","UJJIVAN.NS","ANGELONE.NS","NUVAMA.NS","PFC.NS",
+    # ── IT & Technology ──────────────────────────────────────────────────────
+    "BSOFT.NS","COFORGE.NS","HAPPSTMNDS.NS","KPITTECH.NS","LTTS.NS",
+    # ── Pharma & Healthcare ──────────────────────────────────────────────────
+    "BIOCON.NS","GLENMARK.NS","GRANULES.NS","LAURUSLABS.NS","METROPOLIS.NS","NAVINFLUOR.NS",
+    # ── Auto & Auto Ancillary ────────────────────────────────────────────────
+    "APOLLOTYRE.NS","ASHOKLEY.NS","ESCORTS.NS","EXIDEIND.NS","SONACOMS.NS",
+    # ── Energy, Power & Gas ──────────────────────────────────────────────────
+    "ATGL.NS","CESC.NS","CGPOWER.NS","GUJGASLTD.NS","IEX.NS","MGL.NS",
+    "SOLARINDS.NS","TORNTPOWER.NS",
+    # ── Metals, Cement & Chemicals ───────────────────────────────────────────
+    "ACC.NS","DALBHARAT.NS","DEEPAKNTR.NS","GNFC.NS","INDIACEM.NS",
+    "JKCEMENT.NS","JSL.NS","TATACHEM.NS",
+    # ── Consumer, Retail & Media ─────────────────────────────────────────────
+    "ABFRL.NS","CROMPTON.NS","DELHIVERY.NS","DIXON.NS","JUBLFOOD.NS",
+    "KALYANKJIL.NS","NYKAA.NS","SUNTV.NS","UBL.NS","ZEEL.NS",
+    # ── Capital Goods & Defence ──────────────────────────────────────────────
+    "AIAENG.NS","APLAPOLLO.NS","BHEL.NS","CHAMBLFERT.NS","CUMMINSIND.NS",
+    "HAL.NS","KAYNES.NS","SUPREMEIND.NS","TATACOMM.NS","TATATECH.NS",
+    # ── Real Estate ──────────────────────────────────────────────────────────
+    "GMRAIRPORT.NS","GODREJPROP.NS","OBEROIRLTY.NS",
+    # ── Others ───────────────────────────────────────────────────────────────
+    "ABCAPITAL.NS","ASTRAL.NS","EMAMI.NS","INOXWIND.NS","MFSL.NS",
+    "PEL.NS","POLICYBZR.NS","ZYDUSLIFE.NS",
+]
+
+# ── Nifty 500 extra (key midcaps not in Nifty 100 or F&O list above) ─────────
+NIFTY500_EXTRA = [
+    # ── Banks & Finance ──────────────────────────────────────────────────────
+    "CDSL.NS","EQUITASBNK.NS","ICICIGI.NS","IIFL.NS","KFINTECH.NS",
+    "NIACL.NS","PNBHOUSING.NS",
+    # ── Pharma & Healthcare ──────────────────────────────────────────────────
+    "ALKEM.NS","IPCALAB.NS","JBCHEPHARM.NS","NATCOPHARM.NS","SPARC.NS",
+    # ── Industrials & Capital Goods ──────────────────────────────────────────
+    "CARBORUNIV.NS","ELGIEQUIP.NS","GRINDWELL.NS","NBCC.NS",
+    "RVNL.NS","THERMAXLTD.NS","TIINDIA.NS","TRITURBINE.NS",
+    # ── Real Estate ──────────────────────────────────────────────────────────
+    "BRIGADE.NS","PRESTIGE.NS","SOBHA.NS",
+    # ── Consumer & Retail ────────────────────────────────────────────────────
+    "EIHOTEL.NS","KANSAINER.NS","LUXIND.NS","REDINGTON.NS","VGUARD.NS",
+    # ── Chemicals ────────────────────────────────────────────────────────────
+    "FINEORG.NS","NOCIL.NS","SUDARSCHEM.NS","SUMICHEM.NS","VINATIORGA.NS",
+    # ── Others ───────────────────────────────────────────────────────────────
+    "KRBL.NS","OIL.NS","TRIDENT.NS","UTIAMC.NS",
+]
+
 # ── Non-stock instruments ─────────────────────────────────────────────────────
 INSTRUMENTS = [
     # ── NSE Indices ──────────────────────────────────────────────────────────
@@ -124,7 +175,7 @@ def classify(d20,d25,dm,rsi_v,pct52):
     return sig,fc,f1,f2,f3
 
 # ── Analyse any OHLC series (stocks + instruments) ───────────────────────────
-def analyse(sym, display_name=None, itype="stock", currency="₹"):
+def analyse(sym, display_name=None, itype="stock", currency="₹", segment=None):
     try:
         tk=yf.Ticker(sym)
         wk=tk.history(period="3y",interval="1wk",auto_adjust=True)
@@ -139,6 +190,10 @@ def analyse(sym, display_name=None, itype="stock", currency="₹"):
         h52=float(wk.High.rolling(52).max().iloc[-1])
         pct52=round((1-price/h52)*100,1) if h52>0 else 100.0
         sig,fc,f1,f2,f3=classify(d20,d25,dm,rsi_v,pct52)
+        cur=int(d25[-1]); age_wks=0
+        for i in range(len(d25)-1,-1,-1):
+            if int(d25[i])==cur: age_wks+=1
+            else: break
         name=display_name or sym.replace(".NS","")
         print(f"  {name:<18} {itype:<10} {sig}")
         return {"symbol":name,"price":round(price,2),"signal":sig,
@@ -147,7 +202,8 @@ def analyse(sym, display_name=None, itype="stock", currency="₹"):
                 "pct52w":pct52,"st25":round(float(st25[-1]),2),
                 "st20":round(float(st20[-1]),2),
                 "dir25":int(d25[-1]),"dir20":int(d20[-1]),
-                "type":itype,"currency":currency}
+                "type":itype,"currency":currency,
+                "segment":segment,"signal_age_wks":age_wks}
     except Exception as e:
         name=display_name or sym
         print(f"  {name:<18} SKIP: {e}"); return None
@@ -159,15 +215,19 @@ def main():
 
     results=[]
 
-    # Scan Nifty 100 stocks in parallel
-    print("── Nifty 100 stocks ──")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
-        futs={ex.submit(analyse,s):s for s in NIFTY100}
-        for fut in concurrent.futures.as_completed(futs):
-            r=fut.result()
-            if r: results.append(r)
+    def scan_parallel(lst, seg, label):
+        print(f"\n── {label} ──")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
+            futs={ex.submit(analyse,s,segment=seg):s for s in lst}
+            for fut in concurrent.futures.as_completed(futs):
+                r=fut.result()
+                if r: results.append(r)
 
-    # Scan instruments sequentially (less load on Yahoo Finance)
+    scan_parallel(NIFTY100,      "nifty100", "Nifty 100 stocks")
+    scan_parallel(NIFTY_FO_EXTRA,"fo",       "Nifty F&O extra stocks")
+    scan_parallel(NIFTY500_EXTRA,"n500",     "Nifty 500 extra stocks")
+
+    # Scan instruments sequentially
     print("\n── Instruments (indices / currency / commodities) ──")
     for inst in INSTRUMENTS:
         r=analyse(inst["symbol"], inst["name"], inst["type"], inst["currency"])
@@ -181,7 +241,9 @@ def main():
 
     stocks=[r for r in results if r["type"]=="stock"]
     others=[r for r in results if r["type"]!="stock"]
-    print(f"\nDone: {len(stocks)} stocks  +  {len(others)} instruments")
+    n100=[r for r in stocks if r.get("segment")=="nifty100"]
+    nfo =[r for r in stocks if r.get("segment") in ("nifty100","fo")]
+    print(f"\nDone: N100={len(n100)}  F&O={len(nfo)}  N500={len(stocks)}  Instr={len(others)}")
     for s,c in sorted(counts.items(),key=lambda x:RANK.get(x[0],9)):
         print(f"  {s:<20} {c}")
 
@@ -189,6 +251,9 @@ def main():
     json.dump({"scan_time":now.strftime("%d %b %Y  %H:%M IST"),
                "total_scanned":len(stocks),
                "total_instruments":len(others),
+               "n100_count":len(n100),
+               "fo_count":len(nfo),
+               "n500_count":len(stocks),
                "counts":counts,"results":results},
               open("data/screener_results.json","w"),indent=2)
     print("Saved data/screener_results.json")
