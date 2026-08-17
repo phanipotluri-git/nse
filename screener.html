@@ -293,9 +293,12 @@ async function load(){
         No screener data yet.<br>
         Run <code style="color:var(--amber)">python scripts/scan.py</code> locally
         or trigger the GitHub Action.<br><br>
-        Error: ${e.message}
+        Error: ${e.message}<br><br>
+        <button onclick="load()" style="background:var(--amber);color:#000;border:none;padding:6px 16px;border-radius:3px;font-family:var(--font);font-size:12px;cursor:pointer;font-weight:600">&#8635; Retry</button>
       </td></tr>`;
-    document.getElementById('infoBar').innerHTML='<span style="color:var(--red)">Failed to load screener_results.json</span>';
+    document.getElementById('infoBar').innerHTML=
+      '<span style="color:var(--red)">Failed to load screener_results.json</span>'
+      +' <button onclick="load()" style="background:transparent;border:1px solid var(--amber);color:var(--amber);padding:2px 10px;border-radius:3px;font-family:var(--font);font-size:11px;cursor:pointer;margin-left:8px">&#8635; Retry</button>';
   }
 }
 
@@ -347,7 +350,6 @@ function fmtPrice(r){
   const v=r.price;
   if(v==null) return '--';
   const sym=r.currency||'₹';
-  // For large index values, no decimals; for currency/commodity 2 decimals
   const isIdx=r.type==='index'||r.type==='us-index';
   const decimals=isIdx?0:r.type==='stock'?1:2;
   return sym+(r.type==='stock'
@@ -425,6 +427,9 @@ function render(){
   }).join('');
 }
 
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.getRegistration().then(r=>{ if(r) r.update(); });
+}
 load();
 </script>
 </body>
