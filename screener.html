@@ -253,11 +253,17 @@ function sigColor(sig){
   }[sig]||'var(--text)';
 }
 
-async function load(){
+async function load(attempt){
+  attempt=attempt||0;
   try{
     const r=await fetch('data/screener_results.json?_='+Date.now());
     if(!r.ok) throw new Error(r.statusText);
-    const d=await r.json();
+    const text=await r.text();
+    if(!text||text.length<2){
+      if(attempt<3){await new Promise(res=>setTimeout(res,700));return load(attempt+1);}
+      throw new Error('Empty response from server');
+    }
+    const d=JSON.parse(text);
     allData=(d.results||[]).map(x=>({
       ...x,
       type:x.type||'stock',
@@ -428,9 +434,12 @@ function render(){
 }
 
 if('serviceWorker' in navigator){
-  // Register so SW works even on direct visits to screener.html
   navigator.serviceWorker.register('sw.js', {updateViaCache:'none'})
     .then(reg => reg.update()).catch(()=>{});
+  let reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(!reloaded){reloaded=true;location.reload();}
+  });
 }
 load();
 </script>

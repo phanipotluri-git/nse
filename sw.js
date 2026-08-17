@@ -1,5 +1,5 @@
-// NSE Risk Monitor — Service Worker v17
-const CACHE = "nse-risk-v18";
+// NSE Risk Monitor — Service Worker v18
+const CACHE = "nse-risk-v19";
 const SHELL = ["./", "./index.html", "./screener.html", "./manifest.json"];
 
 self.addEventListener("install", e => {
@@ -35,6 +35,13 @@ self.addEventListener("fetch", e => {
             // Read body as text — NEVER use res.clone() on Safari/WKWebView.
             // clone() produces a broken stream tee that empties the original body.
             const body = await res.text();
+            // iOS can kill the SW mid-stream, producing an empty 200 body.
+            if (!body || body.length < 2) {
+              return cached || new Response('{"results":[]}', {
+                status: 200,
+                headers: {"Content-Type": "application/json"}
+              });
+            }
             const headers = {"Content-Type": "application/json"};
             cache.put(cacheKey, new Response(body, {status: 200, headers}));
             return new Response(body, {status: 200, headers});
