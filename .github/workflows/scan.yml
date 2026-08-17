@@ -24,8 +24,12 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
+          # Save generated data, then commit only to main (safe even if triggered on a feature branch)
+          cp data/screener_results.json /tmp/screener_results.json
+          git fetch origin main
+          git checkout -B main origin/main
+          cp /tmp/screener_results.json data/screener_results.json
           git add data/screener_results.json
           git diff --staged --quiet && echo "No changes" && exit 0
           git commit -m "scan: $(date -u +'%d %b %Y %H:%M') UTC"
-          git pull --rebase origin main
-          git push
+          git push origin main
