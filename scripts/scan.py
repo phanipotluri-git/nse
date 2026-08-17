@@ -38,38 +38,33 @@ NIFTY100 = [
 ]
 
 # ── Nifty F&O extra (F&O eligible, not in Nifty 100) ─────────────────────────
+# Verified against NSE circulars; last audited Aug 2026
 NIFTY_FO_EXTRA = [
     # ── Banks & Finance ──────────────────────────────────────────────────────
-    "AUBANK.NS","BANDHANBNK.NS","CANFINHOME.NS","FEDERALBNK.NS","IDFCFIRSTB.NS",
+    "AUBANK.NS","BANDHANBNK.NS","FEDERALBNK.NS","IDFCFIRSTB.NS",
     "LICHSGFIN.NS","MANAPPURAM.NS","MCX.NS","MOTILALOFS.NS","RBLBANK.NS",
-    "SUNDARMFIN.NS","UJJIVAN.NS","ANGELONE.NS","NUVAMA.NS","PFC.NS",
+    "SUNDARMFIN.NS","UJJIVAN.NS","ANGELONE.NS","PFC.NS",
     "CDSL.NS","ICICIGI.NS","IIFL.NS","PNBHOUSING.NS","UTIAMC.NS",
-    "M&MFIN.NS","LTFH.NS","IREDA.NS","HUDCO.NS",
+    "M&MFIN.NS","LTFH.NS","IREDA.NS",
     # ── IT & Technology ──────────────────────────────────────────────────────
     "BSOFT.NS","COFORGE.NS","HAPPSTMNDS.NS","KPITTECH.NS","LTTS.NS",
-    "CYIENT.NS","TANLA.NS","AFFLE.NS",
+    "TANLA.NS","AFFLE.NS",
     # ── Pharma & Healthcare ──────────────────────────────────────────────────
-    "BIOCON.NS","GLENMARK.NS","GRANULES.NS","LAURUSLABS.NS","METROPOLIS.NS","NAVINFLUOR.NS",
-    "ALKEM.NS","IPCALAB.NS",
+    "BIOCON.NS","GLENMARK.NS","LAURUSLABS.NS","ALKEM.NS",
     # ── Auto & Auto Ancillary ────────────────────────────────────────────────
-    "APOLLOTYRE.NS","ASHOKLEY.NS","ESCORTS.NS","EXIDEIND.NS","SONACOMS.NS",
-    "BHARATFORG.NS","CEATLTD.NS","SUNDRMFAST.NS",
+    "ASHOKLEY.NS","SONACOMS.NS","BHARATFORG.NS","CEATLTD.NS","SUNDRMFAST.NS",
     # ── Energy, Power & Gas ──────────────────────────────────────────────────
-    "ATGL.NS","CESC.NS","CGPOWER.NS","GUJGASLTD.NS","IEX.NS","MGL.NS",
-    "SOLARINDS.NS","TORNTPOWER.NS",
+    "CGPOWER.NS","GUJGASLTD.NS","IEX.NS","SOLARINDS.NS",
     "ADANIPOWER.NS","NHPC.NS","SUZLON.NS",
     # ── Metals, Cement & Chemicals ───────────────────────────────────────────
-    "ACC.NS","DALBHARAT.NS","DEEPAKNTR.NS","GNFC.NS","INDIACEM.NS",
-    "JKCEMENT.NS","JSL.NS","TATACHEM.NS",
+    "ACC.NS","DALBHARAT.NS","JKCEMENT.NS","TATACHEM.NS",
     "HINDZINC.NS","NATIONALUM.NS","DEEPAKFERT.NS",
-    # ── Consumer, Retail & Media ─────────────────────────────────────────────
-    "ABFRL.NS","CROMPTON.NS","DELHIVERY.NS","DIXON.NS","JUBLFOOD.NS",
-    "KALYANKJIL.NS","NYKAA.NS","SUNTV.NS","UBL.NS","ZEEL.NS",
-    "BATAINDIA.NS","PVRINOX.NS",
+    # ── Consumer & Retail ────────────────────────────────────────────────────
+    "CROMPTON.NS","DELHIVERY.NS","DIXON.NS","KALYANKJIL.NS","NYKAA.NS",
     # ── Capital Goods & Defence ──────────────────────────────────────────────
     "AIAENG.NS","APLAPOLLO.NS","BHEL.NS","CHAMBLFERT.NS","CUMMINSIND.NS",
-    "HAL.NS","KAYNES.NS","SUPREMEIND.NS","TATACOMM.NS","TATATECH.NS",
-    "BEL.NS","POLYCAB.NS","BEML.NS","TITAGARH.NS",
+    "HAL.NS","KAYNES.NS","SUPREMEIND.NS","TATACOMM.NS",
+    "BEL.NS","POLYCAB.NS","BEML.NS","MAZDOCK.NS","COCHINSHIP.NS",
     # ── Real Estate ──────────────────────────────────────────────────────────
     "GMRAIRPORT.NS","GODREJPROP.NS","OBEROIRLTY.NS",
     "BRIGADE.NS","PRESTIGE.NS","SOBHA.NS","ANANTRAJ.NS",
@@ -77,24 +72,34 @@ NIFTY_FO_EXTRA = [
     "NBCC.NS","RVNL.NS","KPIL.NS",
     # ── Others ───────────────────────────────────────────────────────────────
     "ABCAPITAL.NS","ASTRAL.NS","EMAMI.NS","INOXWIND.NS","MFSL.NS",
-    "PEL.NS","POLICYBZR.NS","ZYDUSLIFE.NS",
-    "THERMAXLTD.NS","TIINDIA.NS","OIL.NS",
+    "POLICYBZR.NS","ZYDUSLIFE.NS","THERMAXLTD.NS","TIINDIA.NS","OIL.NS",
 ]
 
-# ── Nifty 500 extra (key midcaps not in Nifty 100 or F&O list above) ─────────
+# ── Nifty 500 extra (midcaps NOT in F&O — tracked for trend only) ─────────────
 NIFTY500_EXTRA = [
     # ── Banks & Finance ──────────────────────────────────────────────────────
     "EQUITASBNK.NS","KFINTECH.NS","NIACL.NS",
+    "CANFINHOME.NS","HUDCO.NS","NUVAMA.NS",
+    # ── IT & Technology ──────────────────────────────────────────────────────
+    "CYIENT.NS","TATATECH.NS",
     # ── Pharma & Healthcare ──────────────────────────────────────────────────
     "JBCHEPHARM.NS","NATCOPHARM.NS","SPARC.NS",
+    "IPCALAB.NS","METROPOLIS.NS","NAVINFLUOR.NS","GRANULES.NS",
+    # ── Auto & Auto Ancillary ────────────────────────────────────────────────
+    "APOLLOTYRE.NS","ESCORTS.NS","EXIDEIND.NS",
+    # ── Energy & Power ───────────────────────────────────────────────────────
+    "ATGL.NS","CESC.NS","MGL.NS","TORNTPOWER.NS",
+    # ── Metals & Chemicals ───────────────────────────────────────────────────
+    "DEEPAKNTR.NS","GNFC.NS","JSL.NS",
     # ── Industrials & Capital Goods ──────────────────────────────────────────
-    "CARBORUNIV.NS","ELGIEQUIP.NS","GRINDWELL.NS","TRITURBINE.NS",
-    # ── Consumer & Retail ────────────────────────────────────────────────────
+    "CARBORUNIV.NS","ELGIEQUIP.NS","GRINDWELL.NS","TRITURBINE.NS","TITAGARH.NS",
+    # ── Consumer, Retail & Media ─────────────────────────────────────────────
     "EIHOTEL.NS","KANSAINER.NS","LUXIND.NS","REDINGTON.NS","VGUARD.NS",
+    "ABFRL.NS","BATAINDIA.NS","JUBLFOOD.NS","PVRINOX.NS","SUNTV.NS","UBL.NS","ZEEL.NS",
     # ── Chemicals ────────────────────────────────────────────────────────────
     "FINEORG.NS","NOCIL.NS","SUDARSCHEM.NS","SUMICHEM.NS","VINATIORGA.NS",
     # ── Others ───────────────────────────────────────────────────────────────
-    "KRBL.NS","TRIDENT.NS",
+    "KRBL.NS","TRIDENT.NS","PEL.NS",
 ]
 
 # ── Non-stock instruments ─────────────────────────────────────────────────────
@@ -263,6 +268,7 @@ SECTOR_MAP = {
     "DEEPAKFERT.NS":"CHEM",
     # CAPGDS additions
     "BEL.NS":"CAPGDS","POLYCAB.NS":"CAPGDS","BEML.NS":"CAPGDS","TITAGARH.NS":"CAPGDS",
+    "MAZDOCK.NS":"CAPGDS","COCHINSHIP.NS":"CAPGDS",
     # REALTY additions
     "ANANTRAJ.NS":"REALTY",
     # INFRA additions
