@@ -1,5 +1,5 @@
-// NSE Risk Monitor — Service Worker v14
-const CACHE = "nse-risk-v15";
+// NSE Risk Monitor — Service Worker v15
+const CACHE = "nse-risk-v16";
 const SHELL = ["./", "./index.html", "./screener.html", "./manifest.json"];
 
 self.addEventListener("install", e => {
@@ -27,9 +27,17 @@ self.addEventListener("fetch", e => {
   if (url.pathname.endsWith("risk_factors.json") || url.pathname.endsWith("screener_results.json")) {
     e.respondWith(
       caches.open(CACHE).then(async cache => {
-        const cached = await cache.match(e.request);
-        const fresh = fetch(e.request).then(res => { if(res.ok) cache.put(e.request, res.clone()); return res; }).catch(()=>null);
-        return cached || await fresh;
+        const cached = await cache.match(e.request, {ignoreSearch: true});
+        try {
+          const res = await fetch(e.request);
+          if (res.ok) cache.put(e.request, res.clone());
+          return res;
+        } catch(_) {
+          return cached || new Response('{"results":[]}', {
+            status: 200,
+            headers: {"Content-Type": "application/json"}
+          });
+        }
       })
     );
     return;
