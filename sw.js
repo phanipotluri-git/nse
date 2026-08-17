@@ -1,5 +1,5 @@
-// NSE Risk Monitor — Service Worker v15
-const CACHE = "nse-risk-v16";
+// NSE Risk Monitor — Service Worker v16
+const CACHE = "nse-risk-v17";
 const SHELL = ["./", "./index.html", "./screener.html", "./manifest.json"];
 
 self.addEventListener("install", e => {
@@ -27,11 +27,13 @@ self.addEventListener("fetch", e => {
   if (url.pathname.endsWith("risk_factors.json") || url.pathname.endsWith("screener_results.json")) {
     e.respondWith(
       caches.open(CACHE).then(async cache => {
-        const cached = await cache.match(e.request, {ignoreSearch: true});
+        // Normalize key: strip ?_=timestamp so every load hits the same cache entry
+        const cacheKey = new Request(url.pathname);
+        const cached = await cache.match(cacheKey);
         try {
           const res = await fetch(e.request);
-          if (res.ok) cache.put(e.request, res.clone());
-          return res;
+          if (res.ok) await cache.put(cacheKey, res.clone()); // await prevents Safari stream-tee race
+          return res.ok ? res : (cached || res);              // fall back to cache on HTTP errors
         } catch(_) {
           return cached || new Response('{"results":[]}', {
             status: 200,

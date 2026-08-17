@@ -428,7 +428,11 @@ function render(){
 }
 
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.getRegistration().then(r=>{ if(r) r.update(); });
+  // Register (not just look up) so SW works even on direct visits to screener.html
+  navigator.serviceWorker.register('sw.js', {updateViaCache:'none'})
+    .then(reg => reg.update()).catch(()=>{});
+  // Reload when a new SW takes over so it controls the page from the start
+  navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
 }
 load();
 </script>
