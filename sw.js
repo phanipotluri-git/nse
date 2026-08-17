@@ -1,5 +1,5 @@
-// NSE Risk Monitor — Service Worker v16
-const CACHE = "nse-risk-v17";
+// NSE Risk Monitor — Service Worker v17
+const CACHE = "nse-risk-v18";
 const SHELL = ["./", "./index.html", "./screener.html", "./manifest.json"];
 
 self.addEventListener("install", e => {
@@ -27,13 +27,19 @@ self.addEventListener("fetch", e => {
   if (url.pathname.endsWith("risk_factors.json") || url.pathname.endsWith("screener_results.json")) {
     e.respondWith(
       caches.open(CACHE).then(async cache => {
-        // Normalize key: strip ?_=timestamp so every load hits the same cache entry
         const cacheKey = new Request(url.pathname);
         const cached = await cache.match(cacheKey);
         try {
           const res = await fetch(e.request);
-          if (res.ok) await cache.put(cacheKey, res.clone()); // await prevents Safari stream-tee race
-          return res.ok ? res : (cached || res);              // fall back to cache on HTTP errors
+          if (res.ok) {
+            // Read body as text — NEVER use res.clone() on Safari/WKWebView.
+            // clone() produces a broken stream tee that empties the original body.
+            const body = await res.text();
+            const headers = {"Content-Type": "application/json"};
+            cache.put(cacheKey, new Response(body, {status: 200, headers}));
+            return new Response(body, {status: 200, headers});
+          }
+          return cached || res;
         } catch(_) {
           return cached || new Response('{"results":[]}', {
             status: 200,
