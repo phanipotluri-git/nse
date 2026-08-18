@@ -228,6 +228,10 @@ let activeType='ALL';
 let sortKey='rank';
 let sortDir=1;
 
+// Fetch from raw.githubusercontent.com — bypasses service worker (different origin)
+// and always serves the latest committed file directly from GitHub's CDN.
+const DATA_URL='https://raw.githubusercontent.com/phanipotluri-git/nse/main/data/screener_results.json';
+
 const SIG_ORDER={
   "FRESH ENTRY":0,"RE-ENTRY":1,"RE-ENTRY READY":2,"BULLISH":3,"SOFT EXIT":4,
   "FRESH SHORT":5,"SHORT RE-ENTRY":6,"SHORT READY":7,"BEARISH":8,"SHORT COVER":9
@@ -253,16 +257,12 @@ function sigColor(sig){
   }[sig]||'var(--text)';
 }
 
-async function load(attempt){
-  attempt=attempt||0;
+async function load(){
   try{
-    const r=await fetch('data/screener_results.json?_='+Date.now());
-    if(!r.ok) throw new Error(r.statusText);
+    const r=await fetch(DATA_URL+'?_='+Date.now());
+    if(!r.ok) throw new Error('HTTP '+r.status);
     const text=await r.text();
-    if(!text||text.length<2){
-      if(attempt<3){await new Promise(res=>setTimeout(res,700));return load(attempt+1);}
-      throw new Error('Empty response from server');
-    }
+    if(!text||text.length<2) throw new Error('Empty response');
     const d=JSON.parse(text);
     allData=(d.results||[]).map(x=>({
       ...x,
@@ -303,7 +303,7 @@ async function load(attempt){
         <button onclick="load()" style="background:var(--amber);color:#000;border:none;padding:6px 16px;border-radius:3px;font-family:var(--font);font-size:12px;cursor:pointer;font-weight:600">&#8635; Retry</button>
       </td></tr>`;
     document.getElementById('infoBar').innerHTML=
-      '<span style="color:var(--red)">Failed to load screener_results.json</span>'
+      '<span style="color:var(--red)">Failed to load screener data</span>'
       +' <button onclick="load()" style="background:transparent;border:1px solid var(--amber);color:var(--amber);padding:2px 10px;border-radius:3px;font-family:var(--font);font-size:11px;cursor:pointer;margin-left:8px">&#8635; Retry</button>';
   }
 }
