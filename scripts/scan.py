@@ -6,10 +6,19 @@ SuperTrend(10,2) trigger + SuperTrend(10,2.5) trend judge on weekly chart
 Covers: Nifty 100 stocks + indices + USD/INR + commodities
 """
 import yfinance as yf, pandas as pd, numpy as np
-import json, concurrent.futures, warnings
+import json, math, concurrent.futures, warnings
 from datetime import datetime, timezone, timedelta
 warnings.filterwarnings("ignore")
 IST = timezone(timedelta(hours=5, minutes=30))
+
+def sanitize_nan(obj):
+    if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+        return None
+    if isinstance(obj, dict):
+        return {k: sanitize_nan(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [sanitize_nan(v) for v in obj]
+    return obj
 
 # ── Nifty 100 stocks ─────────────────────────────────────────────────────────
 NIFTY100 = [
@@ -473,13 +482,13 @@ def main():
         print(f"  {s:<20} {c}")
 
     import os; os.makedirs("data",exist_ok=True)
-    json.dump({"scan_time":now.strftime("%d %b %Y  %H:%M IST"),
+    json.dump(sanitize_nan({"scan_time":now.strftime("%d %b %Y  %H:%M IST"),
                "total_scanned":len(stocks),
                "total_instruments":len(others),
                "n100_count":len(n100),
                "fo_count":len(nfo),
                "n500_count":len(stocks),
-               "counts":counts,"results":results},
+               "counts":counts,"results":results}),
               open("data/screener_results.json","w"),indent=2)
     print("Saved data/screener_results.json")
 
