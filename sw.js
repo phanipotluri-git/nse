@@ -1,5 +1,5 @@
-// NSE Risk Monitor — Service Worker v18
-const CACHE = "nse-risk-v19";
+// NSE Risk Monitor — Service Worker v19
+const CACHE = "nse-risk-v20";
 const SHELL = ["./", "./index.html", "./screener.html", "./manifest.json"];
 
 self.addEventListener("install", e => {
@@ -24,7 +24,8 @@ self.addEventListener("fetch", e => {
     e.respondWith(fetch(e.request).catch(() => new Response("{}", {headers:{"Content-Type":"application/json"}})));
     return;
   }
-  if (url.pathname.endsWith("risk_factors.json") || url.pathname.endsWith("screener_results.json")) {
+  // risk_factors.json: cache with network-first (Risk Monitor needs offline fallback)
+  if (url.pathname.endsWith("risk_factors.json")) {
     e.respondWith(
       caches.open(CACHE).then(async cache => {
         const cacheKey = new Request(url.pathname);
@@ -32,15 +33,9 @@ self.addEventListener("fetch", e => {
         try {
           const res = await fetch(e.request);
           if (res.ok) {
-            // Read body as text — NEVER use res.clone() on Safari/WKWebView.
-            // clone() produces a broken stream tee that empties the original body.
             const body = await res.text();
-            // iOS can kill the SW mid-stream, producing an empty 200 body.
             if (!body || body.length < 2) {
-              return cached || new Response('{"results":[]}', {
-                status: 200,
-                headers: {"Content-Type": "application/json"}
-              });
+              return cached || new Response('{}', {status: 200, headers: {"Content-Type": "application/json"}});
             }
             const headers = {"Content-Type": "application/json"};
             cache.put(cacheKey, new Response(body, {status: 200, headers}));
@@ -48,12 +43,19 @@ self.addEventListener("fetch", e => {
           }
           return cached || res;
         } catch(_) {
-          return cached || new Response('{"results":[]}', {
-            status: 200,
-            headers: {"Content-Type": "application/json"}
-          });
+          return cached || new Response('{}', {status: 200, headers: {"Content-Type": "application/json"}});
         }
       })
+    );
+    return;
+  }
+  // screener_results.json: always fetch from network — weekly data, no SW caching needed
+  if (url.pathname.endsWith("screener_results.json")) {
+    e.respondWith(
+      fetch(e.request).catch(() => new Response('{"results":[]}', {
+        status: 200,
+        headers: {"Content-Type": "application/json"}
+      }))
     );
     return;
   }
