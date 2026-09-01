@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install yfinance pandas numpy
+        run: pip install 'yfinance>=0.2.50,<1.0' pandas numpy
       - name: Run ST scanner
         run: python scripts/scan.py
       - name: Commit results
